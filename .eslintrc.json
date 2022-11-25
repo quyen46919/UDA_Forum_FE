@@ -1,0 +1,6 @@
+{
+  "extends": "next/core-web-vitals",
+  "parser": "@typescript-eslint/parser",
+  "semi": "off",
+  "@typescript-eslint/semi": "warn"
+}
