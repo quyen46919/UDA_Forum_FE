@@ -1,5 +1,5 @@
-## Clone this template
-git clone https://github.com/quyen46919/nextjs_mui_graphql_template
+## See project production
+https://uda-forum-fe.vercel.app/
 
 ## Install packages
 ``yarn install`` or ```npm install```
@@ -12,3 +12,7 @@ git clone https://github.com/quyen46919/nextjs_mui_graphql_template
 
 ## Graphql MUI NextJS Boilerplate
 A boilerplate/starter project for quickly building NextJS app using React, Mui, Redux, RTK query and GraphQL
+
+## UI Template
+Figma: https://www.figma.com/file/zocFgkCPrZ1KTlBzdXe3xf/UDA-Forum-Template?node-id=0%3A1&t=s8E42umHjpN7AhN0-0<br/>
+Dribbble: https://dribbble.com/shots/18325006-Forum-Web-App-Design
