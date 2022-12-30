@@ -1,14 +1,45 @@
 import React from 'react'
 import { NextPageWithLayout } from '@layout/layout'
 import { MainLayout } from '@layout/main'
-import Typography from '@mui/material/Typography'
-import { Box, useTheme } from '@mui/material'
+import { Stack, useTheme } from '@mui/material'
 const Home: NextPageWithLayout = () => {
   const theme = useTheme()
   return (
-    <Box height="2000px" pt="20px" sx={{ backgroundColor: theme.palette.secondary.main }}>
-      <Typography>This is home page!</Typography>
-    </Box>
+    <Stack
+      sx={{ backgroundColor: theme.palette.secondary.main }}
+      direction={{ xs: 'column', lg: 'row' }}
+      minHeight="calc(100vh - 80px)"
+      pt="20px"
+      gap="20px"
+    >
+      <Stack
+        sx={{
+          position: { lg: 'sticky' },
+          top: { lg: '100px' },
+          height: { lg: 'calc(100vh - 120px)' },
+        }}
+        flex="1"
+        m={{ xs: '0 20px', lg: '0 0 0 40px' }}
+        borderRadius="16px"
+      ></Stack>
+      <Stack
+        flex="3"
+        m={{ xs: '0 20px', lg: 0 }}
+        borderRadius="16px"
+        gap="20px"
+      ></Stack>
+      <Stack
+        sx={{
+          position: { lg: 'sticky' },
+          top: { lg: '100px' },
+          height: { lg: 'calc(100vh - 120px)' },
+        }}
+        flex="1"
+        m={{ xs: '0 20px', lg: '0 40px 0 0' }}
+        borderRadius="16px"
+        gap="20px"
+      ></Stack>
+    </Stack>
   )
 }
 Home.Layout = MainLayout
