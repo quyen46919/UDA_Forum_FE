@@ -20,6 +20,9 @@ const theme = createTheme({
     orange: {
       main: '#FF6934',
     },
+    darkOrange: {
+      main: '#FF4401',
+    },
     red: {
       main: '#FF8F67',
     },
@@ -40,10 +43,21 @@ const theme = createTheme({
     },
     iconGrey: {
       main: '#9A99A0'
+    },
+    lightGrey: {
+      main: '#C5CFE5'
+    },
+    darkGrey: {
+      main: '#878FAF'
     }
   },
   typography: {
     fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
+    h1: {
+      fontSize: 26,
+      fontWeight: 700,
+      lineHeight: '38px',
+    },
     h2: {
       fontSize: 18,
       fontWeight: 600,
@@ -68,10 +82,103 @@ const theme = createTheme({
       fontWeight: 400,
       fontSize: 14,
       lineHeight: '22px',
+    },
+    body2: {
+      fontWeight: 700,
+      fontSize: '16px',
+      lineHeight: '24px'
     }
   },
   components: {
-    // override component stype
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          '& div': {
+            maxHeight: '40px',
+            padding: '2px 12px 2px 0px'
+          },
+          backgroundColor: '#f4f6f8',
+          borderRadius: '8px',
+          fieldset: {
+            outline: 'none',
+            border: 'none',
+          },
+          input: {
+            padding: '9px 10px 9px 20px'
+          }
+        }
+      }
+    },
+    MuiSvgIcon: {
+      variants: [
+        {
+          props: { color: 'lightGrey' },
+          style: {
+            width: '40px',
+            height: '40px',
+            borderRadius: '7px',
+            '&:hover': {
+              backgroundColor: '#FF4401',
+              color: 'white'
+            }
+          }
+        },
+        {
+          props: { color: 'darkGrey' },
+          style: {
+            width: '40px',
+            height: '40px',
+            borderRadius: '7px',
+            backgroundColor: '#F4F6F8',
+            '&:hover': {
+              backgroundColor: '#FF4401',
+              color: 'white'
+            }
+          }
+        },
+      ],
+    },
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          padding: 0,
+          borderRadius: '7px',
+          '& span.MuiTouchRipple-root *': {
+            borderRadius: '7px'
+          }
+        }
+      }
+    },
+    MuiAvatar: {
+      styleOverrides: {
+        root: {
+          padding: '3px',
+          border: '1px solid #EA942C',
+          borderRadius: '8px',
+          '& img': {
+            borderRadius: '6px',
+            objectFit: 'cover',
+          }
+        }
+      }
+    },
+    MuiAppBar: {
+      styleOverrides: {
+        root: {
+          '& > div': {
+            paddingLeft: '22px',
+            paddingRight: '22px'
+          }
+        }
+      }
+    },
+    MuiDrawer: {
+      styleOverrides: {
+        paper: {
+          padding: 20
+        }
+      }
+    }
   },
 })
 
@@ -80,6 +187,7 @@ declare module '@mui/material/styles' {
     white: Palette['primary']
     black: Palette['primary']
     orange: Palette['primary']
+    darkOrange: Palette['primary']
     red: Palette['primary']
     yellow: Palette['primary']
     blue: Palette['primary']
@@ -87,11 +195,14 @@ declare module '@mui/material/styles' {
     purple: Palette['primary']
     textGrey: Palette['primary']
     iconGrey: Palette['primary']
+    lightGrey: Palette['primary']
+    darkGrey: Palette['primary']
   }
   interface PaletteOptions {
     white?: PaletteOptions['primary']
     black?: PaletteOptions['primary']
     orange?: PaletteOptions['primary']
+    darkOrange?: PaletteOptions['primary']
     red?: PaletteOptions['primary']
     yellow?: PaletteOptions['primary']
     blue?: PaletteOptions['primary']
@@ -99,6 +210,8 @@ declare module '@mui/material/styles' {
     purple?: PaletteOptions['primary']
     textGrey?: PaletteOptions['primary']
     iconGrey?: PaletteOptions['primary']
+    lightGrey?: PaletteOptions['primary']
+    darkGrey?: PaletteOptions['primary']
   }
 }
 
@@ -114,7 +227,10 @@ declare module '@mui/material/SvgIcon' {
     white: true
     black: true
     orange: true
+    darkOrange: true
     red: true
+    lightGrey: true
+    darkGrey: true
   }
 }
 

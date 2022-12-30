@@ -1,15 +1,13 @@
+import React from 'react'
 import { NextPageWithLayout } from '@layout/layout'
 import { MainLayout } from '@layout/main'
-import { Typography } from '@mui/material'
-import {
-  Box
-} from '@mui/material'
-import React from 'react'
-
+import Typography from '@mui/material/Typography'
+import { Box, useTheme } from '@mui/material'
 const Home: NextPageWithLayout = () => {
+  const theme = useTheme()
   return (
-    <Box>
-      <Typography variant="h2">This is home page</Typography>
+    <Box height="2000px" pt="20px" sx={{ backgroundColor: theme.palette.secondary.main }}>
+      <Typography>This is home page!</Typography>
     </Box>
   )
 }
