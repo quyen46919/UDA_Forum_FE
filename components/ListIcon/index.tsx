@@ -2,7 +2,7 @@ import React from 'react'
 import { Stack } from '@mui/material'
 import IconButton from '@mui/material/IconButton'
 import { StackProps } from '@mui/material/Stack'
-import { CalendarIcon, GroupIcon, HomeIcon, InterviewsIcon, PodcastsIcon } from 'public/icons'
+import { CalendarIcon, GroupIcon, HomeIcon, InterviewsIcon, PodcastsIcon } from 'libs/icons'
 
 const ListIcon = (props: StackProps) => {
   return (

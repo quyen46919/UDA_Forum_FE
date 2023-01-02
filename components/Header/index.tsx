@@ -13,7 +13,7 @@ import {
 } from '@mui/material'
 import Drawer from '@mui/material/Drawer'
 import MenuItem from './Menu'
-import { Logo, MessageIcon, NotificationIcon, SearchIcon } from 'public/icons'
+import { Logo, MessageIcon, NotificationIcon, SearchIcon } from 'libs/icons'
 
 
 const Header = () => {

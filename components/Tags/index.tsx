@@ -2,13 +2,14 @@ import React from 'react'
 import {
   Avatar,
   List,
-  ListItem,
   ListItemAvatar,
   ListItemText,
   Stack,
   useTheme,
   Typography,
   useMediaQuery,
+  ListItemButton,
+  Tooltip,
 } from '@mui/material'
 
 declare type ItemProps = {
@@ -20,10 +21,12 @@ declare type ItemProps = {
 }
 
 interface TagsProps {
-  items: { title?: string } & { data: ItemProps[] }
+  items: { title?: string; titleIcon?: JSX.Element } & { data: ItemProps[] }
 }
 
 const Tags = ({ items }: TagsProps) => {
+  console.log(items)
+
   const theme = useTheme()
   const downSm = useMediaQuery(theme.breakpoints.down('sm'))
 
@@ -32,34 +35,41 @@ const Tags = ({ items }: TagsProps) => {
       <List
         sx={{
           '&.MuiList-root': {
-            padding: items?.title ? '20px' : '10px',
-            '& li': {
-              height: items?.title ? '34px' : '46px',
-              p: !items?.title ? '6px 5px' : 0,
+            padding: '15px',
+            '& .MuiListItemButton-root': {
+              height: items?.title ? 'unset' : '46px',
+              p: '6px 5px',
               borderRadius: '6px',
               '&:hover': {
                 cursor: 'pointer',
-                backgroundColor: !items?.title ? '#f4f6f8' : '',
+                backgroundColor: theme.palette.backgroundTextGrey.main,
               },
             },
           },
         }}
       >
-        <Stack gap={downSm ? '3px' : '10px'} direction={downSm ? 'row' : 'column'}>
+        <Stack
+          gap={downSm ? '3px' : items?.title ? 0 : '10px'}
+          direction={downSm ? 'row' : 'column'}
+        >
           {items?.title && (
             <Typography
               variant="h1"
-              marginBottom="10px"
+              margin="10px 0"
               fontWeight={600}
               fontSize="16px"
               lineHeight="24px"
+              display="flex"
+              alignItems="center"
+              gap="3px"
             >
-              Popular Tags
+              {items.title}
+              {items?.titleIcon}
             </Typography>
           )}
           {items?.data
             ? items.data.map((item, index) => (
-                <ListItem key={index}>
+                <ListItemButton key={index}>
                   <Stack
                     direction="row"
                     alignItems="center"
@@ -70,7 +80,7 @@ const Tags = ({ items }: TagsProps) => {
                       <Avatar
                         sx={{
                           border: 'none',
-                          backgroundColor: '#f4f6f8',
+                          backgroundColor: theme.palette.backgroundTextGrey.main,
                           p: 0,
                           width: items?.title ? '32px' : '28px',
                           height: items?.title ? '32px' : '28px',
@@ -107,19 +117,6 @@ const Tags = ({ items }: TagsProps) => {
                                 marginBottom: downSm ? 0 : '2px',
                               }
                             : '',
-                          '& span': items?.title
-                            ? {
-                                fontSize: '10px',
-                                lineHeight: '16px',
-                                fontWeight: 400,
-                                color: '#c1c1c3',
-                              }
-                            : {
-                                fontSize: '9px',
-                                lineHeight: '14px',
-                                fontWeight: 400,
-                                color: '#c1c1c3',
-                              },
                         },
                       }}
                       disableTypography
@@ -136,11 +133,27 @@ const Tags = ({ items }: TagsProps) => {
                         </Stack>
                       }
                       secondary={
-                        !downSm && <Typography component="span">{item.secondary}</Typography>
+                        !downSm && (
+                          <Tooltip title={item.secondary}>
+                            <Typography
+                              textOverflow="ellipsis"
+                              overflow="hidden"
+                              component="span"
+                              whiteSpace="nowrap"
+                              maxWidth="150px"
+                              fontWeight={400}
+                              color={theme.palette.textLightGrey.main}
+                              fontSize={items?.title ? '10px' : '9px'}
+                              lineHeight={items?.title ? '16px' : '14px'}
+                            >
+                              {item.secondary}
+                            </Typography>
+                          </Tooltip>
+                        )
                       }
                     />
                   </Stack>
-                </ListItem>
+                </ListItemButton>
               ))
             : ''}
         </Stack>

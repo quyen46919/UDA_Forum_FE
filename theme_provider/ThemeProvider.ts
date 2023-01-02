@@ -41,6 +41,9 @@ const theme = createTheme({
     textGrey: {
       main: '#9699AA'
     },
+    textLightGrey: {
+      main: '#C1C1C3',
+    },
     iconGrey: {
       main: '#9A99A0'
     },
@@ -48,8 +51,11 @@ const theme = createTheme({
       main: '#C5CFE5'
     },
     darkGrey: {
-      main: '#878FAF'
-    }
+      main: '#878FAF',
+    },
+    backgroundTextGrey: {
+      main: '#F4F6F8',
+    },
   },
   typography: {
     fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
@@ -194,9 +200,11 @@ declare module '@mui/material/styles' {
     green: Palette['primary']
     purple: Palette['primary']
     textGrey: Palette['primary']
+    textLightGrey: Palette['primary']
     iconGrey: Palette['primary']
     lightGrey: Palette['primary']
     darkGrey: Palette['primary']
+    backgroundTextGrey: Palette['primary']
   }
   interface PaletteOptions {
     white?: PaletteOptions['primary']
@@ -209,9 +217,11 @@ declare module '@mui/material/styles' {
     green?: PaletteOptions['primary']
     purple?: PaletteOptions['primary']
     textGrey?: PaletteOptions['primary']
+    textLightGrey?: PaletteOptions['primary']
     iconGrey?: PaletteOptions['primary']
     lightGrey?: PaletteOptions['primary']
     darkGrey?: PaletteOptions['primary']
+    backgroundTextGrey?: PaletteOptions['primary']
   }
 }
 

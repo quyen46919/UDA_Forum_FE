@@ -17,6 +17,7 @@ import { DesignIcon } from "./DesignIcon";
 import { InnovationIcon } from "./InnovationIcon";
 import { TutorialIcon } from "./TutorialIcon";
 import { BusinessIcon } from "./BusinessIcon";
+import { ArrowRightIcon } from "./ArrowRightIcon";
 
 export {
     ArrowDropDownIcon,
@@ -37,5 +38,6 @@ export {
     DesignIcon,
     InnovationIcon,
     TutorialIcon,
-    BusinessIcon
+    BusinessIcon,
+    ArrowRightIcon,
 }

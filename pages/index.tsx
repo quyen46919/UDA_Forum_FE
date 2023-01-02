@@ -1,7 +1,7 @@
 import React from 'react'
 import { NextPageWithLayout } from '@layout/layout'
 import { MainLayout } from '@layout/main'
-import { Stack, useMediaQuery, useTheme } from '@mui/material'
+import { Stack, useMediaQuery, useTheme, IconButton } from '@mui/material'
 import Tags from '@components/Tags'
 import {
   FollowingIcon,
@@ -13,7 +13,8 @@ import {
   BusinessIcon,
   InnovationIcon,
   TutorialIcon,
-} from 'public/icons'
+  ArrowRightIcon,
+} from 'libs/icons'
 
 const items = {
   data: [
@@ -74,6 +75,37 @@ const popularItems = {
     },
   ],
 }
+const pinnedGroupTag = {
+  title: `Pinned Group`,
+  titleIcon: <ArrowRightIcon />,
+  data: [
+    {
+      icon: <JSIcon />,
+      primary: '#javascript',
+      secondary: '82,645 Posted by this tag',
+    },
+    {
+      icon: <BitcoinIcon />,
+      primary: '#bitcoin',
+      secondary: '65,523 Posted • Trending',
+    },
+    {
+      icon: <DesignIcon />,
+      primary: '#design',
+      secondary: '51,354 • Trending in Bangladesh',
+    },
+    {
+      icon: <DesignIcon />,
+      primary: '#blogging',
+      secondary: '48,029 Posted by this tag',
+    },
+    {
+      icon: <TutorialIcon />,
+      primary: '#tutorial',
+      secondary: '51,354 • Trending in Bangladesh',
+    },
+  ],
+}
 
 const Home: NextPageWithLayout = () => {
   const theme = useTheme()
@@ -93,6 +125,12 @@ const Home: NextPageWithLayout = () => {
           position: { lg: 'sticky' },
           top: { lg: '100px' },
           height: { lg: 'calc(100vh - 120px)' },
+          overflowY: 'scroll',
+          '::-webkit-scrollbar': {
+            display: 'none',
+          },
+          'msOverflowStyle': 'none' /* Hide Scrollbar IE and Edge */,
+          'scrollbarWidth': 'none',
         }}
         m={{ xs: '0 20px', lg: '0 0 0 40px' }}
         borderRadius="16px"
@@ -100,6 +138,7 @@ const Home: NextPageWithLayout = () => {
       >
         <Tags items={items} />
         {!downSm && <Tags items={popularItems} />}
+        {!downSm && <Tags items={pinnedGroupTag} />}
       </Stack>
       <Stack flex="3.5" m={{ xs: '0 20px', lg: 0 }} borderRadius="16px" gap="20px"></Stack>
       <Stack

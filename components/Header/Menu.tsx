@@ -14,7 +14,7 @@ import {
 } from '@mui/material'
 import ChevronRightIcon from '@mui/icons-material/ChevronRight'
 import { PAPER_STYLES, POPOVER_STYLES } from './styles'
-import { ArrowDropDownIcon, HomeIcon } from 'public/icons'
+import { ArrowDropDownIcon, HomeIcon } from 'libs/icons'
 
 const MenuCustom = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
