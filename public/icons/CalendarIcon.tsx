@@ -1,7 +1,7 @@
 import React from 'react'
 import { SvgIcon, SvgIconProps } from '@mui/material'
 
-const CalendarIcon = (props: SvgIconProps) => {
+export const CalendarIcon = (props: SvgIconProps) => {
   return (
     <SvgIcon {...props} viewBox="0 0 40 40">
       <g clipPath="url(#clip0_3960_761)">
@@ -13,5 +13,3 @@ const CalendarIcon = (props: SvgIconProps) => {
     </SvgIcon>
   )
 }
-
-export default CalendarIcon

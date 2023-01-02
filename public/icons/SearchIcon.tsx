@@ -1,7 +1,7 @@
 import React from 'react'
 import { SvgIcon, SvgIconProps } from '@mui/material'
 
-const SearchIcon = (props: SvgIconProps) => {
+export const SearchIcon = (props: SvgIconProps) => {
   return (
     <SvgIcon {...props} sx={{ width: '20px', height: '20px' }} viewBox="0 0 20 20">
       <circle cx="10" cy="9" r="8" stroke="#858EAD" strokeWidth="2" fill="none" />
@@ -9,5 +9,3 @@ const SearchIcon = (props: SvgIconProps) => {
     </SvgIcon>
   )
 }
-
-export default SearchIcon

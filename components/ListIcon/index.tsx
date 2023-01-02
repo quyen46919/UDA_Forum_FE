@@ -1,12 +1,8 @@
 import React from 'react'
 import { Stack } from '@mui/material'
 import IconButton from '@mui/material/IconButton'
-import HomeIcon from 'public/icons/HomeIcon'
-import CalendarIcon from 'public/icons/CalendarIcon'
-import GroupIcon from 'public/icons/GroupIcon'
-import PodcastsIcon from 'public/icons/PodcastsIcon'
-import InterviewsIcon from 'public/icons/InterviewsIcon'
 import { StackProps } from '@mui/material/Stack'
+import { CalendarIcon, GroupIcon, HomeIcon, InterviewsIcon, PodcastsIcon } from 'public/icons'
 
 const ListIcon = (props: StackProps) => {
   return (

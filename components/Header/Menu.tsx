@@ -12,10 +12,9 @@ import {
   Avatar,
   Divider,
 } from '@mui/material'
-import HomeIcon from 'public/icons/HomeIcon'
-import ArrowDropDownIcon from 'public/icons/ArrowDropDownIcon'
 import ChevronRightIcon from '@mui/icons-material/ChevronRight'
 import { PAPER_STYLES, POPOVER_STYLES } from './styles'
+import { ArrowDropDownIcon, HomeIcon } from 'public/icons'
 
 const MenuCustom = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)

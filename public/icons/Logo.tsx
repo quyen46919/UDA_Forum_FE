@@ -1,7 +1,7 @@
 import React from 'react'
 import { SvgIcon, SvgIconProps } from '@mui/material'
 
-const Logo = (props: SvgIconProps) => {
+export const Logo = (props: SvgIconProps) => {
   return (
     <SvgIcon
       {...props}
@@ -23,5 +23,3 @@ const Logo = (props: SvgIconProps) => {
     </SvgIcon>
   )
 }
-
-export default Logo
