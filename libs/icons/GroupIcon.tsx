@@ -1,7 +1,7 @@
 import React from 'react'
 import { SvgIcon, SvgIconProps } from '@mui/material'
 
-const GroupIcon = (props: SvgIconProps) => {
+export const GroupIcon = (props: SvgIconProps) => {
   return (
     <SvgIcon {...props} viewBox="0 0 40 40">
       <ellipse cx="20" cy="25" rx="6" ry="3" fill="inherit" />
@@ -34,4 +34,3 @@ const GroupIcon = (props: SvgIconProps) => {
     </SvgIcon>
   )
 }
-export default GroupIcon

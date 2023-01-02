@@ -12,11 +12,9 @@ import {
   useTheme,
 } from '@mui/material'
 import Drawer from '@mui/material/Drawer'
-import Logo from 'public/icons/Logo'
-import MessageIcon from 'public/icons/MessageIcon'
-import NotificationIcon from 'public/icons/NotificationIcon'
-import SearchIcon from 'public/icons/SearchIcon'
 import MenuItem from './Menu'
+import { Logo, MessageIcon, NotificationIcon, SearchIcon } from 'libs/icons'
+
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false)

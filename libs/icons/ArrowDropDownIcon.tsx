@@ -1,7 +1,7 @@
 import React from 'react'
 import { SvgIcon, SvgIconProps } from '@mui/material'
 
-const ArrowDropDownIcon = (props: SvgIconProps) => {
+export const ArrowDropDownIcon = (props: SvgIconProps) => {
   return (
     <SvgIcon {...props} viewBox="0 0 12 8">
       <path
@@ -11,5 +11,3 @@ const ArrowDropDownIcon = (props: SvgIconProps) => {
     </SvgIcon>
   )
 }
-
-export default ArrowDropDownIcon

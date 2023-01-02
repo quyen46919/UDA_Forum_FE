@@ -1,7 +1,7 @@
 import React from 'react'
 import { SvgIcon, SvgIconProps } from '@mui/material'
 
-const PodcastsIcon = (props: SvgIconProps) => {
+export const PodcastsIcon = (props: SvgIconProps) => {
   return (
     <SvgIcon {...props} viewBox="0 0 40 40">
       <g clipPath="url(#clip0_3960_782)">
@@ -26,4 +26,3 @@ const PodcastsIcon = (props: SvgIconProps) => {
     </SvgIcon>
   )
 }
-export default PodcastsIcon
