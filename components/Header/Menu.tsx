@@ -68,6 +68,15 @@ const MenuCustom = () => {
         >
           <IconButton>
             <Avatar
+              sx={{
+                padding: '3px',
+                border: '1px solid #EA942C',
+                borderRadius: '8px',
+                '& img': {
+                  borderRadius: '6px',
+                  objectFit: 'cover',
+                },
+              }}
               alt="Avatar"
               src="https://img.freepik.com/free-photo/woman-wearing-glasses-looking-camera_23-2148255265.jpg?w=740&t=st=1672221511~exp=1672222111~hmac=b2d7660091e0fbf38943718431170647e94f588ab9e16f70cad60ef9f8119370"
             />

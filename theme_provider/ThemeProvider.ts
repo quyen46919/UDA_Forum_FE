@@ -58,7 +58,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
+    fontFamily: `'Source Sans Pro', 'Roboto', sans-serif;`,
     h1: {
       fontSize: 26,
       fontWeight: 700,
@@ -151,19 +151,6 @@ const theme = createTheme({
           borderRadius: '7px',
           '& span.MuiTouchRipple-root *': {
             borderRadius: '7px'
-          }
-        }
-      }
-    },
-    MuiAvatar: {
-      styleOverrides: {
-        root: {
-          padding: '3px',
-          border: '1px solid #EA942C',
-          borderRadius: '8px',
-          '& img': {
-            borderRadius: '6px',
-            objectFit: 'cover',
           }
         }
       }

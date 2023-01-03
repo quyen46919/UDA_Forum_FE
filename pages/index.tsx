@@ -1,7 +1,7 @@
 import React from 'react'
 import { NextPageWithLayout } from '@layout/layout'
 import { MainLayout } from '@layout/main'
-import { Stack, useMediaQuery, useTheme, IconButton } from '@mui/material'
+import { Stack, useMediaQuery, useTheme } from '@mui/material'
 import Tags from '@components/Tags'
 import {
   FollowingIcon,
@@ -15,6 +15,7 @@ import {
   TutorialIcon,
   ArrowRightIcon,
 } from 'libs/icons'
+import SchedulingTags from '@components/SchedulingTags'
 
 const items = {
   data: [
@@ -107,6 +108,36 @@ const pinnedGroupTag = {
   ],
 }
 
+const schedulingItems = {
+  title: 'Meetups',
+  data: [
+    {
+      primary: 'UIHUT - Crunchbase Company Profile UIHUT',
+      primaryMobile: 'Newest',
+      secondary: 'UIHUT  •  Sylhet, Bangladesh UIHUT',
+      avatar:
+        'https://img.freepik.com/free-photo/woman-wearing-glasses-looking-camera_23-2148255265.jpg?w=740&t=st=1672221511~exp=1672222111~hmac=b2d7660091e0fbf38943718431170647e94f588ab9e16f70cad60ef9f8119370',
+      tags: [{ label: 'Remote' }, { label: 'Part-time' }, { label: 'Worldwide' }],
+    },
+    {
+      primary: 'Design Meetups USA | Dribbble',
+      primaryMobile: 'Popular',
+      secondary: 'Dribbble  •  Austin, Texas, USA',
+      avatar:
+        'https://img.freepik.com/free-photo/woman-wearing-glasses-looking-camera_23-2148255265.jpg?w=740&t=st=1672221511~exp=1672222111~hmac=b2d7660091e0fbf38943718431170647e94f588ab9e16f70cad60ef9f8119370',
+      tags: [{ label: 'Remote' }, { label: 'Part-time' }],
+    },
+    {
+      primary: 'Meetup Brand Identity Design',
+      primaryMobile: 'Following',
+      secondary: 'Behance  •  Sab jose, Califonia, USA',
+      avatar:
+        'https://img.freepik.com/free-photo/woman-wearing-glasses-looking-camera_23-2148255265.jpg?w=740&t=st=1672221511~exp=1672222111~hmac=b2d7660091e0fbf38943718431170647e94f588ab9e16f70cad60ef9f8119370',
+      tags: [{ label: 'Full Time' }, { label: 'Contract' }, { label: 'Worldwide' }],
+    },
+  ],
+}
+
 const Home: NextPageWithLayout = () => {
   const theme = useTheme()
   const downSm = useMediaQuery(theme.breakpoints.down('sm'))
@@ -129,8 +160,8 @@ const Home: NextPageWithLayout = () => {
           '::-webkit-scrollbar': {
             display: 'none',
           },
-          'msOverflowStyle': 'none' /* Hide Scrollbar IE and Edge */,
-          'scrollbarWidth': 'none',
+          msOverflowStyle: 'none' /* Hide Scrollbar IE and Edge */,
+          scrollbarWidth: 'none',
         }}
         m={{ xs: '0 20px', lg: '0 0 0 40px' }}
         borderRadius="16px"
@@ -151,7 +182,9 @@ const Home: NextPageWithLayout = () => {
         m={{ xs: '0 20px', lg: '0 40px 0 0' }}
         borderRadius="16px"
         gap="20px"
-      ></Stack>
+      >
+        <SchedulingTags items={schedulingItems} />
+      </Stack>
     </Stack>
   )
 }
