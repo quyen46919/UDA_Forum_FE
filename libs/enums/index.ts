@@ -1,3 +1,5 @@
-export enum TestEnum {
-  name = "Test"
+export enum ACTIVATION_STATUS {
+  ONLINE = 0,
+  OFFLINE = 1,
+  DO_NOT_DISTURB = 2,
 }

@@ -15,7 +15,9 @@ import {
   TutorialIcon,
   ArrowRightIcon,
 } from 'libs/icons'
-import SchedulingTags from '@components/SchedulingTags'
+import SchedulingTags from '@components/Tags/SchedulingTags'
+import PodcastTags from '@components/Tags/PodcastTags'
+import Post from '@components/Post'
 
 const items = {
   data: [
@@ -79,6 +81,7 @@ const popularItems = {
 const pinnedGroupTag = {
   title: `Pinned Group`,
   titleIcon: <ArrowRightIcon />,
+  href: '/',
   data: [
     {
       icon: <JSIcon />,
@@ -110,10 +113,10 @@ const pinnedGroupTag = {
 
 const schedulingItems = {
   title: 'Meetups',
+  href: '/',
   data: [
     {
       primary: 'UIHUT - Crunchbase Company Profile UIHUT',
-      primaryMobile: 'Newest',
       secondary: 'UIHUT  •  Sylhet, Bangladesh UIHUT',
       avatar:
         'https://img.freepik.com/free-photo/woman-wearing-glasses-looking-camera_23-2148255265.jpg?w=740&t=st=1672221511~exp=1672222111~hmac=b2d7660091e0fbf38943718431170647e94f588ab9e16f70cad60ef9f8119370',
@@ -121,7 +124,6 @@ const schedulingItems = {
     },
     {
       primary: 'Design Meetups USA | Dribbble',
-      primaryMobile: 'Popular',
       secondary: 'Dribbble  •  Austin, Texas, USA',
       avatar:
         'https://img.freepik.com/free-photo/woman-wearing-glasses-looking-camera_23-2148255265.jpg?w=740&t=st=1672221511~exp=1672222111~hmac=b2d7660091e0fbf38943718431170647e94f588ab9e16f70cad60ef9f8119370',
@@ -129,7 +131,6 @@ const schedulingItems = {
     },
     {
       primary: 'Meetup Brand Identity Design',
-      primaryMobile: 'Following',
       secondary: 'Behance  •  Sab jose, Califonia, USA',
       avatar:
         'https://img.freepik.com/free-photo/woman-wearing-glasses-looking-camera_23-2148255265.jpg?w=740&t=st=1672221511~exp=1672222111~hmac=b2d7660091e0fbf38943718431170647e94f588ab9e16f70cad60ef9f8119370',
@@ -137,6 +138,96 @@ const schedulingItems = {
     },
   ],
 }
+
+const podcastItems = {
+  title: 'Podcasts',
+  href: '/',
+  data: [
+    {
+      img: 'https://img.freepik.com/free-vector/blockchain-technology-security-template-vector-data-payment-securing-blog-banner_53876-112174.jpg?w=1380&t=st=1672749768~exp=1672750368~hmac=81aea0c926b3e21e940e8568eda5c6dda9665e0dc1b682cf6d71519847f3fa2f',
+      primary: 'Selling a Business and Scaling Another Amidst Tragedy.',
+      secondary: 'by Michele Hansen',
+    },
+    {
+      img: 'https://img.freepik.com/free-vector/blockchain-technology-security-template-vector-data-payment-securing-blog-banner_53876-112174.jpg?w=1380&t=st=1672749768~exp=1672750368~hmac=81aea0c926b3e21e940e8568eda5c6dda9665e0dc1b682cf6d71519847f3fa2f',
+      primary: 'Mental health as a founder and the importance of community',
+      secondary: 'by James McKinven',
+    },
+    {
+      img: 'https://img.freepik.com/free-vector/blockchain-technology-security-template-vector-data-payment-securing-blog-banner_53876-112174.jpg?w=1380&t=st=1672749768~exp=1672750368~hmac=81aea0c926b3e21e940e8568eda5c6dda9665e0dc1b682cf6d71519847f3fa2f',
+      primary: 'Growing to $8.5k MRR in 1 year - Marie Martens, Tally.so',
+      secondary: 'by Mahfuzul Nabil',
+    },
+    {
+      img: 'https://img.freepik.com/free-vector/blockchain-technology-security-template-vector-data-payment-securing-blog-banner_53876-112174.jpg?w=1380&t=st=1672749768~exp=1672750368~hmac=81aea0c926b3e21e940e8568eda5c6dda9665e0dc1b682cf6d71519847f3fa2f',
+      primary: 'Mental Health and Bootstrapping in 2022 with Rob Walling of TinySe',
+      secondary: 'by Dr. Jubed',
+    },
+    {
+      img: 'https://img.freepik.com/free-vector/blockchain-technology-security-template-vector-data-payment-securing-blog-banner_53876-112174.jpg?w=1380&t=st=1672749768~exp=1672750368~hmac=81aea0c926b3e21e940e8568eda5c6dda9665e0dc1b682cf6d71519847f3fa2f',
+      primary: 'Money, Happiness, and Productivity as a Solo Founder with Pieter Levels',
+      secondary: 'by Jesse Hanley',
+    },
+    {
+      img: 'https://img.freepik.com/free-vector/blockchain-technology-security-template-vector-data-payment-securing-blog-banner_53876-112174.jpg?w=1380&t=st=1672749768~exp=1672750368~hmac=81aea0c926b3e21e940e8568eda5c6dda9665e0dc1b682cf6d71519847f3fa2f',
+      primary: 'Mental health as a founder and the importance of community',
+      secondary: 'by Courtland Allen',
+    },
+  ],
+}
+
+const data = [
+  {
+    avatar:
+      'https://img.freepik.com/free-photo/woman-wearing-glasses-looking-camera_23-2148255265.jpg?w=740&t=st=1672221511~exp=1672222111~hmac=b2d7660091e0fbf38943718431170647e94f588ab9e16f70cad60ef9f8119370',
+    name: 'Anna Li',
+    activation: 0,
+    following: false,
+    savePost: true,
+    title: 'Hello everyone',
+    content:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+    likes: 9800,
+    comments: 12300,
+    saved: 460,
+    liked: true,
+    shared: false,
+    createdAt: 'Thu Jan 05 2023 17:55:24 GMT+0700 (Giờ Đông Dương)',
+  },
+  {
+    avatar:
+      'https://img.freepik.com/free-photo/woman-wearing-glasses-looking-camera_23-2148255265.jpg?w=740&t=st=1672221511~exp=1672222111~hmac=b2d7660091e0fbf38943718431170647e94f588ab9e16f70cad60ef9f8119370',
+    name: 'Anna Li',
+    activation: 2,
+    following: true,
+    savePost: false,
+    title: 'This is Title',
+    content: 'This is content',
+    likes: 12,
+    comments: 6,
+    saved: 2,
+    liked: false,
+    shared: false,
+    createdAt: 'Thu Jan 05 2023 17:55:24 GMT+0700 (Giờ Đông Dương)',
+  },
+  {
+    avatar:
+      'https://img.freepik.com/free-photo/woman-wearing-glasses-looking-camera_23-2148255265.jpg?w=740&t=st=1672221511~exp=1672222111~hmac=b2d7660091e0fbf38943718431170647e94f588ab9e16f70cad60ef9f8119370',
+    name: 'Anna Li',
+    activation: 1,
+    following: true,
+    savePost: true,
+    title: 'This is Title',
+    content:
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut quo soluta veniam corrupti nostrum, quaerat fugiat voluptate autem laboriosam blanditiis magnam suscipit numquam sint, dolorem nihil? Labore illum nihil quae.',
+    likes: 9800,
+    comments: 12300,
+    saved: 460,
+    liked: false,
+    shared: true,
+    createdAt: 'Thu Jan 05 2023 17:55:24 GMT+0700 (Giờ Đông Dương)',
+  },
+]
 
 const Home: NextPageWithLayout = () => {
   const theme = useTheme()
@@ -147,11 +238,12 @@ const Home: NextPageWithLayout = () => {
       sx={{ backgroundColor: theme.palette.secondary.main }}
       direction={{ xs: 'column', lg: 'row' }}
       minHeight="calc(100vh - 80px)"
-      pt="20px"
+      p={{ xs: '20px', lg: '20px 40px 0 40px' }}
       gap="20px"
+      maxWidth={{ lg: '1536px', xl: '1920px' }}
     >
       <Stack
-        flex="1"
+        width={{ lg: '210px' }}
         sx={{
           position: { lg: 'sticky' },
           top: { lg: '100px' },
@@ -163,7 +255,6 @@ const Home: NextPageWithLayout = () => {
           msOverflowStyle: 'none' /* Hide Scrollbar IE and Edge */,
           scrollbarWidth: 'none',
         }}
-        m={{ xs: '0 20px', lg: '0 0 0 40px' }}
         borderRadius="16px"
         gap="20px"
       >
@@ -171,19 +262,28 @@ const Home: NextPageWithLayout = () => {
         {!downSm && <Tags items={popularItems} />}
         {!downSm && <Tags items={pinnedGroupTag} />}
       </Stack>
-      <Stack flex="3.5" m={{ xs: '0 20px', lg: 0 }} borderRadius="16px" gap="20px"></Stack>
+      <Stack flex="1" borderRadius="16px" gap={{ xs: 0, lg: '20px' }} marginBottom="20px">
+        <Post data={data} />
+      </Stack>
       <Stack
-        flex="1.5"
+        width={{ lg: '325px' }}
         sx={{
           position: { lg: 'sticky' },
           top: { lg: '100px' },
           height: { lg: 'calc(100vh - 120px)' },
+          overflowY: 'scroll',
+          '::-webkit-scrollbar': {
+            display: 'none',
+          },
+          msOverflowStyle: 'none',
+          scrollbarWidth: 'none',
         }}
-        m={{ xs: '0 20px', lg: '0 40px 0 0' }}
+        mb={{ xs: '68px', lg: 0 }}
         borderRadius="16px"
         gap="20px"
       >
         <SchedulingTags items={schedulingItems} />
+        <PodcastTags items={podcastItems} />
       </Stack>
     </Stack>
   )
