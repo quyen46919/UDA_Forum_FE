@@ -116,7 +116,7 @@ const MenuCustom = () => {
         onClose={handleMenuClose}
         PaperProps={PAPER_STYLES}
       >
-        <Stack padding="10px" gap="5px">
+        <Stack padding="10px" gap="4px">
           <Typography variant="body1">Thông tin của tôi</Typography>
           <MenuItem onClick={() => handleLinkToUrlClick()}>
             <ListItemIcon>
@@ -149,7 +149,7 @@ const MenuCustom = () => {
         </Stack>
 
         <Divider />
-        <Stack padding="10px" gap="5px">
+        <Stack padding="10px" gap="4px">
           <Typography>Thiết Lập Hệ Thống</Typography>
           <MenuItem aria-describedby={idPopup} onClick={handlePopUpClick}>
             <ListItemIcon>
@@ -187,7 +187,7 @@ const MenuCustom = () => {
               horizontal: 'right',
             }}
           >
-            <Stack padding="10px" gap="5px">
+            <Stack padding="10px" gap="4px">
               <MenuItem onClick={() => setPopupAnchorEl(null)}>
                 <Typography>Tiếng Việt</Typography>
               </MenuItem>
@@ -214,7 +214,7 @@ const MenuCustom = () => {
             horizontal: 'right',
           }}
         >
-          <Stack padding="10px" gap="5px">
+          <Stack padding="10px" gap="4px">
             <MenuItem onClick={() => setPopupAnchorEl2(null)}>
               <Typography>Hệ Thống Mặc Định</Typography>
             </MenuItem>
@@ -226,7 +226,7 @@ const MenuCustom = () => {
             </MenuItem>
           </Stack>
         </Popover>
-        <Stack padding="10px" gap="5px">
+        <Stack padding="10px" gap="4px">
           <MenuItem onClick={() => handleLinkToUrlClick()}>
             <ListItemIcon>
               <HomeIcon />
