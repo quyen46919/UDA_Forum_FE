@@ -8,11 +8,11 @@ import {
   useTheme,
   Typography,
   ListItemButton,
-  Tooltip,
   Chip,
 } from '@mui/material'
 import { ArrowRightIcon } from 'libs/icons'
 import Link from 'next/link'
+import OverflowTooltip from '@components/Tooltip'
 
 interface ChipData {
   label: string
@@ -27,19 +27,18 @@ interface ItemProps {
 }
 
 interface TagsProps {
-  items: { title?: string } & { data: ItemProps[] }
+  items: { title?: string, href: string } & { data: ItemProps[] }
 }
 
 const SchedulingTags = ({ items }: TagsProps) => {
   const theme = useTheme()
 
   return (
-    <Stack sx={{ backgroundColor: theme.palette.white.main, borderRadius: '16px' }}>
+    <Stack sx={{ backgroundColor: theme.palette.white.main, borderRadius: '16px', p: '15px' }}>
       <List
         sx={{
           '&.MuiList-root': {
-            padding: '15px',
-
+            p: 0,
             '& div > .MuiListItemButton-root': {
               minHeight: '78px',
               p: '5px 5px',
@@ -54,26 +53,28 @@ const SchedulingTags = ({ items }: TagsProps) => {
       >
         <Stack gap="10px">
           {items?.title && (
-            <Link href="/">
-              <Typography
-                variant="h1"
-                fontWeight={600}
-                fontSize="16px"
-                lineHeight="24px"
-                display="flex"
-                alignItems="center"
-                margin="5px 0 5px 0"
-                gap="3px"
-                sx={{ cursor: 'pointer' }}
-              >
-                {items.title}
-                <ArrowRightIcon />
-              </Typography>
+            <Link href={items.href}>
+              <a>
+                <Typography
+                  variant="h1"
+                  fontWeight={600}
+                  fontSize="16px"
+                  lineHeight="24px"
+                  display="flex"
+                  alignItems="center"
+                  margin="5px 0 5px 0"
+                  gap="3px"
+                  sx={{ cursor: 'pointer' }}
+                >
+                  {items.title}
+                  <ArrowRightIcon />
+                </Typography>
+              </a>
             </Link>
           )}
           {items?.data
             ? items.data.map((item, index) => (
-                <ListItemButton key={index} id="list-item">
+                <ListItemButton key={index}>
                   <Stack direction="row" alignItems="flex-start" gap="14px">
                     <Stack
                       height="68px"
@@ -102,7 +103,13 @@ const SchedulingTags = ({ items }: TagsProps) => {
                         7
                       </Typography>
                     </Stack>
-                    <Stack minHeight="68px" gap="10px">
+                    <Stack
+                      minHeight="68px"
+                      gap="10px"
+                      textOverflow="ellipsis"
+                      overflow="hidden"
+                      whiteSpace="nowrap"
+                    >
                       <ListItemText
                         sx={{
                           '&': {
@@ -126,17 +133,11 @@ const SchedulingTags = ({ items }: TagsProps) => {
                         }}
                         disableTypography
                         primary={
-                          <Tooltip title={item.primary}>
-                            <Typography
-                              textOverflow="ellipsis"
-                              whiteSpace="nowrap"
-                              overflow="hidden"
-                              variant="body1"
-                              maxWidth="250px"
-                            >
+                          <OverflowTooltip title={item.primary}>
+                            <Typography maxWidth="200px" variant="body1">
                               {item.primary}
                             </Typography>
-                          </Tooltip>
+                          </OverflowTooltip>
                         }
                         secondary={
                           <Stack direction="row" alignItems="center" gap="6px">
@@ -145,17 +146,11 @@ const SchedulingTags = ({ items }: TagsProps) => {
                               alt="Avatar"
                               src={item?.avatar}
                             />
-                            <Tooltip title={item.secondary}>
-                              <Typography
-                                variant="body2"
-                                textOverflow="ellipsis"
-                                whiteSpace="nowrap"
-                                overflow="hidden"
-                                maxWidth="230px"
-                              >
+                            <OverflowTooltip title={item.secondary}>
+                              <Typography variant="body2" maxWidth="200px">
                                 {item.secondary}
                               </Typography>
-                            </Tooltip>
+                            </OverflowTooltip>
                           </Stack>
                         }
                       />

@@ -9,8 +9,9 @@ import {
   Typography,
   useMediaQuery,
   ListItemButton,
-  Tooltip,
 } from '@mui/material'
+import Link from 'next/link'
+import OverflowTooltip from '@components/Tooltip'
 
 declare type ItemProps = {
   icon: JSX.Element
@@ -21,21 +22,24 @@ declare type ItemProps = {
 }
 
 interface TagsProps {
-  items: { title?: string; titleIcon?: JSX.Element } & { data: ItemProps[] }
+  items: { title?: string; titleIcon?: JSX.Element; href?: string | undefined } & {
+    data: ItemProps[]
+  }
 }
 
 const Tags = ({ items }: TagsProps) => {
-  console.log(items)
-
   const theme = useTheme()
   const downSm = useMediaQuery(theme.breakpoints.down('sm'))
 
+  let Href: JSX.Element | Function = Stack
+  if (items.href) Href = Link
+
   return (
-    <Stack sx={{ backgroundColor: theme.palette.white.main, borderRadius: '16px' }}>
+    <Stack sx={{ backgroundColor: theme.palette.white.main, borderRadius: '16px', p: '15px' }}>
       <List
         sx={{
           '&.MuiList-root': {
-            padding: '15px',
+            p: 0,
             '& .MuiListItemButton-root': {
               height: items?.title ? 'unset' : '46px',
               p: '6px 5px',
@@ -53,108 +57,113 @@ const Tags = ({ items }: TagsProps) => {
           direction={downSm ? 'row' : 'column'}
         >
           {items?.title && (
-            <Typography
-              variant="h1"
-              margin="10px 0"
-              fontWeight={600}
-              fontSize="16px"
-              lineHeight="24px"
-              display="flex"
-              alignItems="center"
-              gap="3px"
-            >
-              {items.title}
-              {items?.titleIcon}
-            </Typography>
+            <Href href={items?.href !== undefined ? items.href : ''}>
+              <a>
+                <Typography
+                  variant="h1"
+                  pb="6px"
+                  fontWeight={600}
+                  fontSize="16px"
+                  lineHeight="24px"
+                  display="flex"
+                  alignItems="center"
+                  gap="3px"
+                >
+                  {items.title}
+                  {items?.titleIcon}
+                </Typography>
+              </a>
+            </Href>
           )}
           {items?.data
-            ? items.data.map((item, index) => (
-                <ListItemButton key={index}>
-                  <Stack
-                    direction="row"
-                    alignItems="center"
-                    gap={items?.title ? '10px' : '6px'}
-                    height={items?.title ? '34px' : '46px'}
-                  >
-                    <ListItemAvatar sx={{ minWidth: 0 }}>
-                      <Avatar
+            ? items.data.map((item, index) => {
+                return (
+                  <ListItemButton key={index}>
+                    <Stack
+                      direction="row"
+                      alignItems="center"
+                      gap={items?.title ? '10px' : '6px'}
+                      height={items?.title ? '34px' : '46px'}
+                      textOverflow="ellipsis"
+                      overflow="hidden"
+                      whiteSpace="nowrap"
+                    >
+                      <ListItemAvatar sx={{ minWidth: 0 }}>
+                        <Avatar
+                          sx={{
+                            border: 'none',
+                            backgroundColor: theme.palette.backgroundTextGrey.main,
+                            p: 0,
+                            width: items?.title ? '32px' : '28px',
+                            height: items?.title ? '32px' : '28px',
+                          }}
+                        >
+                          {item.icon}
+                        </Avatar>
+                      </ListItemAvatar>
+                      <ListItemText
                         sx={{
-                          border: 'none',
-                          backgroundColor: theme.palette.backgroundTextGrey.main,
-                          p: 0,
-                          width: items?.title ? '32px' : '28px',
-                          height: items?.title ? '32px' : '28px',
-                        }}
-                      >
-                        {item.icon}
-                      </Avatar>
-                    </ListItemAvatar>
-                    <ListItemText
-                      sx={{
-                        '&': {
-                          display: 'flex',
-                          flexDirection: 'column',
-                          m: 0,
-                          '& div .MuiTypography-body1': {
-                            fontSize: '12px',
-                            lineHeight: '18px',
-                            fontWeight: 600,
-                            mb: !items.title && !downSm ? '2px' : 0,
+                          '&': {
+                            display: 'flex',
+                            flexDirection: 'column',
+                            m: 0,
+                            '& div .MuiTypography-body1': {
+                              fontSize: '12px',
+                              lineHeight: '18px',
+                              fontWeight: 600,
+                              mb: !items.title && !downSm ? '2px' : 0,
+                            },
+                            '& div .MuiTypography-body2': item?.notificationNumber
+                              ? {
+                                  width: '22px',
+                                  height: '20px',
+                                  borderRadius: '2px',
+                                  backgroundColor: theme.palette.orange.main,
+                                  color: theme.palette.white.main,
+                                  fontSize: '9px',
+                                  lineHeight: '14px',
+                                  fontWeight: 600,
+                                  display: 'flex',
+                                  alignItems: 'center',
+                                  justifyContent: 'center',
+                                  marginBottom: downSm ? 0 : '2px',
+                                }
+                              : '',
                           },
-                          '& div .MuiTypography-body2': item?.notificationNumber
-                            ? {
-                                width: '22px',
-                                height: '20px',
-                                borderRadius: '2px',
-                                backgroundColor: theme.palette.orange.main,
-                                color: theme.palette.white.main,
-                                fontSize: '9px',
-                                lineHeight: '14px',
-                                fontWeight: 600,
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                marginBottom: downSm ? 0 : '2px',
-                              }
-                            : '',
-                        },
-                      }}
-                      disableTypography
-                      primary={
-                        <Stack direction="row" alignItems="center" gap="4px">
-                          <Typography variant="body1">
-                            {downSm ? item?.primaryMobile : item.primary}
-                          </Typography>
-                          <Typography variant="body2">
-                            {item?.notificationNumber && item?.notificationNumber >= 100
-                              ? '99+'
-                              : item.notificationNumber}
-                          </Typography>
-                        </Stack>
-                      }
-                      secondary={
-                        !downSm && (
-                          <Tooltip title={item.secondary}>
-                            <Typography
-                              textOverflow="ellipsis"
-                              overflow="hidden"
-                              component="span"
-                              whiteSpace="nowrap"
-                              maxWidth="150px"
-                              fontWeight={400}
-                              color={theme.palette.textLightGrey.main}
-                              fontSize={items?.title ? '10px' : '9px'}
-                              lineHeight={items?.title ? '16px' : '14px'}
-                            >
-                              {item.secondary}
+                        }}
+                        disableTypography
+                        primary={
+                          <Stack direction="row" alignItems="center" gap="4px">
+                            <Typography variant="body1">
+                              {downSm ? item?.primaryMobile : item.primary}
                             </Typography>
-                          </Tooltip>
-                        )
-                      }
-                    />
-                  </Stack>
-                </ListItemButton>
-              ))
+                            <Typography variant="body2">
+                              {item?.notificationNumber && item?.notificationNumber >= 100
+                                ? '99+'
+                                : item.notificationNumber}
+                            </Typography>
+                          </Stack>
+                        }
+                        secondary={
+                          !downSm && (
+                            <OverflowTooltip title={item.secondary}>
+                              <Stack
+                                fontWeight={400}
+                                color={theme.palette.textLightGrey.main}
+                                fontSize={items?.title ? '10px' : '9px'}
+                                lineHeight={items?.title ? '16px' : '14px'}
+                                component="span"
+                              >
+                                {item.secondary}
+                              </Stack>
+                            </OverflowTooltip>
+                          )
+                        }
+                      />
+                    </Stack>
+                  </ListItemButton>
+                )
+              })
             : ''}
         </Stack>
       </List>
