@@ -17,7 +17,7 @@ export const PAPER_STYLES = {
         },
         '& ul li': {
             height: '46px',
-            padding: '6px 5px',
+            padding: '5px',
             borderRadius: '6px',
             display: 'flex',
             gap: '10px',
@@ -41,7 +41,7 @@ export const POPOVER_STYLES = {
         minWidth: '214px',
         '& li': {
             height: '46px',
-            padding: '6px 10px',
+            padding: '5px',
             borderRadius: '6px',
             display: 'flex',
             gap: '10px',
