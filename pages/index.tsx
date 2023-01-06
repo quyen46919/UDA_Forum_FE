@@ -325,6 +325,7 @@ const Home: NextPageWithLayout = () => {
         {!downSm && <Tags items={popularItems} />}
         {!downSm && <Tags items={pinnedGroupTag} />}
       </Stack>
+
       <Stack flex="1" borderRadius="16px" gap={{ xs: 0, lg: '20px' }} marginBottom="20px">
         <Post data={data} />
       </Stack>
