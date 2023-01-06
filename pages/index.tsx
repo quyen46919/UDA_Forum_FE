@@ -17,6 +17,8 @@ import {
 } from 'libs/icons'
 import SchedulingTags from '@components/Tags/SchedulingTags'
 import PodcastTags from '@components/Tags/PodcastTags'
+import Question from '@components/Question'
+import { data } from 'libs/seed-data'
 
 const items = {
   data: [
@@ -174,6 +176,7 @@ const podcastItems = {
     },
   ],
 }
+
 const Home: NextPageWithLayout = () => {
   const theme = useTheme()
   const downSm = useMediaQuery(theme.breakpoints.down('sm'))
@@ -188,7 +191,7 @@ const Home: NextPageWithLayout = () => {
       maxWidth={{ lg: '1536px', xl: '1920px' }}
     >
       <Stack
-        width={{ lg: '210px' }}
+        minWidth={{ lg: '240px' }}
         sx={{
           position: { lg: 'sticky' },
           top: { lg: '100px' },
@@ -207,11 +210,11 @@ const Home: NextPageWithLayout = () => {
         {!downSm && <Tags items={popularItems} />}
         {!downSm && <Tags items={pinnedGroupTag} />}
       </Stack>
-      <Stack flex="1" borderRadius="16px" gap="20px">
-        Content
+      <Stack flex="1" borderRadius="16px" gap={{ xs: 0, lg: '20px' }} marginBottom="20px">
+        <Question data={data} />
       </Stack>
       <Stack
-        width={{ lg: '325px' }}
+        minWidth={{ lg: '325px' }}
         sx={{
           position: { lg: 'sticky' },
           top: { lg: '100px' },
@@ -223,7 +226,7 @@ const Home: NextPageWithLayout = () => {
           msOverflowStyle: 'none',
           scrollbarWidth: 'none',
         }}
-        mb={{ xs: '68px', lg: 0 }}
+        mb={{ xs: '68px', sm: 0, lg: 0 }}
         borderRadius="16px"
         gap="20px"
       >

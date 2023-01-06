@@ -1,3 +1,4 @@
+import { ActivationIcon } from './ActivationIcon';
 import { ArrowDropDownIcon } from "./ArrowDropDownIcon";
 import { CalendarIcon } from "./CalendarIcon";
 import { FollowingIcon } from "./FollowingIcon";
@@ -18,6 +19,15 @@ import { InnovationIcon } from "./InnovationIcon";
 import { TutorialIcon } from "./TutorialIcon";
 import { BusinessIcon } from "./BusinessIcon";
 import { ArrowRightIcon } from "./ArrowRightIcon";
+import { EmojiIcon } from "./EmojiIcon";
+import { StarOutlineIcon } from './StarOutlineIcon';
+import { StarFillIcon } from './StarFillIcon';
+import { LikeOutlineIcon } from './LikeOutlineIcon';
+import { LikeFillIcon } from './LikeFillIcon';
+import { CommentIcon } from './CommentIcon';
+import { ShareIcon } from './ShareIcon';
+import { FavoriteOutlineIcon } from './FavoriteOutlineIcon';
+import { FavoriteFillIcon } from './FavoriteFillIcon';
 
 export {
     ArrowDropDownIcon,
@@ -40,4 +50,14 @@ export {
     TutorialIcon,
     BusinessIcon,
     ArrowRightIcon,
+    EmojiIcon,
+    ActivationIcon,
+    StarOutlineIcon,
+    StarFillIcon,
+    LikeOutlineIcon,
+    LikeFillIcon,
+    CommentIcon,
+    ShareIcon,
+    FavoriteOutlineIcon,
+    FavoriteFillIcon,
 }

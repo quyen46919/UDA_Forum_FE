@@ -23,6 +23,7 @@ export function MainLayout(props: LayoutProps) {
           bottom="0%"
           left="0%"
           width="100%"
+          zIndex={900}
           sx={{ backgroundColor: theme.palette.white.main }}
         />
       )}

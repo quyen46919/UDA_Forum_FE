@@ -158,9 +158,12 @@ const theme = createTheme({
     MuiAppBar: {
       styleOverrides: {
         root: {
+          '&': {
+            zIndex: 900
+          },
           '& > div': {
             paddingLeft: '22px',
-            paddingRight: '22px'
+            paddingRight: '22px',
           }
         }
       }
