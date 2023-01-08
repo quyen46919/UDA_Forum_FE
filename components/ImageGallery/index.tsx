@@ -160,6 +160,7 @@ export default function ImageGallery(props: ImageGalleryProps) {
               width: { sm: '184px', lg: '184px' },
               height: { sm: '184px', lg: '184px' },
               borderRadius: '8px',
+              cursor: 'pointer',
               mb: 0,
               backgroundRepeat: 'no-repeat',
               backgroundPosition: 'center',
@@ -188,6 +189,7 @@ export default function ImageGallery(props: ImageGalleryProps) {
                     backgroundSize: 'cover',
                     backgroundRepeat: 'no-repeat',
                     backgroundPosition: 'center',
+                    cursor: 'pointer',
                   }}
                   onClick={() => {
                     setIsOpenLightBox(true)
