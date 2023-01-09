@@ -15,7 +15,6 @@ import Drawer from '@mui/material/Drawer'
 import MenuItem from './Menu'
 import { Logo, MessageIcon, NotificationIcon, SearchIcon } from 'libs/icons'
 
-
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false)
   const theme = useTheme()
@@ -30,7 +29,7 @@ const Header = () => {
   }
 
   return (
-    <Stack mb="80px">
+    <Stack mb="70px">
       <AppBar
         sx={{
           backgroundColor: theme.palette.white.main,
@@ -38,7 +37,7 @@ const Header = () => {
         }}
       >
         <Toolbar>
-          <Stack padding="15px 0" height="80px" direction="row" alignItems="center" width="100%">
+          <Stack padding="15px 0" height="70px" direction="row" alignItems="center" width="100%">
             <Stack flex={{ lg: '1' }}>
               <Stack direction="row" gap="10px" alignItems="center" sx={{ cursor: 'pointer' }}>
                 <Logo />

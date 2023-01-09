@@ -1,16 +1,19 @@
 import React from 'react'
+import ImageGallery from '@components/ImageGallery'
 import ReadMore from '@components/ReadMore'
+import Skeleton from '@components/Skeleton'
 import {
   Avatar,
   Button,
+  Divider,
   IconButton,
   Stack,
   Tooltip,
   Typography,
-  useTheme,
-  Divider,
   useMediaQuery,
+  useTheme,
 } from '@mui/material'
+import { grey } from '@mui/material/colors'
 import {
   ActivationIcon,
   CommentIcon,
@@ -18,12 +21,9 @@ import {
   FavoriteOutlineIcon,
   LikeFillIcon,
   LikeOutlineIcon,
-  ShareIcon,
-  StarFillIcon,
-  StarOutlineIcon,
 } from 'libs/icons'
 import { formatDate } from 'libs/utils/formatDate'
-import ImageGallery from '@components/ImageGallery'
+
 interface QuestionProps {
   avatar?: string
   name: string
@@ -49,6 +49,7 @@ const Question = ({ data }: DataProps) => {
   const downSm = useMediaQuery(theme.breakpoints.down('sm'))
   const downLg = useMediaQuery(theme.breakpoints.down('lg'))
 
+  if (!data) return <Skeleton />
   return (
     <Stack gap="20px">
       {data?.map((post, index) => (
@@ -144,7 +145,7 @@ const Question = ({ data }: DataProps) => {
                   fontSize: '12px',
                   fontWeight: 400,
                   lineHeight: '22px',
-                  color: theme.palette.textLightGrey.main,
+                  color: grey[600],
                 },
               }}
             >

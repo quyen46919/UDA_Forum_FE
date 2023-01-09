@@ -185,7 +185,7 @@ const Home: NextPageWithLayout = () => {
     <Stack
       sx={{ backgroundColor: theme.palette.secondary.main }}
       direction={{ xs: 'column', lg: 'row' }}
-      minHeight="calc(100vh - 80px)"
+      minHeight="calc(100vh - 70px)"
       p={{ xs: '20px', lg: '20px 40px 0 40px' }}
       gap="20px"
       maxWidth={{ lg: '1536px', xl: '1920px' }}
@@ -194,8 +194,8 @@ const Home: NextPageWithLayout = () => {
         minWidth={{ lg: '240px' }}
         sx={{
           position: { lg: 'sticky' },
-          top: { lg: '100px' },
-          height: { lg: 'calc(100vh - 120px)' },
+          top: { lg: '90px' },
+          height: { lg: 'calc(100vh - 110px)' },
           overflowY: 'scroll',
           '::-webkit-scrollbar': {
             display: 'none',
@@ -210,15 +210,15 @@ const Home: NextPageWithLayout = () => {
         {!downSm && <Tags items={popularItems} />}
         {!downSm && <Tags items={pinnedGroupTag} />}
       </Stack>
-      <Stack flex="1" borderRadius="16px" gap={{ xs: 0, lg: '20px' }} marginBottom="20px">
+      <Stack flex="1" borderRadius="16px" gap={{ xs: 0, lg: '20px' }} marginBottom={{ lg: '20px' }}>
         <Question data={data} />
       </Stack>
       <Stack
         minWidth={{ lg: '325px' }}
         sx={{
           position: { lg: 'sticky' },
-          top: { lg: '100px' },
-          height: { lg: 'calc(100vh - 120px)' },
+          top: { lg: '90px' },
+          height: { lg: 'calc(100vh - 110px)' },
           overflowY: 'scroll',
           '::-webkit-scrollbar': {
             display: 'none',
