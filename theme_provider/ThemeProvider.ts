@@ -96,25 +96,6 @@ const theme = createTheme({
     }
   },
   components: {
-    MuiTextField: {
-      styleOverrides: {
-        root: {
-          '& div': {
-            maxHeight: '40px',
-            padding: '2px 12px 2px 0px'
-          },
-          backgroundColor: '#f4f6f8',
-          borderRadius: '8px',
-          fieldset: {
-            outline: 'none',
-            border: 'none',
-          },
-          input: {
-            padding: '9px 10px 9px 20px'
-          }
-        }
-      }
-    },
     MuiSvgIcon: {
       variants: [
         {

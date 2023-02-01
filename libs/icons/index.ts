@@ -28,6 +28,12 @@ import { CommentIcon } from './CommentIcon';
 import { ShareIcon } from './ShareIcon';
 import { FavoriteOutlineIcon } from './FavoriteOutlineIcon';
 import { FavoriteFillIcon } from './FavoriteFillIcon';
+import { CloseIcon } from './CloseIcon';
+import { FileCopyIcon } from './FileCopyIcon';
+import { DeleteOutlineIcon } from './DeleteOutlineIcon';
+import { DeleteIcon } from './DeleteIcon';
+import { UndoIcon } from './UndoIcon';
+import { RedoIcon } from './RedoIcon';
 
 export {
     ArrowDropDownIcon,
@@ -60,4 +66,10 @@ export {
     ShareIcon,
     FavoriteOutlineIcon,
     FavoriteFillIcon,
+    CloseIcon,
+    FileCopyIcon,
+    DeleteOutlineIcon,
+    DeleteIcon,
+    UndoIcon,
+    RedoIcon
 }

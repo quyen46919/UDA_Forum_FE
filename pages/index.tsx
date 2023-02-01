@@ -19,6 +19,28 @@ import SchedulingTags from '@components/Tags/SchedulingTags'
 import PodcastTags from '@components/Tags/PodcastTags'
 import Question from '@components/Question'
 import { data } from 'libs/seed-data'
+import ActionTags from '@components/Tags/ActionTags'
+
+const listActionItems = {
+  title: 'Mau đến gửi bài nào',
+  data: [
+    {
+      icon: <NewIcon />,
+      primary: 'Câu hỏi',
+      href: '/newArticle/1',
+    },
+    {
+      icon: <NewIcon />,
+      primary: 'Bài đăng',
+      href: '/newArticle/2',
+    },
+    {
+      icon: <NewIcon />,
+      primary: 'Sự kiện',
+      href: '/newArticle/3',
+    },
+  ],
+}
 
 const items = {
   data: [
@@ -76,38 +98,6 @@ const popularItems = {
       icon: <BusinessIcon />,
       primary: '#busieness',
       secondary: '82,645 Posted by this tag',
-    },
-  ],
-}
-const pinnedGroupTag = {
-  title: `Pinned Group`,
-  titleIcon: <ArrowRightIcon />,
-  href: '/',
-  data: [
-    {
-      icon: <JSIcon />,
-      primary: '#javascript',
-      secondary: '82,645 Posted by this tag',
-    },
-    {
-      icon: <BitcoinIcon />,
-      primary: '#bitcoin',
-      secondary: '65,523 Posted • Trending',
-    },
-    {
-      icon: <DesignIcon />,
-      primary: '#design',
-      secondary: '51,354 • Trending in Bangladesh',
-    },
-    {
-      icon: <DesignIcon />,
-      primary: '#blogging',
-      secondary: '48,029 Posted by this tag',
-    },
-    {
-      icon: <TutorialIcon />,
-      primary: '#tutorial',
-      secondary: '51,354 • Trending in Bangladesh',
     },
   ],
 }
@@ -206,9 +196,9 @@ const Home: NextPageWithLayout = () => {
         borderRadius="16px"
         gap="20px"
       >
+        <ActionTags items={listActionItems} />
         <Tags items={items} />
         {!downSm && <Tags items={popularItems} />}
-        {!downSm && <Tags items={pinnedGroupTag} />}
       </Stack>
       <Stack flex="1" borderRadius="16px" gap={{ xs: 0, lg: '20px' }} marginBottom={{ lg: '20px' }}>
         <Question data={data} />
