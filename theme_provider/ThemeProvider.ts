@@ -39,16 +39,16 @@ const theme = createTheme({
       main: '#848DF9',
     },
     textGrey: {
-      main: '#9699AA'
+      main: '#9699AA',
     },
     textLightGrey: {
       main: '#C1C1C3',
     },
     iconGrey: {
-      main: '#9A99A0'
+      main: '#9A99A0',
     },
     lightGrey: {
-      main: '#C5CFE5'
+      main: '#C5CFE5',
     },
     darkGrey: {
       main: '#878FAF',
@@ -92,28 +92,25 @@ const theme = createTheme({
     body2: {
       fontWeight: 700,
       fontSize: '16px',
-      lineHeight: '24px'
-    }
+      lineHeight: '24px',
+    },
   },
   components: {
-    MuiTextField: {
+    MuiButton: {
+      variants: [
+        {
+          props: { variant: 'contained', color: 'orange' },
+          style: {
+            backgroundColor: '#FF6934',
+            color: '#ffffff',
+          },
+        },
+      ],
       styleOverrides: {
         root: {
-          '& div': {
-            maxHeight: '40px',
-            padding: '2px 12px 2px 0px'
-          },
-          backgroundColor: '#f4f6f8',
-          borderRadius: '8px',
-          fieldset: {
-            outline: 'none',
-            border: 'none',
-          },
-          input: {
-            padding: '9px 10px 9px 20px'
-          }
-        }
-      }
+          padding: '10px 20px',
+        },
+      },
     },
     MuiSvgIcon: {
       variants: [
@@ -125,9 +122,9 @@ const theme = createTheme({
             borderRadius: '7px',
             '&:hover': {
               backgroundColor: '#FF4401',
-              color: 'white'
-            }
-          }
+              color: 'white',
+            },
+          },
         },
         {
           props: { color: 'darkGrey' },
@@ -138,9 +135,9 @@ const theme = createTheme({
             backgroundColor: '#F4F6F8',
             '&:hover': {
               backgroundColor: '#FF4401',
-              color: 'white'
-            }
-          }
+              color: 'white',
+            },
+          },
         },
       ],
     },
@@ -150,31 +147,53 @@ const theme = createTheme({
           padding: 0,
           borderRadius: '7px',
           '& span.MuiTouchRipple-root *': {
-            borderRadius: '7px'
-          }
-        }
-      }
+            borderRadius: '7px',
+          },
+        },
+      },
     },
     MuiAppBar: {
       styleOverrides: {
         root: {
           '&': {
-            zIndex: 900
+            zIndex: 900,
           },
           '& > div': {
             paddingLeft: '22px',
             paddingRight: '22px',
-          }
-        }
-      }
+          },
+        },
+      },
     },
     MuiDrawer: {
       styleOverrides: {
         paper: {
-          padding: 20
-        }
-      }
-    }
+          padding: 20,
+        },
+      },
+    },
+    MuiToggleButtonGroup: {
+      styleOverrides: {
+        root: {
+          gap: '10px',
+        },
+      },
+    },
+    MuiToggleButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: '5px!important',
+          border: '1px solid #C5CFE5!important',
+          padding: '10px 20px',
+          fontWeight: 600,
+          '&.Mui-selected, &.Mui-selected:hover': {
+            color: '#fff',
+            backgroundColor: '#FF6934',
+            border: '1px solid #FF6934!important',
+          },
+        },
+      },
+    },
   },
 })
 
@@ -219,6 +238,7 @@ declare module '@mui/material/Button' {
   interface ButtonPropsColorOverrides {
     black: true
     white: true
+    orange: true
   }
 }
 

@@ -10,7 +10,6 @@ import {
   useMediaQuery,
   ListItemButton,
 } from '@mui/material'
-import Link from 'next/link'
 import OverflowTooltip from '@components/Tooltip'
 
 declare type ItemProps = {
@@ -22,17 +21,12 @@ declare type ItemProps = {
 }
 
 interface TagsProps {
-  items: { title?: string; titleIcon?: JSX.Element; href?: string | undefined } & {
-    data: ItemProps[]
-  }
+  items: { title?: string } & { data: ItemProps[] }
 }
 
 const Tags = ({ items }: TagsProps) => {
   const theme = useTheme()
   const downSm = useMediaQuery(theme.breakpoints.down('sm'))
-
-  let Href: JSX.Element | Function = Stack
-  if (items.href) Href = Link
 
   return (
     <Stack sx={{ backgroundColor: theme.palette.white.main, borderRadius: '16px', p: '15px' }}>
@@ -57,23 +51,19 @@ const Tags = ({ items }: TagsProps) => {
           direction={downSm ? 'row' : 'column'}
         >
           {items?.title && (
-            <Href href={items?.href !== undefined ? items.href : ''}>
-              <a>
-                <Typography
-                  variant="h1"
-                  pb="6px"
-                  fontWeight={600}
-                  fontSize="16px"
-                  lineHeight="24px"
-                  display="flex"
-                  alignItems="center"
-                  gap="3px"
-                >
-                  {items.title}
-                  {items?.titleIcon}
-                </Typography>
-              </a>
-            </Href>
+            <Typography
+              sx={{ userSelect: 'none' }}
+              variant="h1"
+              pb="6px"
+              fontWeight={600}
+              fontSize="16px"
+              lineHeight="24px"
+              display="flex"
+              alignItems="center"
+              gap="3px"
+            >
+              {items.title}
+            </Typography>
           )}
           {items?.data
             ? items.data.map((item, index) => {
