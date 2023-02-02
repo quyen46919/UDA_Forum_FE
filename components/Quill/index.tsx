@@ -1,9 +1,11 @@
 import { Stack } from '@mui/material'
-import * as React from 'react'
+import React, { useEffect } from 'react'
 import { useMemo, useState } from 'react'
 import 'react-quill/dist/quill.snow.css'
 import dynamic from 'next/dynamic'
 import { RedoIcon } from 'libs/icons'
+import ReactQuill from 'react-quill'
+// const ReactQuill = typeof window === 'object' ? require('react-quill') : () => false
 
 const modules = {
   toolbar: [
@@ -12,7 +14,7 @@ const modules = {
     ['blockquote', 'code-block'],
     [{ header: 1 }, { header: 2 }],
     [{ list: 'ordered' }, { list: 'bullet' }],
-    [{ script: 'sub' }, { script: 'super' }],
+    // [{ script: 'sub' }, { script: 'super' }],
     [{ indent: '-1' }, { indent: '+1' }],
     [{ direction: 'rtl' }],
     ['link', 'image'],
@@ -33,9 +35,6 @@ const modules = {
 const CustomQuill = () => {
   const [value, setValue] = useState('')
   const ReactQuill = useMemo(() => dynamic(() => import('react-quill'), { ssr: false }), [])
-
-  // const icons = Quill.import('ui/icons')
-  // icons['undo'] = <RedoIcon />
 
   return (
     <Stack>

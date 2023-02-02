@@ -27,17 +27,17 @@ const listActionItems = {
     {
       icon: <NewIcon />,
       primary: 'Câu hỏi',
-      href: '/newArticle/1',
+      href: '/create-post',
     },
     {
       icon: <NewIcon />,
       primary: 'Bài đăng',
-      href: '/newArticle/2',
+      href: '/create-post',
     },
     {
       icon: <NewIcon />,
       primary: 'Sự kiện',
-      href: '/newArticle/3',
+      href: '/create-post',
     },
   ],
 }
