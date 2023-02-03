@@ -379,10 +379,10 @@ const CreatePostPage: NextPageWithLayout = () => {
             </Stack>
           </Stack>
           <Stack direction="row" gap="30px" justifyContent="center">
-            <Button variant="contained" color="orange">
+            <Button variant="contained">
               Xem trước
             </Button>
-            <Button variant="contained" color="orange">
+            <Button variant="contained">
               Đăng tải
             </Button>
           </Stack>

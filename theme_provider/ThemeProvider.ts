@@ -10,6 +10,7 @@ const theme = createTheme({
     },
     black: {
       main: '#42444F',
+      dark: '#212121'
     },
     white: {
       main: '#ffffff',
@@ -99,18 +100,170 @@ const theme = createTheme({
     MuiButton: {
       variants: [
         {
-          props: { variant: 'contained', color: 'orange' },
+          props: { variant: 'contained' },
           style: {
-            backgroundColor: '#FF6934',
-            color: '#ffffff',
-          },
+            backgroundColor: '#FF4401',
+            color: '#FFF',
+            '&:hover': {
+              backgroundColor: '#FF6F00',
+            },
+            '&:focus': {
+              backgroundColor: '#E65100'
+            },
+            '&:disabled': {
+              backgroundColor: '#C2CFE0',
+              color: '#FFF'
+            }
+          }
+        },
+        {
+          props: { variant: 'outlined', color: 'primary' },
+          style: {
+            backgroundColor: '#90A0B7',
+            color: '#FFF',
+            '&:hover': {
+              backgroundColor: '#FF6F00',
+            },
+            '&:focus': {
+              backgroundColor: '#E65100'
+            },
+            '&:disabled': {
+              backgroundColor: '#C2CFE0',
+              color: '#FFF'
+            }
+          }
+        },
+        {
+          props: { variant: 'outlined', color: 'secondary' },
+          style: {
+            backgroundColor: '#FF4401',
+            color: '#FFF',
+            '&:hover': {
+              backgroundColor: '#FF6F00',
+            },
+            '&:focus': {
+              backgroundColor: '#E65100'
+            },
+            '&:disabled': {
+              backgroundColor: '#C2CFE0',
+              color: '#FFF'
+            }
+          }
         },
       ],
       styleOverrides: {
         root: {
-          padding: '10px 20px',
+          borderRadius: '4px',
+          padding: '10px 16px',
+          textTransform: 'unset',
+          fontSize: '14px',
+          fontWeight: 400,
+          lineHeight: '20px',
+          height: '44px'
+        }
+      }
+    },
+    MuiCircularProgress: {
+      styleOverrides: {
+        root: {
+          color: '#FF4401'
+        }
+      }
+    },
+    MuiTextField: {
+      variants: [
+        {
+          props: { variant: 'outlined' },
+          style: {
+            root: {
+              '& div': {
+                maxHeight: '40px',
+                padding: '2px 12px 2px 0px'
+              },
+
+              borderRadius: '8px',
+              fieldset: {
+                outline: 'none',
+                border: 'none',
+              },
+              input: {
+                padding: '9px 10px 9px 20px'
+              }
+            }
+          }
         },
-      },
+        {
+          props: { variant: 'standard' },
+          style: {
+            '&': {
+              '&:hover': {
+                '& .MuiInputLabel-root': {
+                  color: '#334D6E',
+                },
+                '& .MuiInputBase-root.MuiInput-root': {
+                  '&:before': {
+                    borderBottom: '1px solid #334D6E'
+                  }
+                }
+              },
+              '& 	.MuiInputLabel-root': {
+                color: '#707683',
+                lineHeight: '16px',
+                fontSize: '14px',
+                fontWeight: 400,
+                '&.Mui-focused': {
+                  color: '#FF4401',
+                },
+                '&.Mui-error': {
+                  color: '#DE5D52'
+                },
+                '&.Mui-disabled': {
+                  color: '#90A0B7'
+                },
+                '&.Mui-required .MuiFormLabel-asterisk': {
+                  color: '#DE5D52'
+                }
+              },
+              '& .MuiInputBase-root.MuiInput-root': {
+                '& input': {
+                  '::placeholder, :-ms-input-placeholder, ::-ms-input-placeholder': {
+                    color: '#90A0B7',
+                  },
+                },
+                color: "#192A3E",
+                caretColor: '#FF4401',
+                '&:before': {
+                  borderBottom: '1px solid #90A0B7'
+                },
+                '&:after': {
+                  borderBottom: '2px solid #FF4401'
+                },
+                '&.Mui-error': {
+                  '&:after': {
+                    borderBottom: '2px solid #DE5D52'
+                  },
+                },
+                '&.Mui-disabled': {
+                  color: '#90A0B7',
+                  '&:before': {
+                    borderBottom: '1px solid #C2CFE0'
+                  },
+                }
+              },
+              '& .MuiFormHelperText-root': {
+                '&.Mui-error': {
+                  color: '#DE5D52'
+                }
+              }
+            }
+          }
+        },
+      ],
+      styleOverrides: {
+        root: {
+          backgroundColor: '#FFF',
+        }
+      }
     },
     MuiSvgIcon: {
       variants: [
@@ -139,6 +292,21 @@ const theme = createTheme({
             },
           },
         },
+        {
+          props: { fill: 'primary' },
+          style: {
+            fill: '#FF4401',
+            '&:hover': {
+              fill: '#FF6F00',
+            },
+            '&:focus': {
+              fill: '#E65100'
+            },
+            '&:disabled': {
+              fill: '#C2CFE0',
+            }
+          }
+        },
       ],
     },
     MuiIconButton: {
@@ -151,6 +319,27 @@ const theme = createTheme({
           },
         },
       },
+    },
+    MuiFab: {
+      styleOverrides: {
+        root: {
+          textTransform: 'unset',
+          backgroundColor: '#FFF',
+          '&:hover': {
+            backgroundColor: '#FF6F00',
+            color: '#FFF',
+            '& svg': {
+              fill: '#FFF'
+            }
+          },
+          '&:focus': {
+            backgroundColor: '#E65100'
+          },
+          '&:disabled': {
+            backgroundColor: '#C2CFE0',
+          }
+        }
+      }
     },
     MuiAppBar: {
       styleOverrides: {

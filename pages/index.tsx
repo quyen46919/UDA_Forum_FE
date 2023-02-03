@@ -13,7 +13,6 @@ import {
   BusinessIcon,
   InnovationIcon,
   TutorialIcon,
-  ArrowRightIcon,
 } from 'libs/icons'
 import SchedulingTags from '@components/Tags/SchedulingTags'
 import PodcastTags from '@components/Tags/PodcastTags'

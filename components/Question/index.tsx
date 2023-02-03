@@ -91,25 +91,18 @@ const Question = ({ data }: DataProps) => {
             </Stack>
             <Button
               variant="outlined"
+              color={post.following ? 'primary' : 'secondary'}
               sx={{
-                textTransform: 'initial',
                 borderRadius: '25px',
-                color: post.following ? '#000000a6' : '#657ef8',
                 height: '32px',
                 fontSize: '12px',
                 fontWeight: 600,
                 lineHeight: '24px',
-                backgroundColor: post.following ? '#f6f9fb' : '#e1e7ff',
-                '&:hover': {
-                  background: post.following ? '#8592a3' : '#657ef8',
-                  color: theme.palette.white.main,
-                },
               }}
             >
               {post.following ? 'Đang theo dõi' : 'Theo dõi'}
             </Button>
           </Stack>
-
           <Stack direction="row" marginTop="8px">
             <Typography
               variant="h1"
