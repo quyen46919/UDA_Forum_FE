@@ -21,6 +21,7 @@
       "@components/*": ["./components/*"],
       "@styles/*": ["./styles/*"],
       "@enums/*": ["./libs/enums/*"],
+      "@images/*": ["./libs/images/*"],
       "@themeProvider/*": ["./theme_provider/*"],
     }
   },
