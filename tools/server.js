@@ -6,7 +6,7 @@ const dev = process.env.NODE_ENV !== 'production'
 const withTM = require('next-transpile-modules')([])
 
 const config = withTM({
-  reactStrictMode: true,
+  reactStrictMode: false,
   ...(dev && {
     experimental: {
       externalDir: true,

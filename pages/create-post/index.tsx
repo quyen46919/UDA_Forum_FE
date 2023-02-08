@@ -1,5 +1,4 @@
 import CreatePostStepper from '@components/CreatePostStepper'
-import CustomQuill from '@components/Quill'
 import { NextPageWithLayout } from '@layout/layout'
 import { MainLayout } from '@layout/main'
 import {
@@ -11,16 +10,15 @@ import {
   ListItem,
   Stack,
   TextField,
-  ToggleButton,
-  ToggleButtonGroup,
   Typography,
   useMediaQuery,
   useTheme,
 } from '@mui/material'
 import Snackbar from '@mui/material/Snackbar'
-import { ArrowRightIcon, CloseIcon, DeleteIcon, FileCopyIcon } from 'libs/icons'
+import { ArrowBackIcon, CloseIcon, DeleteIcon, FileCopyIcon } from 'libs/icons'
 import React, { Fragment, useState } from 'react'
 import { useRouter } from 'next/router'
+import TextEditor from '@components/TextEditor'
 
 interface TagsData {
   id: number
@@ -66,7 +64,6 @@ const CreatePostPage: NextPageWithLayout = () => {
     if (reason === 'clickaway') {
       return
     }
-
     setOpen(false)
   }
 
@@ -92,21 +89,34 @@ const CreatePostPage: NextPageWithLayout = () => {
   return (
     <Stack
       sx={{ backgroundColor: theme.palette.white.main }}
-      direction="row"
+      direction={{ xs: 'column', sm: 'column', lg: 'row' }}
       width="100%"
       maxWidth="1200px"
       minHeight="calc(100vh - 70px)"
-      justifyContent="center"
-      padding="30px 50px"
+      justifyContent={{ sm: 'space-evenly', lg: 'center' }}
+      padding={{ xs: '20px', lg: '30px 50px' }}
       margin="0 auto"
+      mb={{ xs: '68px', sm: 0, lg: 0 }}
       gap="10px"
     >
-      <Stack minWidth="300px" maxWidth="300px" sx={{ backgroundColor: 'red', cursor: 'pointer' }}>
-        <Stack direction="row" alignItems="center" gap="5px" p="6px 0">
+      <Stack
+        minWidth={{ xs: '100%', lg: '300px' }}
+        maxWidth={{ lg: '300px' }}
+        sx={upLg ? { position: 'sticky', top: '100px', alignSelf: 'flex-start' } : undefined}
+      >
+        <Stack
+          direction="row"
+          alignItems="center"
+          gap="5px"
+          p="6px 0"
+          width="fit-content"
+          sx={{ cursor: 'pointer' }}
+          onClick={() => router.push('/')}
+        >
+          <ArrowBackIcon />
           <Typography variant="h2" onClick={() => router.push('/')}>
             Trở về trang chủ
           </Typography>
-          <ArrowRightIcon />
         </Stack>
         <CreatePostStepper />
       </Stack>
@@ -124,81 +134,30 @@ const CreatePostPage: NextPageWithLayout = () => {
         >
           <Typography variant="h1">TẠO CÂU HỎI</Typography>
           <Stack width="auto" padding="12px 0 40px" gap="24px">
-            <Stack marginTop="24px">
-              <Typography variant="h3" lineHeight="20px" marginBottom="8px">
-                Trạng thái
-              </Typography>
-              <ToggleButtonGroup
-                value={alignment}
-                exclusive
-                onChange={handleAlignment}
-                aria-label="text alignment"
-              >
-                <ToggleButton value="left" aria-label="left aligned">
-                  Tạo và công khai
-                </ToggleButton>
-                <ToggleButton value="center" aria-label="centered">
-                  Tạo và lưu nháp
-                </ToggleButton>
-              </ToggleButtonGroup>
-            </Stack>
-            <Stack marginTop="24px">
+            <Stack>
               <Typography variant="h3" lineHeight="20px" marginBottom="8px">
                 Tiêu Đề
               </Typography>
-              <Stack
-                border="1px solid silver"
-                borderRadius="8px"
-                position="relative"
-                width="100%"
-                direction="row"
-                height="60px"
-                alignItems="center"
-                sx={{
-                  '&:has(input:focus)': {
-                    border: `1px solid ${theme.palette.orange.main}`,
-                  },
+              <TextField
+                variant="outlined"
+                spellCheck="false"
+                placeholder="Vui lòng nhập tiêu đề (bắt buộc)"
+                inputProps={{ maxLength: 200 }}
+                required
+                onChange={handleChange}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">{lengthTitle.length} / 200</InputAdornment>
+                  ),
                 }}
-              >
-                <TextField
-                  sx={{
-                    backgroundColor: 'transparent',
-                    flex: 1,
-                    '& fieldset': {
-                      border: 'none',
-                      outline: 'none',
-                    },
-                    '& input': {
-                      height: '60px',
-                      p: '0 16px',
-                      pl: '24px',
-                      flex: 1,
-                      fontSize: '16px',
-                    },
-                  }}
-                  spellCheck="false"
-                  placeholder="Vui lòng nhập tiêu đề (bắt buộc)"
-                  inputProps={{ maxLength: 200 }}
-                  required
-                  onChange={handleChange}
-                />
-                <Stack
-                  component="span"
-                  marginRight="24px"
-                  color="#00000073"
-                  fontSize="14px"
-                  lineHeight="60px"
-                >
-                  {lengthTitle.length} / 200
-                </Stack>
-              </Stack>
+              />
             </Stack>
             <Stack minHeight="210px">
               <Typography variant="h3" lineHeight="20px" marginBottom="8px">
                 Nội Dung
               </Typography>
               <Stack>
-                <CustomQuill />
+                <TextEditor />
               </Stack>
             </Stack>
             <Stack>
@@ -221,17 +180,19 @@ const CreatePostPage: NextPageWithLayout = () => {
                       <Stack
                         component="ul"
                         margin={0}
-                        paddingLeft={0}
-                        width="inherit"
+                        paddingLeft={{ xs: '5px', sm: 0, lg: 0 }}
+                        paddingTop={{ xs: '5px', sm: 0, lg: 0 }}
+                        width={{ xs: '100%', sm: 'inherit', lg: 'inherit' }}
                         direction="row"
                         justifyContent="flex-start"
+                        flexWrap="wrap"
                         sx={{ listStyleType: 'none' }}
                       >
                         {questionsTag.map((option, index) => (
                           <ListItem
                             key={index}
                             sx={{
-                              padding: 0,
+                              p: 0,
                               margin: '4px 5px',
                               width: 'unset',
                               '& div': {
@@ -253,8 +214,9 @@ const CreatePostPage: NextPageWithLayout = () => {
                   renderInput={(params) => (
                     <TextField
                       {...params}
+                      variant="outlined"
                       placeholder="Tối đa thêm 3 chủ đề"
-                      sx={{ height: '40px' }}
+                      sx={{ height: { xs: 'fit-content', lg: '40px' } }}
                     />
                   )}
                   renderGroup={(params) => {
@@ -266,6 +228,7 @@ const CreatePostPage: NextPageWithLayout = () => {
                         sx={{
                           '&': { maxHeight: '260px' },
                           '& ul': {
+                            maxWidth: '200px',
                             p: 0,
                             '& li': {
                               height: '48px',
@@ -287,27 +250,17 @@ const CreatePostPage: NextPageWithLayout = () => {
                         borderRadius: '10px',
                         boxShadow: '0px 12px 24px rgba(47, 63, 86, 0.2)',
                         width: upLg ? '504px' : '384px',
+                        maxWidth: '200px',
                       },
                     },
                   }}
                   sx={{
-                    '& .MuiOutlinedInput-root': {
-                      borderRadius: '0',
-                      padding: '0',
-                    },
-                    '& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
-                      border: '1px solid #f1f4f9 !important',
+                    '&': {
+                      minHeight: 'fit-content',
                     },
                     '& .MuiInputBase-root': {
-                      height: '40px',
-                      borderRadius: '8px',
                       width: 'unset',
-                      display: 'flex',
                       p: 0,
-                      '& .MuiInputBase-inputAdornedEnd': {
-                        p: 0,
-                        pl: '16px',
-                      },
                     },
                     '& .MuiAutocomplete-popupIndicator': { display: 'none' },
                   }}
@@ -363,13 +316,7 @@ const CreatePostPage: NextPageWithLayout = () => {
                       outline: 'none',
                     },
                     '& input': {
-                      height: '40px',
-                      maxHeight: '40px',
-                      p: '0 16px',
-                      lineHeight: '40px',
                       wordBreak: 'break-all',
-                      fontSize: '14px',
-                      fontWeight: 400,
                       overflow: 'hidden',
                       textOverflow: 'ellipsis',
                     },
@@ -379,11 +326,11 @@ const CreatePostPage: NextPageWithLayout = () => {
             </Stack>
           </Stack>
           <Stack direction="row" gap="30px" justifyContent="center">
-            <Button variant="contained">
-              Xem trước
-            </Button>
-            <Button variant="contained">
-              Đăng tải
+            <Button
+              variant="contained"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            >
+              Xem lại bài đăng của bạn
             </Button>
           </Stack>
         </Stack>

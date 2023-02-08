@@ -1,12 +1,13 @@
 import React from 'react'
-import { Box, Stack, Typography, useTheme } from '@mui/material'
+import { Stack, Typography, useTheme } from '@mui/material'
+import { CheckIcon } from 'libs/icons'
 
 const steps = [
   {
     id: 1,
     count: 1,
     title: 'Trạng thái',
-    status: 1,
+    status: 0,
   },
   {
     id: 2,
@@ -31,23 +32,37 @@ const steps = [
 function CreatePostStepper() {
   const theme = useTheme()
   return (
-    <Stack width="100%" mt="40px" gap="20px">
+    <Stack
+      width="100%"
+      mt="20px"
+      gap="20px"
+      direction={{ xs: 'row', sm: 'row', lg: 'column' }}
+      justifyContent={{ xs: 'space-around', lg: 'unset' }}
+    >
       {steps.map((step) => (
-        <Stack direction="row" alignItems="center" gap="20px" key={step.id}>
-          <Box
+        <Stack
+          direction={{ xs: 'column', sm: 'row', lg: 'row' }}
+          alignItems="center"
+          gap="20px"
+          key={step.id}
+        >
+          <Stack
             width="40px"
             height="40px"
             sx={{
               backgroundColor: step.status === 0 ? '#ff693417' : theme.palette.orange.main,
               color: step.status === 0 ? theme.palette.orange.main : '#ffffff',
             }}
-            display="flex"
             justifyContent="center"
             alignItems="center"
             borderRadius="5px"
           >
-            <Typography variant="h3">{step.status === 1 ? 'V' : step.count}</Typography>
-          </Box>
+            {step.status === 1 ? (
+              <Typography variant="h3">{step.count}</Typography>
+            ) : (
+              <CheckIcon fill="white" />
+            )}
+          </Stack>
           <Typography variant="body1" fontWeight={600}>
             {step.title}
           </Typography>

@@ -34,7 +34,9 @@ import { DeleteOutlineIcon } from './DeleteOutlineIcon'
 import { DeleteIcon } from './DeleteIcon'
 import { UndoIcon } from './UndoIcon'
 import { RedoIcon } from './RedoIcon'
-import { CameraIcon } from './CameraIcon';
+import { CameraIcon } from './CameraIcon'
+import { CheckIcon } from './CheckIcon'
+import { ArrowBackIcon } from './ArrowBackIcon'
 
 export {
   ArrowDropDownIcon,
@@ -73,5 +75,7 @@ export {
   DeleteIcon,
   UndoIcon,
   RedoIcon,
-  CameraIcon
+  CameraIcon,
+  CheckIcon,
+  ArrowBackIcon
 }
