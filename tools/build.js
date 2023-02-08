@@ -3,7 +3,7 @@ const path = require('path');
 const withTM = require('next-transpile-modules')([]);
 const config = withTM({
   cleanDistDir: false,
-  reactStrictMode: true,
+  reactStrictMode: false,
   experimental: {
     externalDir: true,
   },

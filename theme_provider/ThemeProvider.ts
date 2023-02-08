@@ -102,10 +102,12 @@ const theme = createTheme({
         {
           props: { variant: 'contained' },
           style: {
-            backgroundColor: '#FF4401',
+            backgroundColor: '#FF6934',
             color: '#FFF',
+            boxShadow: '1px 3px 17px -4px rgba(255,105,52,0.44)',
             '&:hover': {
-              backgroundColor: '#FF6F00',
+              backgroundColor: '#ff8a65',
+              boxShadow: '1px 3px 17px -2px rgba(255,105,52,0.44)'
             },
             '&:focus': {
               backgroundColor: '#E65100'
@@ -153,8 +155,8 @@ const theme = createTheme({
       ],
       styleOverrides: {
         root: {
-          borderRadius: '4px',
-          padding: '10px 16px',
+          borderRadius: '5px',
+          padding: '10px 20px',
           textTransform: 'unset',
           fontSize: '14px',
           fontWeight: 400,
@@ -175,19 +177,47 @@ const theme = createTheme({
         {
           props: { variant: 'outlined' },
           style: {
-            root: {
-              '& div': {
-                maxHeight: '40px',
-                padding: '2px 12px 2px 0px'
+            '&': {
+              '.MuiInputBase-root.MuiOutlinedInput-root': {
+                '& input': {
+                  color: '#192A3E',
+                  caretColor: '#FF4401',
+                  padding: '12px 16px',
+                  '::placeholder, :-ms-input-placeholder, ::-ms-input-placeholder': {
+                    color: '#90A0B7',
+                  },
+                },
+                '& fieldset': {
+                  borderColor: '#90A0B7'
+                },
+                '&:hover': {
+                  '& fieldset': {
+                    borderColor: '#334D6E'
+                  },
+                },
+                '&.Mui-focused': {
+                  '& fieldset': {
+                    borderColor: '#FF4401'
+                  }
+                },
+                '&.Mui-error': {
+                  '& fieldset': {
+                    borderColor: '#DE5D52'
+                  }
+                },
+                '&.Mui-disabled': {
+                  backgroundColor: '#F5F7FA',
+                  '& fieldset': {
+                    borderColor: '#C2CFE0'
+                  },
+                }
               },
-
-              borderRadius: '8px',
-              fieldset: {
-                outline: 'none',
-                border: 'none',
-              },
-              input: {
-                padding: '9px 10px 9px 20px'
+              '& .MuiFormHelperText-root': {
+                margin: 0,
+                marginTop: '4px',
+                '&.Mui-error': {
+                  color: '#DE5D52'
+                }
               }
             }
           }
