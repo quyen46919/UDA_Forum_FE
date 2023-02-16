@@ -1,7 +1,8 @@
 import React from 'react'
-import { SvgIcon, SvgIconProps } from '@mui/material'
+import { SvgIcon, SvgIconProps, useTheme } from '@mui/material'
 
 export const FavoriteOutlineIcon = (props: SvgIconProps) => {
+  const theme = useTheme()
   return (
     <SvgIcon
       {...props}
@@ -13,8 +14,7 @@ export const FavoriteOutlineIcon = (props: SvgIconProps) => {
     >
       <path
         d="M19.66 3.98992C17.02 2.18992 13.76 3.02992 12 5.08992C10.24 3.02992 6.97997 2.17992 4.33997 3.98992C2.93997 4.94992 2.05997 6.56992 1.99997 8.27992C1.85997 12.1599 5.29997 15.2699 10.55 20.0399L10.65 20.1299C11.41 20.8199 12.58 20.8199 13.34 20.1199L13.45 20.0199C18.7 15.2599 22.13 12.1499 22 8.26992C21.94 6.56992 21.06 4.94992 19.66 3.98992ZM12.1 18.5499L12 18.6499L11.9 18.5499C7.13997 14.2399 3.99997 11.3899 3.99997 8.49992C3.99997 6.49992 5.49997 4.99992 7.49997 4.99992C9.03997 4.99992 10.54 5.98992 11.07 7.35992H12.94C13.46 5.98992 14.96 4.99992 16.5 4.99992C18.5 4.99992 20 6.49992 20 8.49992C20 11.3899 16.86 14.2399 12.1 18.5499Z"
-        fill="black"
-        fillOpacity="0.54"
+        fill={theme.palette.orange.main}
       />
     </SvgIcon>
   )

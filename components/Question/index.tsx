@@ -165,6 +165,7 @@ const Question = ({ data }: DataProps) => {
                     width: '16px',
                     height: '16px',
                   },
+                  '&:hover svg path': { fill: theme.palette.white.main },
                 },
               }}
             >

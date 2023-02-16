@@ -10,7 +10,6 @@ export const ArrowRightIcon = (props: SvgIconProps) => {
       sx={{
         width: '20px',
         height: '20px',
-        fill: 'none',
       }}
       viewBox="0 0 20 20"
     >

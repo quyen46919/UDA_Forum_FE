@@ -1,5 +1,11 @@
-export enum ACTIVATION_STATUS {
+export enum ACTIVATE_STATUS {
   ONLINE = 0,
   OFFLINE = 1,
   DO_NOT_DISTURB = 2,
+}
+
+export enum TAGS {
+  NEW = 0,
+  BESTSELLER = 1,
+  SPECIAL_OFFER = 2,
 }

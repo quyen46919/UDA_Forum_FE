@@ -14,7 +14,16 @@ import {
 } from '@mui/material'
 import ChevronRightIcon from '@mui/icons-material/ChevronRight'
 import { PAPER_STYLES, POPOVER_STYLES } from './styles'
-import { ArrowDropDownIcon, HomeIcon } from 'libs/icons'
+import {
+  ArrowDropDownIcon,
+  BlockIcon,
+  ExitIcon,
+  HomeRoundedIcon,
+  InfoIcon,
+  LanguageIcon,
+  SettingIcon,
+  VerifyIcon,
+} from 'libs/icons'
 
 const MenuCustom = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
@@ -66,7 +75,7 @@ const MenuCustom = () => {
           gap="16px"
           sx={{ cursor: 'pointer' }}
         >
-          <IconButton>
+          <IconButton sx={{ '&:hover': { backgroundColor: 'transparent' } }}>
             <Avatar
               sx={{
                 padding: '3px',
@@ -120,28 +129,28 @@ const MenuCustom = () => {
           <Typography variant="body1">Thông tin của tôi</Typography>
           <MenuItem onClick={() => handleLinkToUrlClick()}>
             <ListItemIcon>
-              <HomeIcon />
+              <HomeRoundedIcon />
             </ListItemIcon>
             <ListItemText>Trang Chủ Cá Nhân</ListItemText>
             <ChevronRightIcon />
           </MenuItem>
           <MenuItem onClick={() => handleLinkToUrlClick()}>
             <ListItemIcon>
-              <HomeIcon />
+              <InfoIcon />
             </ListItemIcon>
             <ListItemText>Quản Lý Thông Tin</ListItemText>
             <ChevronRightIcon />
           </MenuItem>
           <MenuItem onClick={() => handleLinkToUrlClick()}>
             <ListItemIcon>
-              <HomeIcon />
+              <VerifyIcon />
             </ListItemIcon>
             <ListItemText>Thiết lập quyền riêng tư</ListItemText>
             <ChevronRightIcon />
           </MenuItem>
           <MenuItem onClick={() => handleLinkToUrlClick()}>
             <ListItemIcon>
-              <HomeIcon />
+              <BlockIcon />
             </ListItemIcon>
             <ListItemText>Quản Lý Danh Sách Chặn</ListItemText>
             <ChevronRightIcon />
@@ -153,7 +162,7 @@ const MenuCustom = () => {
           <Typography>Thiết Lập Hệ Thống</Typography>
           <MenuItem aria-describedby={idPopup} onClick={handlePopUpClick}>
             <ListItemIcon>
-              <HomeIcon />
+              <LanguageIcon />
             </ListItemIcon>
             <ListItemText>Đổi Ngôn Ngữ</ListItemText>
             <ListItemText sx={{ display: { xs: 'none', lg: 'block' }, textAlign: 'right' }}>
@@ -164,7 +173,7 @@ const MenuCustom = () => {
 
           <MenuItem aria-describedby={idPopup2} onClick={handlePopUpClick2}>
             <ListItemIcon>
-              <HomeIcon />
+              <SettingIcon />
             </ListItemIcon>
             <ListItemText>Cài Đặt Hiển Thị</ListItemText>
             <ListItemText sx={{ display: { xs: 'none', lg: 'block' }, textAlign: 'right' }}>
@@ -229,7 +238,7 @@ const MenuCustom = () => {
         <Stack padding="10px" gap="4px">
           <MenuItem onClick={() => handleLinkToUrlClick()}>
             <ListItemIcon>
-              <HomeIcon />
+              <ExitIcon />
             </ListItemIcon>
             <ListItemText>Đăng Xuất</ListItemText>
           </MenuItem>
