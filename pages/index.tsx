@@ -51,7 +51,9 @@ import {
   SlideHome7,
   Writing,
 } from '@images/index'
+import { formatPriceToVND } from 'libs/utils'
 interface ArrowProps {
+  type: string
   'data-role'?: string
   className?: string
   style?: object
@@ -89,26 +91,32 @@ const recommendCourses = [
   {
     title: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
     src: SlideHome6,
+    options: [1],
   },
   {
     title: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
     src: SlideHome7,
+    options: [1],
   },
   {
     title: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
     src: SlideHome1,
+    options: [1],
   },
   {
     title: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
     src: SlideHome2,
+    options: [1],
   },
   {
     title: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
     src: SlideHome5,
+    options: [1],
   },
   {
     title: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
     src: SlideHome4,
+    options: [1],
   },
 ]
 
@@ -157,6 +165,16 @@ const skills = [
     img: Communication,
   },
   {
+    title: 'Thuyết trình trước đám đông',
+    reviews: 520,
+    stars: 4.8,
+    price: 12000,
+    videos: 12,
+    time: 24,
+    liked: false,
+    img: Presentation,
+  },
+  {
     title: 'Viết về du lịch: Khám phá Thế giới & Xuất bản Câu chuyện của Bạn!',
     reviews: 210,
     stars: 4,
@@ -185,6 +203,16 @@ const skills = [
     time: 24,
     liked: false,
     img: Presentation,
+  },
+  {
+    title: 'Ra mắt ngữ pháp tiếng Anh: Nâng cấp kỹ năng nghe và nói của bạn',
+    reviews: 780,
+    stars: 5,
+    price: 210000,
+    videos: 52,
+    time: 120,
+    liked: true,
+    img: Grammar,
   },
 ]
 const tabsData = [
@@ -381,21 +409,65 @@ const reviews = [
 
 function NextArrow(props: ArrowProps) {
   const { onClick, sx } = props
-
   return (
-    <IconButton onClick={onClick} sx={sx}>
-      <ArrowForwardIOSIcon />
-    </IconButton>
+    <>
+      {onClick !== null && (
+        <IconButton onClick={onClick} sx={sx}>
+          <ArrowForwardIOSIcon />
+        </IconButton>
+      )}
+    </>
   )
 }
-function PrevArrow(props: ArrowProps) {
-  const { onClick, sx } = props
+function ArrowSlider(props: ArrowProps) {
+  const { type, onClick, sx } = props
+  const theme = useTheme()
 
-  return (
-    <IconButton onClick={onClick} sx={sx}>
-      <ArrowBackIOSIcon />
-    </IconButton>
-  )
+  if (type === 'prev') {
+    return (
+      <>
+        {onClick !== null && (
+          <IconButton
+            onClick={onClick}
+            sx={{
+              background: theme.palette.primary.main,
+              p: '10px',
+              position: 'absolute',
+              zIndex: 100,
+              '&:hover svg path': {
+                fill: theme.palette.white.main,
+              },
+              ...sx,
+            }}
+          >
+            <ArrowBackIOSIcon />
+          </IconButton>
+        )}
+      </>
+    )
+  } else {
+    return (
+      <>
+        {onClick !== null && (
+          <IconButton
+            onClick={onClick}
+            sx={{
+              background: theme.palette.primary.main,
+              p: '10px',
+              position: 'absolute',
+              zIndex: 100,
+              '&:hover svg path': {
+                fill: theme.palette.white.main,
+              },
+              ...sx,
+            }}
+          >
+            <ArrowForwardIOSIcon />
+          </IconButton>
+        )}
+      </>
+    )
+  }
 }
 
 function TabPanel(props: TabPanelProps) {
@@ -415,7 +487,7 @@ function TabPanel(props: TabPanelProps) {
 }
 
 const Home: NextPageWithLayout = () => {
-  const [limitElement, setLimitElement] = useState<number>(5)
+  const [limitElement, setLimitElement] = useState<number>(6)
   const [tabs, setTabs] = useState(0)
 
   const theme = useTheme()
@@ -428,7 +500,7 @@ const Home: NextPageWithLayout = () => {
     if (reviews.length > limitElement) {
       setLimitElement(limitElement + limitElement)
     } else {
-      setLimitElement(5)
+      setLimitElement(6)
     }
   }
 
@@ -452,10 +524,6 @@ const Home: NextPageWithLayout = () => {
     <Stack
       sx={{
         backgroundColor: theme.palette.white.main,
-        '& > .slick-slider': {
-          width: '100%',
-          height: 'fit-content !important',
-        },
       }}
       direction={{ xs: 'column', lg: 'column' }}
       minHeight="calc(100vh - 70px)"
@@ -520,14 +588,13 @@ const Home: NextPageWithLayout = () => {
             display="flex !important"
             sx={{
               p: '0 50px',
-              height: upXl ? '700px' : '450px',
-              width: '100%',
+              height: upXl ? '540px' : '340px',
               userSelect: 'none',
             }}
           >
-            <Stack p="50px 0" justifyContent="flex-end" width="60%">
+            <Stack p="50px 0" justifyContent="center" width="60%">
               <Stack width="80%">
-                <Typography variant="h1" fontWeight={500} fontSize="85px" lineHeight={1.4}>
+                <Typography variant="h1" fontWeight={500} fontSize="60px" lineHeight={1.4}>
                   {slide.title}
                 </Typography>
               </Stack>
@@ -535,16 +602,14 @@ const Home: NextPageWithLayout = () => {
             <Stack
               position="relative"
               width="40%"
-              sx={{
-                '& img': { position: 'relative !important', height: '100%' },
-              }}
+              sx={{ '& > span': { height: '100% !important' } }}
             >
-              <Image src={slide.src} layout="fill" objectFit="cover" alt="slideshow" />
+              <Image src={slide.src} objectFit="cover" alt="slideshow" />
             </Stack>
           </Stack>
         ))}
       </Slider>
-      <Stack direction="row" p="50px" height="400px">
+      <Stack direction="row" p="50px">
         <Stack minWidth="500px" justifyContent="center">
           <Typography variant="h2" fontSize="32px" fontWeight={500}>
             Khóa học gợi ý cho bạn
@@ -564,41 +629,41 @@ const Home: NextPageWithLayout = () => {
             maxWidth: 'calc(100% - 500px)',
             '& > .slick-slider': {
               width: '100%',
-              height: 'fit-content !important',
-            },
-            '& button:first-of-type': {
-              display: 'none !important',
+              p: '0 25px',
             },
             '& .slick-list': {
               '& .slick-track': {
                 display: 'flex',
                 flexDirection: 'row',
                 '.slick-slide': {
-                  width: '30% !important',
+                  m: '0 5px',
                 },
               },
             },
           }}
         >
           <Slider
-            infinite={true}
+            infinite={false}
             initialSlide={0}
             speed={500}
-            slidesToShow={3}
-            slidesToScroll={3}
+            slidesToShow={4}
+            slidesToScroll={4}
             lazyLoad="progressive"
-            autoplaySpeed={4000}
-            pauseOnHover={true}
-            nextArrow={
-              <NextArrow
+            prevArrow={
+              <ArrowSlider
+                type="prev"
                 sx={{
-                  background: theme.palette.primary.main,
-                  p: '10px',
-                  position: 'absolute',
-                  top: '50%',
-                  right: '-20px',
-                  transform: 'translate(-50%, -50%)',
-                  zIndex: 100,
+                  top: '56px',
+                  left: 0,
+                }}
+              />
+            }
+            nextArrow={
+              <ArrowSlider
+                type="next"
+                sx={{
+                  top: '56px',
+                  right: 0,
                 }}
               />
             }
@@ -608,31 +673,50 @@ const Home: NextPageWithLayout = () => {
                 key={index}
                 position="relative"
                 display="flex !important"
-                gap="10px"
+                gap="8px"
                 sx={{
                   alignItems: 'center',
                   cursor: 'pointer',
-                  '& img': {
-                    borderRadius: '5px',
-                  },
-                  '& > span, & p': {
-                    width: '95% !important',
+                  '&:hover > div:has(img)': {
+                    '& > div': {
+                      height: '160px',
+                      width: '100%',
+                      position: 'absolute',
+                      borderRadius: '5px',
+                      top: 0,
+                      left: 0,
+                      backgroundColor: 'rgba(0, 0, 0, 0.2)',
+                      transition: '.2s',
+                    },
                   },
                 }}
               >
-                <Image src={course.src} objectFit="cover" alt="slideshow" />
+                <Stack
+                  height="160px"
+                  sx={{
+                    '& > span': {
+                      height: '100% !important',
+                    },
+                    '& img': {
+                      borderRadius: '5px',
+                    },
+                  }}
+                >
+                  <Image src={course.src} objectFit="cover" alt="slideshow" />
+                  <Stack />
+                </Stack>
                 <Typography>{course.title}</Typography>
-                <Stack width="95%">
+                <Stack width="100%">
                   <Chip
                     sx={{
                       width: 'fit-content',
                       height: 'fit-content',
                       padding: '6px 0',
                       borderRadius: '5px',
-                      backgroundColor: '#6cffa7',
+                      backgroundColor: handleRenderTagsColor(course.options[0]),
                       fontWeight: 600,
                     }}
-                    label="Khoá học tốt nhất"
+                    label={handleRenderTagsLabel(course.options[0])}
                   />
                 </Stack>
               </Stack>
@@ -681,7 +765,7 @@ const Home: NextPageWithLayout = () => {
           ))}
         </Stack>
       </Stack>
-      <Stack p="50px" maxHeight="950px">
+      <Stack p="50px">
         <Typography variant="h2" fontSize="40px" fontWeight={400} mb="50px">
           Khám phá những khoá học hàng đầu
         </Typography>
@@ -694,13 +778,12 @@ const Home: NextPageWithLayout = () => {
           <Stack
             sx={{
               '& .slick-slider': {
-                height: '640px',
+                p: '25px',
                 '& .slick-list': {
                   '& .slick-track': {
                     display: 'flex',
-                    justifyContent: 'space-between',
-                    '& > div': {
-                      mr: '16px',
+                    '& > div.slick-slide': {
+                      m: '0 6px',
                     },
                   },
                 },
@@ -708,40 +791,30 @@ const Home: NextPageWithLayout = () => {
             }}
           >
             <Slider
-              dots={true}
-              infinite={true}
+              infinite={false}
               initialSlide={0}
               speed={500}
-              slidesToShow={4}
-              slidesToScroll={4}
+              slidesToShow={5}
+              slidesToScroll={5}
               lazyLoad="progressive"
-              autoplaySpeed={4000}
-              pauseOnHover={true}
               prevArrow={
-                <PrevArrow
+                <ArrowSlider
+                  type="prev"
                   sx={{
-                    background: theme.palette.primary.main,
-                    p: '10px',
-                    position: 'absolute',
-                    bottom: upXl ? '20px' : '5px',
-                    right: '70px',
-                    transform: 'translate(-50%, -50%)',
-                    zIndex: 100,
-                    '&:hover svg path': {
-                      fill: theme.palette.white.main,
-                    },
+                    top: '82px',
+                    left: 0,
                   }}
                 />
               }
               nextArrow={
-                <NextArrow
+                <ArrowSlider
+                  type="next"
                   sx={{
                     background: theme.palette.primary.main,
                     p: '10px',
                     position: 'absolute',
-                    bottom: upXl ? '20px' : '5px',
-                    right: '20px',
-                    transform: 'translate(-50%, -50%)',
+                    top: '82px',
+                    right: 0,
                     zIndex: 100,
                     '&:hover svg path': {
                       fill: theme.palette.white.main,
@@ -749,65 +822,46 @@ const Home: NextPageWithLayout = () => {
                   }}
                 />
               }
-              appendDots={(dots) => {
-                return (
-                  <Stack
-                    maxWidth="200px"
-                    left={0}
-                    bottom="48px !important"
-                    component="ul"
-                    sx={{
-                      '&.slick-dots': {
-                        p: 0,
-                        display: 'flex',
-                        flexDirection: 'row',
-                        '& > li': {
-                          display: 'flex',
-                          gap: '25px',
-                          width: 'unset',
-                          alignItems: 'center',
-                          '& button::before': {
-                            content: 'none',
-                          },
-                          '&.slick-active button': {
-                            background: theme.palette.darkOrange.main,
-                            borderRadius: '35px',
-                            width: '40px',
-                            height: '10px',
-                          },
-                          '& button': {
-                            background: '#ff8a65',
-                            borderRadius: '50%',
-                            width: '10px',
-                            height: '10px',
-                          },
-                        },
-                      },
-                    }}
-                  >
-                    {dots}
-                  </Stack>
-                )
-              }}
             >
               {tabsData.map((tab, index) => (
-                <Stack key={index} display="flex !important" gap="15px">
+                <Stack
+                  key={index}
+                  display="flex !important"
+                  gap="8px"
+                  position="relative"
+                  sx={{
+                    cursor: 'pointer',
+                    '&:hover > div:has(img)': {
+                      '& > div': {
+                        height: '160px',
+                        width: '100%',
+                        position: 'absolute',
+                        borderRadius: '5px',
+                        top: 0,
+                        left: 0,
+                        backgroundColor: 'rgba(0, 0, 0, 0.2)',
+                        transition: '.2s',
+                      },
+                    },
+                  }}
+                >
                   <Stack
-                    height="280px"
+                    height="160px"
                     sx={{
                       '& > span': { height: '100% !important' },
                       '& img': { borderRadius: '5px', cursor: 'pointer' },
                     }}
                   >
                     <Image src={tab.img} objectFit="cover" alt="tabs" />
+                    <Stack />
                   </Stack>
-                  <Tooltip title={tab.title} placement="top-end">
+                  <Tooltip title={tab.title} placement="top-start">
                     <Typography
                       variant="body1"
-                      fontSize="22px"
-                      fontWeight="500"
+                      fontSize="16px"
+                      fontWeight="600"
                       lineHeight="1.2"
-                      height="55px"
+                      height="40px"
                       sx={{
                         overflow: 'hidden',
                         textOverflow: 'ellipsis',
@@ -821,41 +875,41 @@ const Home: NextPageWithLayout = () => {
                   </Tooltip>
                   <Stack direction="row" justifyContent="space-between" alignItems="center">
                     <Stack direction="row" alignItems="center">
-                      <Rating defaultValue={tab.stars} readOnly />
-                      <Typography variant="body1" color="#707683">
+                      <Rating defaultValue={tab.stars} readOnly sx={{ fontSize: '18px' }} />
+                      <Typography variant="body1" color="#707683" fontSize="12px">
                         ({tab.reviews} lượt đánh giá)
                       </Typography>
                     </Stack>
-                    <Typography variant="body1" fontSize="22px" fontWeight={600}>
+                    <Typography variant="body1" fontSize="18px" fontWeight={600}>
                       {tab.stars}
                     </Typography>
                   </Stack>
                   <Stack direction="row" justifyContent="space-between" alignItems="center">
-                    <Stack direction="row" gap="10px">
-                      <Typography fontWeight={600} fontSize="26px">
-                        {tab.price} VND
+                    <Stack direction="row" gap="8px">
+                      <Typography fontWeight={600} fontSize="20px">
+                        {formatPriceToVND(tab.price)}
                       </Typography>
                       <Typography
                         sx={{ textDecoration: 'line-through' }}
                         fontWeight={400}
-                        fontSize="20px"
+                        fontSize="16px"
                         color="#707683"
                       >
-                        {tab.price} VND
+                        {formatPriceToVND(tab.price)}
                       </Typography>
                     </Stack>
                   </Stack>
                   <Stack direction="row" justifyContent="space-between" alignItems="center">
-                    <Stack direction="row" gap="10px">
+                    <Stack direction="row" gap="8px">
                       <Stack direction="row" gap="3px" alignItems="center">
                         <VideoCamOutlineIcon />
-                        <Typography variant="body1" color="#707683" fontSize="18px">
+                        <Typography variant="body1" color="#707683" fontSize="12px">
                           {tab.videos}
                         </Typography>
                       </Stack>
                       <Stack direction="row" gap="3px" alignItems="center">
                         <AccessTimeOutlineIcon />
-                        <Typography variant="body1" color="#707683" fontSize="18px">
+                        <Typography variant="body1" color="#707683" fontSize="12px">
                           {tab.time}h
                         </Typography>
                       </Stack>
@@ -863,7 +917,7 @@ const Home: NextPageWithLayout = () => {
                     {tab.liked ? (
                       <IconButton
                         sx={{
-                          p: '10px',
+                          p: '4px',
                           cursor: 'pointer',
                           background: theme.palette.primary.main,
                         }}
@@ -873,7 +927,7 @@ const Home: NextPageWithLayout = () => {
                     ) : (
                       <IconButton
                         sx={{
-                          p: '10px',
+                          p: '4px',
                           cursor: 'pointer',
                           background: theme.palette.primary.main,
                           '&:hover': {
@@ -887,16 +941,401 @@ const Home: NextPageWithLayout = () => {
                       </IconButton>
                     )}
                   </Stack>
-                  <Stack direction="row" gap="10px" width="95%">
+                  <Stack direction="row" alignItems="center" gap="5px">
                     {tab.tags?.map((tag) => (
                       <Chip
                         sx={{
                           width: 'fit-content',
                           height: 'fit-content',
-                          padding: '6px 0',
                           borderRadius: '5px',
                           backgroundColor: handleRenderTagsColor(tag),
                           fontWeight: 600,
+                          fontSize: '12px',
+                          '& span': {
+                            p: '5px 10px',
+                          },
+                        }}
+                        key={tag}
+                        label={handleRenderTagsLabel(tag)}
+                      />
+                    ))}
+                  </Stack>
+                </Stack>
+              ))}
+            </Slider>
+          </Stack>
+        </TabPanel>
+        <TabPanel value={tabs} index={1}>
+          <Stack
+            sx={{
+              '& .slick-slider': {
+                p: '25px',
+                '& .slick-list': {
+                  '& .slick-track': {
+                    display: 'flex',
+                    '& > div.slick-slide': {
+                      m: '0 6px',
+                    },
+                  },
+                },
+              },
+            }}
+          >
+            <Slider
+              infinite={false}
+              initialSlide={0}
+              speed={500}
+              slidesToShow={5}
+              slidesToScroll={5}
+              lazyLoad="progressive"
+              prevArrow={
+                <ArrowSlider
+                  type="prev"
+                  sx={{
+                    background: theme.palette.primary.main,
+                    p: '10px',
+                    position: 'absolute',
+                    top: '82px',
+                    left: 0,
+                    zIndex: 100,
+                    '&:hover svg path': {
+                      fill: theme.palette.white.main,
+                    },
+                  }}
+                />
+              }
+              nextArrow={
+                <ArrowSlider
+                  type="next"
+                  sx={{
+                    background: theme.palette.primary.main,
+                    p: '10px',
+                    position: 'absolute',
+                    top: '82px',
+                    right: 0,
+                    zIndex: 100,
+                    '&:hover svg path': {
+                      fill: theme.palette.white.main,
+                    },
+                  }}
+                />
+              }
+            >
+              {tabsData.map((tab, index) => (
+                <Stack
+                  key={index}
+                  display="flex !important"
+                  gap="8px"
+                  position="relative"
+                  sx={{
+                    cursor: 'pointer',
+                    '&:hover > div:has(img)': {
+                      '& > div': {
+                        height: '160px',
+                        width: '100%',
+                        position: 'absolute',
+                        borderRadius: '5px',
+                        top: 0,
+                        left: 0,
+                        backgroundColor: 'rgba(0, 0, 0, 0.2)',
+                        transition: '.2s',
+                      },
+                    },
+                  }}
+                >
+                  <Stack
+                    height="160px"
+                    sx={{
+                      '& > span': { height: '100% !important' },
+                      '& img': { borderRadius: '5px', cursor: 'pointer' },
+                    }}
+                  >
+                    <Image src={tab.img} objectFit="cover" alt="tabs" />
+                    <Stack />
+                  </Stack>
+                  <Tooltip title={tab.title} placement="top-start">
+                    <Typography
+                      variant="body1"
+                      fontSize="16px"
+                      fontWeight="600"
+                      lineHeight="1.2"
+                      height="40px"
+                      sx={{
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                        display: '-webkit-box',
+                        WebkitLineClamp: 2,
+                        WebkitBoxOrient: 'vertical',
+                      }}
+                    >
+                      {tab.title}
+                    </Typography>
+                  </Tooltip>
+                  <Stack direction="row" justifyContent="space-between" alignItems="center">
+                    <Stack direction="row" alignItems="center">
+                      <Rating defaultValue={tab.stars} readOnly sx={{ fontSize: '18px' }} />
+                      <Typography variant="body1" color="#707683" fontSize="12px">
+                        ({tab.reviews} lượt đánh giá)
+                      </Typography>
+                    </Stack>
+                    <Typography variant="body1" fontSize="18px" fontWeight={600}>
+                      {tab.stars}
+                    </Typography>
+                  </Stack>
+                  <Stack direction="row" justifyContent="space-between" alignItems="center">
+                    <Stack direction="row" gap="8px">
+                      <Typography fontWeight={600} fontSize="20px">
+                        {formatPriceToVND(tab.price)}
+                      </Typography>
+                      <Typography
+                        sx={{ textDecoration: 'line-through' }}
+                        fontWeight={400}
+                        fontSize="16px"
+                        color="#707683"
+                      >
+                        {formatPriceToVND(tab.price)}
+                      </Typography>
+                    </Stack>
+                  </Stack>
+                  <Stack direction="row" justifyContent="space-between" alignItems="center">
+                    <Stack direction="row" gap="8px">
+                      <Stack direction="row" gap="3px" alignItems="center">
+                        <VideoCamOutlineIcon />
+                        <Typography variant="body1" color="#707683" fontSize="12px">
+                          {tab.videos}
+                        </Typography>
+                      </Stack>
+                      <Stack direction="row" gap="3px" alignItems="center">
+                        <AccessTimeOutlineIcon />
+                        <Typography variant="body1" color="#707683" fontSize="12px">
+                          {tab.time}h
+                        </Typography>
+                      </Stack>
+                    </Stack>
+                    {tab.liked ? (
+                      <IconButton
+                        sx={{
+                          p: '4px',
+                          cursor: 'pointer',
+                          background: theme.palette.primary.main,
+                        }}
+                      >
+                        <FavoriteFillIcon />
+                      </IconButton>
+                    ) : (
+                      <IconButton
+                        sx={{
+                          p: '4px',
+                          cursor: 'pointer',
+                          background: theme.palette.primary.main,
+                          '&:hover': {
+                            '& svg path': {
+                              fill: theme.palette.white.main,
+                            },
+                          },
+                        }}
+                      >
+                        <FavoriteOutlineIcon />
+                      </IconButton>
+                    )}
+                  </Stack>
+                  <Stack direction="row" alignItems="center" gap="5px">
+                    {tab.tags?.map((tag) => (
+                      <Chip
+                        sx={{
+                          width: 'fit-content',
+                          height: 'fit-content',
+                          borderRadius: '5px',
+                          backgroundColor: handleRenderTagsColor(tag),
+                          fontWeight: 600,
+                          fontSize: '12px',
+                          '& span': {
+                            p: '5px 10px',
+                          },
+                        }}
+                        key={tag}
+                        label={handleRenderTagsLabel(tag)}
+                      />
+                    ))}
+                  </Stack>
+                </Stack>
+              ))}
+            </Slider>
+          </Stack>
+        </TabPanel>
+        <TabPanel value={tabs} index={2}>
+          <Stack
+            sx={{
+              '& .slick-slider': {
+                p: '25px',
+                '& .slick-list': {
+                  '& .slick-track': {
+                    display: 'flex',
+                    '& > div.slick-slide': {
+                      m: '0 6px',
+                    },
+                  },
+                },
+              },
+            }}
+          >
+            <Slider
+              infinite={false}
+              initialSlide={0}
+              speed={500}
+              slidesToShow={5}
+              slidesToScroll={5}
+              lazyLoad="progressive"
+              prevArrow={
+                <ArrowSlider
+                  type="prev"
+                  sx={{
+                    top: '82px',
+                    left: 0,
+                  }}
+                />
+              }
+              nextArrow={
+                <ArrowSlider
+                  type="next"
+                  sx={{
+                    top: '82px',
+                    right: 0,
+                  }}
+                />
+              }
+            >
+              {tabsData.map((tab, index) => (
+                <Stack
+                  key={index}
+                  display="flex !important"
+                  gap="8px"
+                  position="relative"
+                  sx={{
+                    cursor: 'pointer',
+                    '&:hover > div:has(img)': {
+                      '& > div': {
+                        height: '160px',
+                        width: '100%',
+                        position: 'absolute',
+                        borderRadius: '5px',
+                        top: 0,
+                        left: 0,
+                        backgroundColor: 'rgba(0, 0, 0, 0.2)',
+                        transition: '.2s',
+                      },
+                    },
+                  }}
+                >
+                  <Stack
+                    height="160px"
+                    sx={{
+                      '& > span': { height: '100% !important' },
+                      '& img': { borderRadius: '5px', cursor: 'pointer' },
+                    }}
+                  >
+                    <Image src={tab.img} objectFit="cover" alt="tabs" />
+                    <Stack />
+                  </Stack>
+                  <Tooltip title={tab.title} placement="top-start">
+                    <Typography
+                      variant="body1"
+                      fontSize="16px"
+                      fontWeight="600"
+                      lineHeight="1.2"
+                      height="40px"
+                      sx={{
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                        display: '-webkit-box',
+                        WebkitLineClamp: 2,
+                        WebkitBoxOrient: 'vertical',
+                      }}
+                    >
+                      {tab.title}
+                    </Typography>
+                  </Tooltip>
+                  <Stack direction="row" justifyContent="space-between" alignItems="center">
+                    <Stack direction="row" alignItems="center">
+                      <Rating defaultValue={tab.stars} readOnly sx={{ fontSize: '18px' }} />
+                      <Typography variant="body1" color="#707683" fontSize="12px">
+                        ({tab.reviews} lượt đánh giá)
+                      </Typography>
+                    </Stack>
+                    <Typography variant="body1" fontSize="18px" fontWeight={600}>
+                      {tab.stars}
+                    </Typography>
+                  </Stack>
+                  <Stack direction="row" justifyContent="space-between" alignItems="center">
+                    <Stack direction="row" gap="8px">
+                      <Typography fontWeight={600} fontSize="20px">
+                        {formatPriceToVND(tab.price)}
+                      </Typography>
+                      <Typography
+                        sx={{ textDecoration: 'line-through' }}
+                        fontWeight={400}
+                        fontSize="16px"
+                        color="#707683"
+                      >
+                        {formatPriceToVND(tab.price)}
+                      </Typography>
+                    </Stack>
+                  </Stack>
+                  <Stack direction="row" justifyContent="space-between" alignItems="center">
+                    <Stack direction="row" gap="8px">
+                      <Stack direction="row" gap="3px" alignItems="center">
+                        <VideoCamOutlineIcon />
+                        <Typography variant="body1" color="#707683" fontSize="12px">
+                          {tab.videos}
+                        </Typography>
+                      </Stack>
+                      <Stack direction="row" gap="3px" alignItems="center">
+                        <AccessTimeOutlineIcon />
+                        <Typography variant="body1" color="#707683" fontSize="12px">
+                          {tab.time}h
+                        </Typography>
+                      </Stack>
+                    </Stack>
+                    {tab.liked ? (
+                      <IconButton
+                        sx={{
+                          p: '4px',
+                          cursor: 'pointer',
+                          background: theme.palette.primary.main,
+                        }}
+                      >
+                        <FavoriteFillIcon />
+                      </IconButton>
+                    ) : (
+                      <IconButton
+                        sx={{
+                          p: '4px',
+                          cursor: 'pointer',
+                          background: theme.palette.primary.main,
+                          '&:hover': {
+                            '& svg path': {
+                              fill: theme.palette.white.main,
+                            },
+                          },
+                        }}
+                      >
+                        <FavoriteOutlineIcon />
+                      </IconButton>
+                    )}
+                  </Stack>
+                  <Stack direction="row" alignItems="center" gap="5px">
+                    {tab.tags?.map((tag) => (
+                      <Chip
+                        sx={{
+                          width: 'fit-content',
+                          height: 'fit-content',
+                          borderRadius: '5px',
+                          backgroundColor: handleRenderTagsColor(tag),
+                          fontWeight: 600,
+                          fontSize: '12px',
+                          '& span': {
+                            p: '5px 10px',
+                          },
                         }}
                         key={tag}
                         label={handleRenderTagsLabel(tag)}
@@ -909,107 +1348,169 @@ const Home: NextPageWithLayout = () => {
           </Stack>
         </TabPanel>
       </Stack>
-      <Stack p="50px" height="700px">
+      <Stack p="50px">
         <Typography variant="h2" fontSize="40px" fontWeight={400} mb="50px">
           Mở khoá thêm một vài kỹ năng mới
         </Typography>
-        <Stack direction="row" justifyContent="space-between">
-          {skills.map((skill, index) => (
-            <Stack gap="15px" width="24%" height="fit-content" key={index}>
-              <Stack
-                height="280px"
+        <Stack
+          sx={{
+            '& .slick-slider': {
+              p: '25px',
+              '& .slick-list': {
+                '& .slick-track': {
+                  display: 'flex',
+                  '& > div.slick-slide': {
+                    m: '0 6px',
+                  },
+                },
+              },
+            },
+          }}
+        >
+          <Slider
+            infinite={false}
+            initialSlide={0}
+            speed={500}
+            slidesToShow={5}
+            slidesToScroll={5}
+            lazyLoad="progressive"
+            beforeChange={(currentSlide: number, nextSlide: number) =>
+              console.log(currentSlide, nextSlide)
+            }
+            prevArrow={
+              <ArrowSlider
+                type="prev"
                 sx={{
-                  '& > span': { height: '100% !important' },
-                  '& img': { borderRadius: '5px', cursor: 'pointer' },
+                  top: '82px',
+                  left: 0,
+                }}
+              />
+            }
+            nextArrow={
+              <ArrowSlider
+                type="next"
+                sx={{
+                  top: '82px',
+                  right: 0,
+                }}
+              />
+            }
+          >
+            {skills.map((skill, index) => (
+              <Stack
+                display="flex !important"
+                gap="8px"
+                key={index}
+                position="relative"
+                sx={{
+                  cursor: 'pointer',
+                  '&:hover > div:has(img)': {
+                    '& > div': {
+                      height: '160px',
+                      width: '100%',
+                      position: 'absolute',
+                      borderRadius: '5px',
+                      top: 0,
+                      left: 0,
+                      backgroundColor: 'rgba(0, 0, 0, 0.2)',
+                      transition: '.2s',
+                    },
+                  },
                 }}
               >
-                <Image src={skill.img} objectFit="cover" alt="communication" />
-              </Stack>
-              <Tooltip title={skill.title} placement="top-end">
-                <Typography
-                  variant="body1"
-                  fontSize="22px"
-                  fontWeight="500"
-                  lineHeight="1.2"
-                  height="55px"
+                <Stack
+                  height="160px"
                   sx={{
-                    overflow: 'hidden',
-                    textOverflow: 'ellipsis',
-                    display: '-webkit-box',
-                    WebkitLineClamp: 2,
-                    WebkitBoxOrient: 'vertical',
+                    '& > span': { height: '100% !important' },
+                    '& img': { borderRadius: '5px', cursor: 'pointer' },
                   }}
                 >
-                  {skill.title}
-                </Typography>
-              </Tooltip>
-              <Stack direction="row" justifyContent="space-between" alignItems="center">
-                <Stack direction="row" alignItems="center">
-                  <Rating defaultValue={skill.stars} readOnly />
-                  <Typography variant="body1" color="#707683">
-                    ({skill.reviews} lượt đánh giá)
-                  </Typography>
+                  <Image src={skill.img} objectFit="cover" alt="communication" />
+                  <Stack />
                 </Stack>
-                <Typography variant="body1" fontSize="22px" fontWeight={600}>
-                  {skill.stars}
-                </Typography>
-              </Stack>
-              <Stack direction="row" justifyContent="space-between" alignItems="center">
-                <Stack direction="row" gap="10px">
-                  <Stack direction="row" gap="3px" alignItems="center">
-                    <VideoCamOutlineIcon />
-                    <Typography variant="body1" color="#707683" fontSize="18px">
-                      {skill.videos} videos
-                    </Typography>
-                  </Stack>
-                  <Stack direction="row" gap="3px" alignItems="center">
-                    <AccessTimeOutlineIcon />
-                    <Typography variant="body1" color="#707683" fontSize="18px">
-                      {skill.time} giờ
-                    </Typography>
-                  </Stack>
-                </Stack>
-                {skill.liked ? (
-                  <IconButton
-                    sx={{ p: '10px', cursor: 'pointer', background: theme.palette.primary.main }}
-                  >
-                    <FavoriteFillIcon />
-                  </IconButton>
-                ) : (
-                  <IconButton
+                <Tooltip title={skill.title} placement="top-start">
+                  <Typography
+                    variant="h3"
+                    fontSize="16px"
+                    fontWeight="600"
+                    lineHeight="1.2"
+                    height="40px"
                     sx={{
-                      p: '10px',
-                      cursor: 'pointer',
-                      background: theme.palette.primary.main,
-                      '&:hover': {
-                        '& svg path': {
-                          fill: theme.palette.white.main,
-                        },
-                      },
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                      display: '-webkit-box',
+                      WebkitLineClamp: 2,
+                      WebkitBoxOrient: 'vertical',
                     }}
                   >
-                    <FavoriteOutlineIcon />
-                  </IconButton>
-                )}
-              </Stack>
-              <Stack direction="row" justifyContent="space-between" alignItems="center">
-                <Stack gap="10px">
-                  <Typography fontWeight={600} fontSize="26px">
-                    {skill.price} VND
+                    {skill.title}
+                  </Typography>
+                </Tooltip>
+                <Stack direction="row" justifyContent="space-between" alignItems="center">
+                  <Stack direction="row" alignItems="center">
+                    <Rating defaultValue={skill.stars} readOnly sx={{ fontSize: '18px' }} />
+                    <Typography variant="body1" color="#707683" fontSize="12px">
+                      ({skill.reviews} lượt đánh giá)
+                    </Typography>
+                  </Stack>
+                  <Typography variant="body1" fontSize="18px" fontWeight={600}>
+                    {skill.stars}
+                  </Typography>
+                </Stack>
+                <Stack direction="row" justifyContent="space-between" alignItems="center">
+                  <Stack direction="row" gap="8px">
+                    <Stack direction="row" gap="3px" alignItems="center">
+                      <VideoCamOutlineIcon />
+                      <Typography variant="body1" color="#707683" fontSize="12px">
+                        {skill.videos} videos
+                      </Typography>
+                    </Stack>
+                    <Stack direction="row" gap="3px" alignItems="center">
+                      <AccessTimeOutlineIcon />
+                      <Typography variant="body1" color="#707683" fontSize="12px">
+                        {skill.time} giờ
+                      </Typography>
+                    </Stack>
+                  </Stack>
+                  {skill.liked ? (
+                    <IconButton
+                      sx={{ p: '4px', cursor: 'pointer', background: theme.palette.primary.main }}
+                    >
+                      <FavoriteFillIcon />
+                    </IconButton>
+                  ) : (
+                    <IconButton
+                      sx={{
+                        p: '4px',
+                        cursor: 'pointer',
+                        background: theme.palette.primary.main,
+                        '&:hover': {
+                          '& svg path': {
+                            fill: theme.palette.white.main,
+                          },
+                        },
+                      }}
+                    >
+                      <FavoriteOutlineIcon />
+                    </IconButton>
+                  )}
+                </Stack>
+                <Stack direction="row" gap="8px">
+                  <Typography fontWeight={600} fontSize="20px">
+                    {formatPriceToVND(skill.price)}
                   </Typography>
                   <Typography
                     sx={{ textDecoration: 'line-through' }}
                     fontWeight={400}
-                    fontSize="20px"
+                    fontSize="16px"
                     color="#707683"
                   >
-                    {skill.price} VND
+                    {formatPriceToVND(skill.price)}
                   </Typography>
                 </Stack>
-                <Button variant="contained">Tham gia khoá học</Button>
               </Stack>
-            </Stack>
-          ))}
+            ))}
+          </Slider>
         </Stack>
       </Stack>
       <Stack direction="row" height="300px">
@@ -1115,7 +1616,6 @@ const Home: NextPageWithLayout = () => {
       </Stack>
       <Stack
         p="50px"
-        minHeight="100vh"
         gap="50px"
         sx={{
           position: 'relative',
@@ -1124,10 +1624,10 @@ const Home: NextPageWithLayout = () => {
         <Typography variant="h2" fontSize="40px" lineHeight={1.4} fontWeight={400}>
           Khám phá đánh giá của các thành viên
         </Typography>
-        <Masonry columns={3} spacing={3}>
+        <Masonry columns={4} spacing={3}>
           {showElement.map((review, index) => (
             <Stack gap="30px" height="fit-content" key={index}>
-              <Typography variant="body1" fontWeight={500} lineHeight={1.4} fontSize="24px">
+              <Typography variant="body1" fontWeight={500} lineHeight={1.4} fontSize="16px">
                 {review.title}
               </Typography>
               <Stack direction="row" justifyContent="space-between" alignItems="flex-start">
@@ -1166,7 +1666,7 @@ const Home: NextPageWithLayout = () => {
           </Button>
         </Stack>
       </Stack>
-      <Stack height="580px" direction="row" justifyContent="space-between">
+      <Stack height={upXl ? '580px' : '440px'} direction="row" justifyContent="space-between">
         <Stack pl="50px" gap="25px" justifyContent="center" width="45%">
           <Typography variant="h1" fontSize="45px" fontWeight="500" lineHeight={1.4}>
             Tham gia cùng hơn
@@ -1246,67 +1746,67 @@ const Home: NextPageWithLayout = () => {
             <List>
               <ListSubheader>UDA Forum</ListSubheader>
               <ListItem>
-                <Link href="/">Về chúng tôi</Link>
+                <Link href="#!">Về chúng tôi</Link>
               </ListItem>
               <ListItem>
-                <Link href="/">Dạy học trên UDA Forum</Link>
+                <Link href="#!">Dạy học trên UDA Forum</Link>
               </ListItem>
               <ListItem>
-                <Link href="/">Lộ trình</Link>
+                <Link href="#!">Lộ trình</Link>
               </ListItem>
               <ListItem>
-                <Link href="/">Sự nghiệp</Link>
+                <Link href="#!">Sự nghiệp</Link>
               </ListItem>
               <ListItem>
-                <Link href="/">Tin tức</Link>
+                <Link href="#!">Tin tức</Link>
               </ListItem>
               <ListItem>
-                <Link href="/">Đội chúng tôi</Link>
+                <Link href="#!">Đội chúng tôi</Link>
               </ListItem>
               <ListItem>
-                <Link href="/">Trở thành một người cộng sự</Link>
+                <Link href="#!">Trở thành một người cộng sự</Link>
               </ListItem>
             </List>
             <List>
               <ListSubheader>Cộng đồng</ListSubheader>
               <ListItem>
-                <Link href="/">Portfolio</Link>
+                <Link href="#!">Portfolio</Link>
               </ListItem>
               <ListItem>
-                <Link href="/">Những nhà phát triển</Link>
+                <Link href="#!">Những nhà phát triển</Link>
               </ListItem>
               <ListItem>
-                <Link href="/">Lời chứng thực</Link>
+                <Link href="#!">Lời chứng thực</Link>
               </ListItem>
               <ListItem>
-                <Link href="/">Blogs</Link>
+                <Link href="#!">Blogs</Link>
               </ListItem>
               <ListItem>
-                <Link href="/">Giao thiệp</Link>
+                <Link href="#!">Giao thiệp</Link>
               </ListItem>
               <ListItem>
-                <Link href="/">Học bổng</Link>
+                <Link href="#!">Học bổng</Link>
               </ListItem>
             </List>
             <List>
               <ListSubheader>Nhiều hơn</ListSubheader>
               <ListItem>
-                <Link href="/">FAQ</Link>
+                <Link href="#!">FAQ</Link>
               </ListItem>
               <ListItem>
-                <Link href="/">Trung tâm giúp đỡ</Link>
+                <Link href="#!">Trung tâm giúp đỡ</Link>
               </ListItem>
               <ListItem>
-                <Link href="/">Điều luật</Link>
+                <Link href="#!">Điều luật</Link>
               </ListItem>
               <ListItem>
-                <Link href="/">Sự riêng tư</Link>
+                <Link href="#!">Sự riêng tư</Link>
               </ListItem>
               <ListItem>
-                <Link href="/">Mã sản phẩm</Link>
+                <Link href="#!">Mã sản phẩm</Link>
               </ListItem>
               <ListItem>
-                <Link href="/">Thiết lập Cookie</Link>
+                <Link href="#!">Thiết lập Cookie</Link>
               </ListItem>
             </List>
           </Stack>
@@ -1323,27 +1823,27 @@ const Home: NextPageWithLayout = () => {
           alignItems="center"
         >
           <Stack direction="row" sx={{ '& a': { cursor: 'pointer' } }}>
-            <Link href="/">
+            <Link href="#!">
               <a>
                 <FavoriteOutlineIcon />
               </a>
             </Link>
-            <Link href="/">
+            <Link href="#!">
               <a>
                 <FavoriteOutlineIcon />
               </a>
             </Link>
-            <Link href="/">
+            <Link href="#!">
               <a>
                 <FavoriteOutlineIcon />
               </a>
             </Link>
-            <Link href="/">
+            <Link href="#!">
               <a>
                 <FavoriteOutlineIcon />
               </a>
             </Link>
-            <Link href="/">
+            <Link href="#!">
               <a>
                 <FavoriteOutlineIcon />
               </a>
