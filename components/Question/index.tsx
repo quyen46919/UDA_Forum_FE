@@ -22,7 +22,7 @@ import {
   LikeFillIcon,
   LikeOutlineIcon,
 } from 'libs/icons'
-import { formatDate } from 'libs/utils/formatDate'
+import { formatDate } from 'libs/utils'
 
 interface QuestionProps {
   avatar?: string
