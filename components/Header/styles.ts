@@ -21,14 +21,15 @@ export const PAPER_STYLES = {
             borderRadius: '6px',
             display: 'flex',
             gap: '10px',
-            '& div:first-of-type svg': {
-                width: '32px',
-                height: '32px'
+            '& .MuiListItemIcon-root': {
+                maxWidth: '24px',
+                minWidth: '24px',
             },
             '&:hover': {
-                backgroundColor: '#eff2ff',
+                backgroundColor: '#FF6F00',
+                boxShadow: '1px 3px 17px -2px rgba(255,105,52,0.4)',
                 '& span, & svg': {
-                    color: '#657ef8',
+                    color: '#FFFFFF',
                 },
             },
         },
@@ -46,9 +47,10 @@ export const POPOVER_STYLES = {
             display: 'flex',
             gap: '10px',
             '&:hover': {
-                backgroundColor: '#eff2ff',
-                '& p': {
-                    color: '#657ef8',
+                backgroundColor: '#FF6F00',
+                boxShadow: '1px 3px 17px -4px rgba(255,105,52,0.4)',
+                '& p, & svg': {
+                    color: '#FFFFFF',
                 },
             },
         },

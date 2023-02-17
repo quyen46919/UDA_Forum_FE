@@ -69,13 +69,13 @@ const ActionTags = ({ items }: TagsProps) => {
               '& a': {
                 flex: 1,
               },
-              '& a:first-child svg': {
+              '& a:first-of-type svg': {
                 backgroundColor: '#18d2da33',
               },
-              '& a:nth-child(2) svg': {
+              '& a:nth-of-type(2) svg': {
                 backgroundColor: '#3db8f533',
               },
-              '& a:last-child svg': {
+              '& a:last-of-type svg': {
                 backgroundColor: '#ffcf3933',
               },
             }}

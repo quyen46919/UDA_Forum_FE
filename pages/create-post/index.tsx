@@ -114,9 +114,7 @@ const CreatePostPage: NextPageWithLayout = () => {
           onClick={() => router.push('/')}
         >
           <ArrowBackIcon />
-          <Typography variant="h2" onClick={() => router.push('/')}>
-            Trở về trang chủ
-          </Typography>
+          <Typography variant="h2">Trở về trang chủ</Typography>
         </Stack>
         <CreatePostStepper />
       </Stack>

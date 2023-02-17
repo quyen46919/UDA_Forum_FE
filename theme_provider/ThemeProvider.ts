@@ -104,10 +104,10 @@ const theme = createTheme({
           style: {
             backgroundColor: '#FF6934',
             color: '#FFF',
-            boxShadow: '1px 3px 17px -4px rgba(255,105,52,0.44)',
+            boxShadow: '1px 3px 17px -4px rgba(255,105,52,0.4)',
             '&:hover': {
-              backgroundColor: '#ff8a65',
-              boxShadow: '1px 3px 17px -2px rgba(255,105,52,0.44)'
+              backgroundColor: '#FF8A65',
+              boxShadow: '1px 3px 17px -2px rgba(255,105,52,0.4)'
             },
             '&:focus': {
               backgroundColor: '#E65100'
@@ -138,7 +138,7 @@ const theme = createTheme({
         {
           props: { variant: 'outlined', color: 'secondary' },
           style: {
-            backgroundColor: '#FF4401',
+            backgroundColor: '#FF6934',
             color: '#FFF',
             '&:hover': {
               backgroundColor: '#FF6F00',
@@ -304,7 +304,7 @@ const theme = createTheme({
             height: '40px',
             borderRadius: '7px',
             '&:hover': {
-              backgroundColor: '#FF4401',
+              backgroundColor: '#FF6F00',
               color: 'white',
             },
           },
@@ -317,7 +317,7 @@ const theme = createTheme({
             borderRadius: '7px',
             backgroundColor: '#F4F6F8',
             '&:hover': {
-              backgroundColor: '#FF4401',
+              backgroundColor: '#FF6F00',
               color: 'white',
             },
           },
@@ -325,7 +325,7 @@ const theme = createTheme({
         {
           props: { fill: 'primary' },
           style: {
-            fill: '#FF4401',
+            fill: '#FF6F00',
             '&:hover': {
               fill: '#FF6F00',
             },
@@ -347,6 +347,12 @@ const theme = createTheme({
           '& span.MuiTouchRipple-root *': {
             borderRadius: '7px',
           },
+          '&:hover': {
+            backgroundColor: '#FF6F00',
+            '& svg': {
+              fill: '#FFF !important'
+            }
+          }
         },
       },
     },
@@ -412,6 +418,39 @@ const theme = createTheme({
           },
         },
       },
+    },
+    MuiTabs: {
+      styleOverrides: {
+        root: {
+          marginBottom: '40px',
+          '& .MuiTabs-flexContainer': {
+            display: 'flex',
+          },
+          '.MuiTabs-indicator': {
+            backgroundColor: '#FF6934'
+          }
+        }
+      }
+    },
+    MuiTooltip: {
+      styleOverrides: {
+        tooltip: {
+          background: 'linear-gradient(180deg, rgba(255,68,1,0.8) 100%, rgba(255,68,1,1) 100%, rgba(255,68,1,0.15) 100%)',
+          fontSize: '14px'
+        }
+      }
+    },
+    MuiTab: {
+      styleOverrides: {
+        root: {
+          color: '#707683',
+          fontWeight: 600,
+          fontSize: '16px',
+          '&.Mui-selected': {
+            color: '#FF6934'
+          }
+        }
+      }
     },
   },
 })

@@ -1,12 +1,12 @@
 import React from 'react'
 import { SvgIcon, SvgIconProps } from '@mui/material'
 import { red, green, yellow } from '@mui/material/colors'
-import { ACTIVATION_STATUS } from '@enums/index'
+import { ACTIVATE_STATUS } from '@enums/index'
 
 export const ActivationIcon = (props: SvgIconProps & { status: number }) => {
   const handleStatus = (status: number) => {
-    if (status === ACTIVATION_STATUS.ONLINE) return green[600]
-    if (status === ACTIVATION_STATUS.OFFLINE) return yellow[600]
+    if (status === ACTIVATE_STATUS.ONLINE) return green[600]
+    if (status === ACTIVATE_STATUS.OFFLINE) return yellow[600]
     return red[600]
   }
 

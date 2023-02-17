@@ -41,7 +41,7 @@ const PostSkeleton = () => {
               width: { xs: '100%', sm: '184px', lg: '184px' },
               borderRadius: '8px',
             },
-            '& span.MuiSkeleton-root:not(:first-child)': {
+            '& span.MuiSkeleton-root:not(:first-of-type)': {
               display: { xs: 'none', sm: 'block', lg: 'block' },
             },
           }}

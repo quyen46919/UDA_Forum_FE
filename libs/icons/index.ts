@@ -1,3 +1,4 @@
+import { VideoCamOutlineIcon } from './VideoCamOutlineIcon';
 import { ActivationIcon } from './ActivationIcon'
 import { ArrowDropDownIcon } from './ArrowDropDownIcon'
 import { CalendarIcon } from './CalendarIcon'
@@ -37,6 +38,17 @@ import { RedoIcon } from './RedoIcon'
 import { CameraIcon } from './CameraIcon'
 import { CheckIcon } from './CheckIcon'
 import { ArrowBackIcon } from './ArrowBackIcon'
+import { ArrowBackIOSIcon } from './ArrowBackIOSIcon'
+import { ArrowForwardIOSIcon } from './ArrowForwardIOSIcon'
+import { AccessTimeOutlineIcon } from './AccessTimeOutlineIcon';
+import { LanguageIcon } from './LanguageIcon';
+import { CopyrightIcon } from './CopyrightIcon';
+import { InfoIcon } from './InfoIcon';
+import { SettingIcon } from './SettingIcon';
+import { ExitIcon } from './ExitIcon';
+import { BlockIcon } from './BlockIcon';
+import { VerifyIcon } from './VerifyIcon';
+import { HomeRoundedIcon } from './HomeRoundedIcon';
 
 export {
   ArrowDropDownIcon,
@@ -77,5 +89,17 @@ export {
   RedoIcon,
   CameraIcon,
   CheckIcon,
-  ArrowBackIcon
+  ArrowBackIcon,
+  ArrowBackIOSIcon,
+  ArrowForwardIOSIcon,
+  VideoCamOutlineIcon,
+  AccessTimeOutlineIcon,
+  LanguageIcon,
+  CopyrightIcon,
+  InfoIcon,
+  SettingIcon,
+  ExitIcon,
+  BlockIcon,
+  VerifyIcon,
+  HomeRoundedIcon,
 }
