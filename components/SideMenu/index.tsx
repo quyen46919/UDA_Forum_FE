@@ -13,17 +13,27 @@ import {
   useMediaQuery,
 } from '@mui/material'
 import storage from 'libs/helpers/localStorage'
-import { ArrowBackIOSIcon, ExitIcon, ExpandLessIcon, ExpandMoreIcon } from 'libs/icons'
+import {
+  ArrowBackIOSIcon,
+  ExitIcon,
+  ExpandLessIcon,
+  ExpandMoreIcon,
+  FiberManualRecordIcon,
+} from 'libs/icons'
 import { menu, subMenu } from './menu'
 import Divider from '@mui/material/Divider'
 import Typography from '@mui/material/Typography'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 interface ItemProps {
   title: string
   path: string
   icon: ReactNode
-  children?: ItemProps[]
+  children?: {
+    title: string
+    path: string
+  }[]
 }
 
 type handleDrawerToggle = () => void
@@ -36,12 +46,13 @@ const SideMenu = ({ handleDrawerToggle }: SideMenuProps) => {
   const [selected, setSelected] = useState<string | null>('')
   const theme = useTheme()
   const downSm = useMediaQuery(theme.breakpoints.down('sm'))
+  const { pathname } = useRouter()
 
   useEffect(() => {
     if (typeof window !== 'undefined' && storage.getValueFromKey('selected')) {
       setSelected(storage.getValueFromKey('selected'))
     }
-  }, [])
+  }, [pathname])
 
   const handleClick = (title: string, item: ItemProps) => {
     if (!item.hasOwnProperty('children')) {
@@ -124,11 +135,13 @@ const SideMenu = ({ handleDrawerToggle }: SideMenuProps) => {
                   disablePadding
                   sx={LISTITEM_STYLES}
                 >
-                  <ListItemButton>
-                    <ListItemIcon>{item.icon}</ListItemIcon>
-                    <ListItemText primary={item.title} />
-                    {item.title === selected ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-                  </ListItemButton>
+                  <NavLink href={item.path}>
+                    <ListItemButton>
+                      <ListItemIcon>{item.icon}</ListItemIcon>
+                      <ListItemText primary={item.title} />
+                      {item.title === selected ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+                    </ListItemButton>
+                  </NavLink>
                 </ListItem>
                 <Collapse
                   sx={{ mt: '6px' }}
@@ -145,7 +158,11 @@ const SideMenu = ({ handleDrawerToggle }: SideMenuProps) => {
                         <ListItem key={index} disablePadding sx={LISTITEM_STYLES}>
                           <NavLink href={item.path}>
                             <ListItemButton sx={{ pl: 4 }}>
-                              <ListItemIcon>{item.icon}</ListItemIcon>
+                              {pathname === item.path && (
+                                <ListItemIcon>
+                                  <FiberManualRecordIcon />
+                                </ListItemIcon>
+                              )}
                               <ListItemText primary={item.title} />
                             </ListItemButton>
                           </NavLink>
@@ -218,7 +235,7 @@ const SideMenu = ({ handleDrawerToggle }: SideMenuProps) => {
             >
               <ExitIcon />
               <Typography variant="body1" fontSize="16px">
-                Đăng xuất
+                Rời khỏi lớp
               </Typography>
             </IconButton>
           </a>

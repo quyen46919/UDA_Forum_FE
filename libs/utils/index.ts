@@ -10,3 +10,7 @@ export const formatPriceToVND = (price: number) => {
     useGrouping: true,
   }) + ' VND'
 }
+
+export const capitalizeFirstLetter = (text: string) => {
+  return text?.charAt(0).toUpperCase() + text?.slice(1)
+}
