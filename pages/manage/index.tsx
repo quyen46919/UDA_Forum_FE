@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import { MainLayout } from '@layout/main'
 import { Drawer, Stack, StackProps, useTheme } from '@mui/material'
 import SideMenu from '@components/SideMenu'
-import IconButton from '@mui/material/IconButton'
-import { HomeIcon, MenuIcon } from 'libs/icons'
+import PageHeading from '@components/SideMenu/PageHeading'
 
 const drawerWidth = 240
 
@@ -69,22 +68,7 @@ const ManageLayout = (props: StackProps & DefaultProps) => {
           width: { sm: `calc(100% - ${drawerWidth}px)` },
         }}
       >
-        <IconButton
-          onClick={handleDrawerToggle}
-          sx={{
-            p: '6px',
-            mb: '12px',
-            display: { sm: 'none' },
-            width: 'fit-content',
-            backgroundColor: theme.palette.primary.main,
-            '&:hover': {
-              backgroundColor: '#FF6F00',
-              color: 'white',
-            },
-          }}
-        >
-          <MenuIcon />
-        </IconButton>
+        <PageHeading handleDrawerToggle={handleDrawerToggle} />
         {children}
       </Stack>
     </Stack>
