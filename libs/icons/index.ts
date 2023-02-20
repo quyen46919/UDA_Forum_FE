@@ -1,3 +1,9 @@
+import { ExpandLessIcon } from './ExpandLessIcon';
+import { ExpandMoreIcon } from './ExpandMoreIcon';
+import { CalendarOutlineIcon } from './CalendarOutlineIcon';
+import { DescriptionOutlineIcon } from './DescriptionOutlineIcon';
+import { PeopleAltIcon } from './PeopleAltIcon';
+import { BusinessBagIcon } from './BusinessBagIcon';
 import { VideoCamOutlineIcon } from './VideoCamOutlineIcon';
 import { ActivationIcon } from './ActivationIcon'
 import { ArrowDropDownIcon } from './ArrowDropDownIcon'
@@ -49,6 +55,9 @@ import { ExitIcon } from './ExitIcon';
 import { BlockIcon } from './BlockIcon';
 import { VerifyIcon } from './VerifyIcon';
 import { HomeRoundedIcon } from './HomeRoundedIcon';
+import {MenuIcon} from './MenuIcon'
+import {DashboardIcon} from './DashboardIcon'
+import {PeopleAltOutlineIcon} from './PeopleAltOutlineIcon'
 
 export {
   ArrowDropDownIcon,
@@ -102,4 +111,13 @@ export {
   BlockIcon,
   VerifyIcon,
   HomeRoundedIcon,
+  MenuIcon,
+  DashboardIcon,
+  BusinessBagIcon,
+  PeopleAltIcon,
+  PeopleAltOutlineIcon,
+  DescriptionOutlineIcon,
+  CalendarOutlineIcon,
+  ExpandMoreIcon,
+  ExpandLessIcon
 }

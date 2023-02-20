@@ -174,7 +174,7 @@ const Post: NextPageWithLayout = () => {
     <Stack
       sx={{ backgroundColor: theme.palette.secondary.main }}
       direction={{ xs: 'column', lg: 'row' }}
-      minHeight="calc(100vh - 70px)"
+      minHeight="calc(100vh - 71px)"
       p={{ xs: '20px', lg: '20px 40px 0 40px' }}
       gap="20px"
       maxWidth={{ lg: '1536px', xl: '1920px' }}

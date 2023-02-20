@@ -92,7 +92,7 @@ const CreatePostPage: NextPageWithLayout = () => {
       direction={{ xs: 'column', sm: 'column', lg: 'row' }}
       width="100%"
       maxWidth="1200px"
-      minHeight="calc(100vh - 70px)"
+      minHeight="calc(100vh - 71px)"
       justifyContent={{ sm: 'space-evenly', lg: 'center' }}
       padding={{ xs: '20px', lg: '30px 50px' }}
       margin="0 auto"

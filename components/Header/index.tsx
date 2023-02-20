@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import ListIcon from '@components/ListIcon'
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft'
 import {
   AppBar,
   IconButton,
@@ -13,7 +12,7 @@ import {
 } from '@mui/material'
 import Drawer from '@mui/material/Drawer'
 import MenuItem from './Menu'
-import { Logo, MessageIcon, NotificationIcon, SearchIcon } from 'libs/icons'
+import { ArrowBackIOSIcon, Logo, MessageIcon, NotificationIcon, SearchIcon } from 'libs/icons'
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -34,6 +33,7 @@ const Header = () => {
         sx={{
           backgroundColor: theme.palette.white.main,
           boxShadow: 'none',
+          borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
         }}
       >
         <Toolbar>
@@ -66,7 +66,7 @@ const Header = () => {
                     minWidth: { lg: '440px' },
                     '& div': {
                       maxHeight: '40px',
-                      padding: '2px 12px 2px 0px',
+                      p: '2px 12px 2px 0px',
                     },
                     backgroundColor: '#f4f6f8',
                     borderRadius: '8px',
@@ -75,12 +75,12 @@ const Header = () => {
                       border: 'none',
                     },
                     input: {
-                      padding: '9px 10px 9px 20px',
+                      p: '9px 10px 9px 20px',
                     },
                   }}
                   InputProps={{
                     endAdornment: (
-                      <IconButton sx={{ padding: '8px' }}>
+                      <IconButton sx={{ p: '6px' }}>
                         <SearchIcon />
                       </IconButton>
                     ),
@@ -88,7 +88,7 @@ const Header = () => {
                 />
               ) : (
                 <>
-                  <IconButton sx={{ padding: '8px' }} onClick={handleDrawerToggle}>
+                  <IconButton sx={{ p: '8px' }} onClick={handleDrawerToggle}>
                     <SearchIcon />
                   </IconButton>
                   <Drawer
@@ -113,10 +113,14 @@ const Header = () => {
                           position: 'absolute',
                           top: '0%',
                           left: '0%',
+                          p: '6px',
+                          '&:hover': {
+                            '& svg path': { fill: theme.palette.white.main },
+                          },
                         }}
                         onClick={handleDrawerClose}
                       >
-                        <ChevronLeftIcon fontSize="large" />
+                        <ArrowBackIOSIcon />
                       </IconButton>
                       <Stack sx={{ cursor: 'pointer' }}>
                         <Typography
@@ -134,7 +138,7 @@ const Header = () => {
                       spellCheck="false"
                       InputProps={{
                         endAdornment: (
-                          <IconButton sx={{ padding: '8px' }}>
+                          <IconButton sx={{ p: '6px' }}>
                             <SearchIcon />
                           </IconButton>
                         ),
