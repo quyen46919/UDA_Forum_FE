@@ -526,7 +526,7 @@ const Home: NextPageWithLayout = () => {
         backgroundColor: theme.palette.white.main,
       }}
       direction={{ xs: 'column', lg: 'column' }}
-      minHeight="calc(100vh - 70px)"
+      minHeight="calc(100vh - 71px)"
       maxWidth={{ lg: '1536px', xl: '1920px' }}
     >
       <Slider

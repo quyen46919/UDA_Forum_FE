@@ -202,7 +202,7 @@ const TextEditor: FC = () => {
             border: '1px solid #90A0B7',
             borderRadius: '4px',
             position: 'sticky',
-            top: '70px',
+            top: '71px',
             zIndex: 10,
             p: '10px',
             '& .rdw-option-wrapper': {
