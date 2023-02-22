@@ -10,6 +10,7 @@ import {
 } from '@mui/material'
 import Link from 'next/link'
 import { ArrowRightIcon } from 'libs/icons'
+import EllipsisTypography from '@components/EllipsisTypography'
 interface ItemProps {
   img?: string | undefined
   primary: string
@@ -78,7 +79,7 @@ const PodcastTags = ({ items }: PodcastTags) => {
                       direction="row"
                       alignItems="center"
                       justifyContent="space-between"
-                      height="58x"
+                      height="58px"
                       gap="10px"
                       width="100%"
                     >
@@ -105,34 +106,21 @@ const PodcastTags = ({ items }: PodcastTags) => {
                         disableTypography
                         primary={
                           <Tooltip title={item.primary}>
-                            <Typography
-                              textOverflow="ellipsis"
-                              flexWrap="nowrap"
-                              overflow="hidden"
+                            <EllipsisTypography
                               variant="body1"
                               maxHeight="36px"
                               maxWidth="250px"
-                              sx={{
-                                WebkitBoxOrient: 'vertical',
-                                display: '-webkit-box',
-                                WebkitLineClamp: 2,
-                              }}
+                              lineNumber={2}
                             >
                               {item.primary}
-                            </Typography>
+                            </EllipsisTypography>
                           </Tooltip>
                         }
                         secondary={
                           <Tooltip title={item.secondary}>
-                            <Typography
-                              variant="body2"
-                              textOverflow="ellipsis"
-                              whiteSpace="nowrap"
-                              overflow="hidden"
-                              maxWidth="230px"
-                            >
+                            <EllipsisTypography variant="body2" maxWidth="230px">
                               {item.secondary}
-                            </Typography>
+                            </EllipsisTypography>
                           </Tooltip>
                         }
                       />

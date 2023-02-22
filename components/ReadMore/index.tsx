@@ -1,7 +1,13 @@
+import EllipsisTypography from '@components/EllipsisTypography'
+import { Stack } from '@mui/material'
 import React, { useState } from 'react'
-import { Typography, TypographyProps, Stack } from '@mui/material'
 
-const ReadMore = (props: { children: string } & TypographyProps) => {
+interface ReadMoreProps {
+  children: string
+}
+
+const ReadMore = (props: ReadMoreProps) => {
+  const { children, ...others } = props
   const [isReadMore, setIsReadMore] = useState<Boolean>(true)
 
   const toggleReadMore = () => {
@@ -18,19 +24,14 @@ const ReadMore = (props: { children: string } & TypographyProps) => {
 
   return (
     <>
-      <Typography
-        {...props}
-        textOverflow="ellipsis"
-        flexWrap="nowrap"
-        overflow="hidden"
-        sx={{
-          WebkitBoxOrient: 'vertical',
-          display: '-webkit-box',
-          WebkitLineClamp: isReadMore ? '2' : 'none',
-        }}
+      <EllipsisTypography
+        fontFamily={`Corbel, "Tahoma Regular", "Tahoma Bold", sans-serif`}
+        variant="body1"
+        {...others}
+        lineNumber={isReadMore ? 2 : 0}
       >
-        {props.children}
-      </Typography>
+        {children}
+      </EllipsisTypography>
       <Stack
         component="span"
         onClick={toggleReadMore}
@@ -45,7 +46,7 @@ const ReadMore = (props: { children: string } & TypographyProps) => {
           },
         }}
       >
-        {handleReadMore(props.children)}
+        {handleReadMore(children)}
       </Stack>
     </>
   )

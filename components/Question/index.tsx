@@ -112,12 +112,7 @@ const Question = ({ data }: DataProps) => {
               fontFamily={`Corbel, "Tahoma Regular", "Tahoma Bold", sans-serif`}
             >
               {post.title}
-              <ReadMore
-                fontFamily={`Corbel, "Tahoma Regular", "Tahoma Bold", sans-serif`}
-                variant="body1"
-              >
-                {post.content}
-              </ReadMore>
+              <ReadMore>{post.content}</ReadMore>
             </Typography>
           </Stack>
           <Stack width="100%" margin="15px 0">

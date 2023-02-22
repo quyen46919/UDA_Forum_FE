@@ -17,22 +17,22 @@ export const menu = [
   },
   {
     icon: <BusinessBagIcon />,
-    title: 'Jobs',
+    title: 'Công việc',
     path: '/manage/jobs',
   },
   {
     icon: <PeopleAltOutlineIcon />,
-    title: 'Candidates',
+    title: 'Ứng cử viên',
     path: '/manage/candidates',
   },
   {
     icon: <CalendarOutlineIcon />,
-    title: 'Calendar',
+    title: 'Lịch',
     path: '/manage/calendar',
   },
   {
     icon: <DescriptionOutlineIcon />,
-    title: 'Document',
+    title: 'Tài liệu',
     path: '/manage/document',
   },
 ]
@@ -40,12 +40,12 @@ export const menu = [
 export const subMenu = [
   {
     icon: <SettingIcon />,
-    title: 'Setting',
+    title: 'Cài đặt',
     path: '/manage/setting',
   },
   {
     icon: <InfoIcon />,
-    title: 'Support',
+    title: 'Hỗ trợ',
     path: '/manage/support',
   },
 ]

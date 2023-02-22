@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { MainLayout } from '@layout/main'
-import { Drawer, Stack, StackProps, useTheme } from '@mui/material'
+import { Drawer, Stack, StackProps, useTheme, useMediaQuery } from '@mui/material'
 import SideMenu from '@components/SideMenu'
 import PageHeading from '@components/SideMenu/PageHeading'
 
@@ -12,8 +12,9 @@ interface DefaultProps {
 
 const ManageLayout = (props: StackProps & DefaultProps) => {
   const { window, children } = props
-  const theme = useTheme()
   const [mobileOpen, setMobileOpen] = useState(false)
+  const theme = useTheme()
+  const downSm = useMediaQuery(theme.breakpoints.down('sm'))
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen)
@@ -23,7 +24,7 @@ const ManageLayout = (props: StackProps & DefaultProps) => {
   const container = window !== undefined ? () => window().document.body : undefined
 
   return (
-    <Stack direction="row">
+    <Stack direction="row" mb={downSm ? '68px' : 0}>
       <Stack
         component="nav"
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
