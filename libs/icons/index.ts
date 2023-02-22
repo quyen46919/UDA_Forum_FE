@@ -1,3 +1,4 @@
+import { MailOutlineIcon } from './MailOutlineIcon';
 import { FiberManualRecordIcon } from './FiberManualRecordIcon';
 import { ExpandLessIcon } from './ExpandLessIcon';
 import { ExpandMoreIcon } from './ExpandMoreIcon';
@@ -121,5 +122,6 @@ export {
   CalendarOutlineIcon,
   ExpandMoreIcon,
   ExpandLessIcon,
-  FiberManualRecordIcon
+  FiberManualRecordIcon,
+  MailOutlineIcon
 }

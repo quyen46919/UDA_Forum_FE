@@ -215,7 +215,7 @@ const SideMenu = ({ handleDrawerToggle }: SideMenuProps) => {
         alignItems="center"
         sx={{ '& a': { width: '100%' } }}
       >
-        <Link href="/logout">
+        <Link href="#!">
           <a>
             <IconButton
               sx={{

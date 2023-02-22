@@ -24,6 +24,7 @@ import {
   SettingIcon,
   VerifyIcon,
 } from 'libs/icons'
+import EllipsisTypography from '@components/EllipsisTypography'
 
 const MenuCustom = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
@@ -90,16 +91,14 @@ const MenuCustom = () => {
               src="https://img.freepik.com/free-photo/woman-wearing-glasses-looking-camera_23-2148255265.jpg?w=740&t=st=1672221511~exp=1672222111~hmac=b2d7660091e0fbf38943718431170647e94f588ab9e16f70cad60ef9f8119370"
             />
           </IconButton>
-          <Typography
+          <EllipsisTypography
+            lineNumber={1}
             variant="body2"
-            whiteSpace="nowrap"
             width="100px"
-            textOverflow="ellipsis"
-            overflow="hidden"
             display={{ xs: 'none', sm: 'none', lg: 'block' }}
           >
             Phung Truong Dinh Quan
-          </Typography>
+          </EllipsisTypography>
           <ArrowDropDownIcon
             sx={{
               width: '12px',

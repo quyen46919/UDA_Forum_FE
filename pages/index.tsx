@@ -52,6 +52,7 @@ import {
   Writing,
 } from '@images/index'
 import { formatPriceToVND } from 'libs/utils'
+import EllipsisTypography from '@components/EllipsisTypography'
 interface ArrowProps {
   type: string
   'data-role'?: string
@@ -856,22 +857,15 @@ const Home: NextPageWithLayout = () => {
                     <Stack />
                   </Stack>
                   <Tooltip title={tab.title} placement="top-start">
-                    <Typography
+                    <EllipsisTypography
                       variant="body1"
                       fontSize="16px"
                       fontWeight="600"
                       lineHeight="1.2"
                       height="40px"
-                      sx={{
-                        overflow: 'hidden',
-                        textOverflow: 'ellipsis',
-                        display: '-webkit-box',
-                        WebkitLineClamp: 2,
-                        WebkitBoxOrient: 'vertical',
-                      }}
                     >
                       {tab.title}
-                    </Typography>
+                    </EllipsisTypography>
                   </Tooltip>
                   <Stack direction="row" justifyContent="space-between" alignItems="center">
                     <Stack direction="row" alignItems="center">
@@ -1054,22 +1048,15 @@ const Home: NextPageWithLayout = () => {
                     <Stack />
                   </Stack>
                   <Tooltip title={tab.title} placement="top-start">
-                    <Typography
+                    <EllipsisTypography
                       variant="body1"
                       fontSize="16px"
                       fontWeight="600"
                       lineHeight="1.2"
                       height="40px"
-                      sx={{
-                        overflow: 'hidden',
-                        textOverflow: 'ellipsis',
-                        display: '-webkit-box',
-                        WebkitLineClamp: 2,
-                        WebkitBoxOrient: 'vertical',
-                      }}
                     >
                       {tab.title}
-                    </Typography>
+                    </EllipsisTypography>
                   </Tooltip>
                   <Stack direction="row" justifyContent="space-between" alignItems="center">
                     <Stack direction="row" alignItems="center">
@@ -1238,22 +1225,15 @@ const Home: NextPageWithLayout = () => {
                     <Stack />
                   </Stack>
                   <Tooltip title={tab.title} placement="top-start">
-                    <Typography
+                    <EllipsisTypography
                       variant="body1"
                       fontSize="16px"
                       fontWeight="600"
                       lineHeight="1.2"
                       height="40px"
-                      sx={{
-                        overflow: 'hidden',
-                        textOverflow: 'ellipsis',
-                        display: '-webkit-box',
-                        WebkitLineClamp: 2,
-                        WebkitBoxOrient: 'vertical',
-                      }}
                     >
                       {tab.title}
-                    </Typography>
+                    </EllipsisTypography>
                   </Tooltip>
                   <Stack direction="row" justifyContent="space-between" alignItems="center">
                     <Stack direction="row" alignItems="center">
@@ -1429,22 +1409,15 @@ const Home: NextPageWithLayout = () => {
                   <Stack />
                 </Stack>
                 <Tooltip title={skill.title} placement="top-start">
-                  <Typography
+                  <EllipsisTypography
                     variant="h3"
                     fontSize="16px"
                     fontWeight="600"
                     lineHeight="1.2"
                     height="40px"
-                    sx={{
-                      overflow: 'hidden',
-                      textOverflow: 'ellipsis',
-                      display: '-webkit-box',
-                      WebkitLineClamp: 2,
-                      WebkitBoxOrient: 'vertical',
-                    }}
                   >
                     {skill.title}
-                  </Typography>
+                  </EllipsisTypography>
                 </Tooltip>
                 <Stack direction="row" justifyContent="space-between" alignItems="center">
                   <Stack direction="row" alignItems="center">
