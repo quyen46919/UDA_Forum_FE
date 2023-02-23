@@ -105,23 +105,24 @@ const PodcastTags = ({ items }: PodcastTags) => {
                         }}
                         disableTypography
                         primary={
-                          <Tooltip title={item.primary}>
-                            <EllipsisTypography
-                              variant="body1"
-                              maxHeight="36px"
-                              maxWidth="250px"
-                              lineNumber={2}
-                            >
-                              {item.primary}
-                            </EllipsisTypography>
-                          </Tooltip>
+                          <EllipsisTypography
+                            variant="body1"
+                            maxHeight="36px"
+                            maxWidth="250px"
+                            lineNumber={2}
+                            tooltipTitle={item.primary}
+                          >
+                            {item.primary}
+                          </EllipsisTypography>
                         }
                         secondary={
-                          <Tooltip title={item.secondary}>
-                            <EllipsisTypography variant="body2" maxWidth="230px">
-                              {item.secondary}
-                            </EllipsisTypography>
-                          </Tooltip>
+                          <EllipsisTypography
+                            tooltipTitle={item.secondary}
+                            variant="body2"
+                            maxWidth="230px"
+                          >
+                            {item.secondary}
+                          </EllipsisTypography>
                         }
                       />
                       <ArrowRightIcon />

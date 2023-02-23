@@ -1,25 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
+import EllipsisTypography from '@components/EllipsisTypography'
 import { MainLayout } from '@layout/main'
 import {
-  Avatar,
-  Button,
+  Avatar, Box, Button,
   Card,
-  CardActionArea,
   CardActions,
-  CardContent,
-  IconButton,
+  CardContent, Dialog, IconButton,
   InputAdornment,
   Stack,
   TextField,
-  Typography,
-  useTheme,
-  Box,
-  useMediaQuery,
+  Typography, useMediaQuery, useTheme
 } from '@mui/material'
-import ManageLayout from 'pages/manage'
 import { SearchIcon } from 'libs/icons'
 import Link from 'next/link'
-import EllipsisTypography from '@components/EllipsisTypography'
+import ManageLayout from 'pages/manage'
+import EnrollmentTimeline from './EnrollmentTimeline'
 
 const candidatesData = [
   {
@@ -95,9 +90,19 @@ const candidatesData = [
 ]
 
 const Candidates = () => {
+  const [open, setOpen] = useState<boolean>(false)
   const theme = useTheme()
-  const upLg = useMediaQuery(theme.breakpoints.up('lg'))
+  const downLg = useMediaQuery(theme.breakpoints.down('lg'))
   const upSm = useMediaQuery(theme.breakpoints.up('sm'))
+
+  const handleClose = () => {
+    setOpen(false)
+  }
+
+  const handleOpen = () => {
+    setOpen(!open)
+  }
+
   return (
     <ManageLayout>
       <Stack direction="row" width="100%" gap="20px">
@@ -117,7 +122,12 @@ const Candidates = () => {
                 Một vài ứng cử viên ứng tuyển
               </Typography>
             </Stack>
-            <Stack width={!upSm ? '100%' : 'unset'}>
+            <Stack width={!upSm ? '100%' : 'unset'} direction="column" gap="10px">
+              {downLg && (
+                <Button variant="contained" onClick={handleOpen}>
+                  Tra cứu lịch sử khoá học
+                </Button>
+              )}
               <TextField
                 placeholder="Tìm kiếm ứng cử viên"
                 spellCheck={false}
@@ -179,6 +189,7 @@ const Candidates = () => {
                           fontSize="20px"
                           fontWeight={600}
                           textAlign="center"
+                          tooltipTitle={candidate.name}
                         >
                           {candidate.name}
                         </EllipsisTypography>
@@ -187,6 +198,7 @@ const Candidates = () => {
                           color="#707683"
                           fontWeight={400}
                           textAlign="center"
+                          tooltipTitle={candidate.job}
                         >
                           {candidate.job}
                         </EllipsisTypography>
@@ -203,7 +215,12 @@ const Candidates = () => {
             ))}
           </Box>
         </Stack>
-        {upLg && <Stack width="400px" maxWidth="400px"></Stack>}
+        {open && (
+          <Dialog onClose={handleClose} open={open}>
+            <EnrollmentTimeline handleClose={handleClose} />
+          </Dialog>
+        )}
+        {!downLg && <EnrollmentTimeline />}
       </Stack>
     </ManageLayout>
   )

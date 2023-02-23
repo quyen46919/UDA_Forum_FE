@@ -1,17 +1,21 @@
+import { SxProps, Tooltip, Typography, TypographyProps, TooltipProps } from '@mui/material'
 import React from 'react'
-import { Typography, SxProps, TypographyProps } from '@mui/material'
-
 interface EllipsisTypographyProps extends TypographyProps {
   sx?: SxProps
   lineNumber?: number
   children?: React.ReactNode
+  tooltipTitle?: React.ReactNode
 }
 
-const EllipsisTypography = React.forwardRef(
-  (props: EllipsisTypographyProps, ref: React.Ref<HTMLDivElement>) => {
-    const { sx, lineNumber, children, ...others } = props
+const EllipsisTypography = React.forwardRef((props: EllipsisTypographyProps & TooltipProps, ref: React.Ref<HTMLDivElement>) => {
+  const { sx, lineNumber, children, tooltipTitle, placement, ...others } = props
 
-    return (
+  return (
+    <Tooltip
+      title={tooltipTitle}
+      placement={placement}
+      disableHoverListener={!tooltipTitle ? true : false}
+    >
       <Typography
         {...others}
         ref={ref}
@@ -27,8 +31,8 @@ const EllipsisTypography = React.forwardRef(
       >
         {children}
       </Typography>
-    )
-  }
-)
+    </Tooltip>
+  )
+})
 
 export default EllipsisTypography

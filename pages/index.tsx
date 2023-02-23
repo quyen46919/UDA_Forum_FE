@@ -856,17 +856,17 @@ const Home: NextPageWithLayout = () => {
                     <Image src={tab.img} objectFit="cover" alt="tabs" />
                     <Stack />
                   </Stack>
-                  <Tooltip title={tab.title} placement="top-start">
-                    <EllipsisTypography
-                      variant="body1"
-                      fontSize="16px"
-                      fontWeight="600"
-                      lineHeight="1.2"
-                      height="40px"
-                    >
-                      {tab.title}
-                    </EllipsisTypography>
-                  </Tooltip>
+                  <EllipsisTypography
+                    variant="body1"
+                    fontSize="16px"
+                    fontWeight="600"
+                    lineHeight="1.2"
+                    height="40px"
+                    tooltipTitle={tab.title}
+                    placement="top-start"
+                  >
+                    {tab.title}
+                  </EllipsisTypography>
                   <Stack direction="row" justifyContent="space-between" alignItems="center">
                     <Stack direction="row" alignItems="center">
                       <Rating defaultValue={tab.stars} readOnly sx={{ fontSize: '18px' }} />
@@ -1047,17 +1047,17 @@ const Home: NextPageWithLayout = () => {
                     <Image src={tab.img} objectFit="cover" alt="tabs" />
                     <Stack />
                   </Stack>
-                  <Tooltip title={tab.title} placement="top-start">
-                    <EllipsisTypography
-                      variant="body1"
-                      fontSize="16px"
-                      fontWeight="600"
-                      lineHeight="1.2"
-                      height="40px"
-                    >
-                      {tab.title}
-                    </EllipsisTypography>
-                  </Tooltip>
+                  <EllipsisTypography
+                    variant="body1"
+                    fontSize="16px"
+                    fontWeight="600"
+                    lineHeight="1.2"
+                    height="40px"
+                    tooltipTitle={tab.title}
+                    placement="top-start"
+                  >
+                    {tab.title}
+                  </EllipsisTypography>
                   <Stack direction="row" justifyContent="space-between" alignItems="center">
                     <Stack direction="row" alignItems="center">
                       <Rating defaultValue={tab.stars} readOnly sx={{ fontSize: '18px' }} />
@@ -1224,17 +1224,17 @@ const Home: NextPageWithLayout = () => {
                     <Image src={tab.img} objectFit="cover" alt="tabs" />
                     <Stack />
                   </Stack>
-                  <Tooltip title={tab.title} placement="top-start">
-                    <EllipsisTypography
-                      variant="body1"
-                      fontSize="16px"
-                      fontWeight="600"
-                      lineHeight="1.2"
-                      height="40px"
-                    >
-                      {tab.title}
-                    </EllipsisTypography>
-                  </Tooltip>
+                  <EllipsisTypography
+                    variant="body1"
+                    fontSize="16px"
+                    fontWeight="600"
+                    lineHeight="1.2"
+                    height="40px"
+                    tooltipTitle={tab.title}
+                    placement="top-start"
+                  >
+                    {tab.title}
+                  </EllipsisTypography>
                   <Stack direction="row" justifyContent="space-between" alignItems="center">
                     <Stack direction="row" alignItems="center">
                       <Rating defaultValue={tab.stars} readOnly sx={{ fontSize: '18px' }} />
@@ -1408,17 +1408,17 @@ const Home: NextPageWithLayout = () => {
                   <Image src={skill.img} objectFit="cover" alt="communication" />
                   <Stack />
                 </Stack>
-                <Tooltip title={skill.title} placement="top-start">
-                  <EllipsisTypography
-                    variant="h3"
-                    fontSize="16px"
-                    fontWeight="600"
-                    lineHeight="1.2"
-                    height="40px"
-                  >
-                    {skill.title}
-                  </EllipsisTypography>
-                </Tooltip>
+                <EllipsisTypography
+                  variant="h3"
+                  fontSize="16px"
+                  fontWeight="600"
+                  lineHeight="1.2"
+                  height="40px"
+                  tooltipTitle={skill.title}
+                  placement="top-start"
+                >
+                  {skill.title}
+                </EllipsisTypography>
                 <Stack direction="row" justifyContent="space-between" alignItems="center">
                   <Stack direction="row" alignItems="center">
                     <Rating defaultValue={skill.stars} readOnly sx={{ fontSize: '18px' }} />

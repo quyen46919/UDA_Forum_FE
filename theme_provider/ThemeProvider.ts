@@ -103,7 +103,7 @@ const theme = createTheme({
           props: { variant: 'contained' },
           style: {
             backgroundColor: '#FF6934',
-            color: '#FFF',
+            color: '#FFFFFF',
             boxShadow: '1px 3px 17px -4px rgba(255,105,52,0.4)',
             '&:hover': {
               backgroundColor: '#FF8A65',
@@ -114,7 +114,7 @@ const theme = createTheme({
             },
             '&:disabled': {
               backgroundColor: '#C2CFE0',
-              color: '#FFF'
+              color: '#FFFFFF'
             }
           }
         },
@@ -122,7 +122,7 @@ const theme = createTheme({
           props: { variant: 'outlined', color: 'primary' },
           style: {
             backgroundColor: '#90A0B7',
-            color: '#FFF',
+            color: '#FFFFFF',
             '&:hover': {
               backgroundColor: '#FF6F00',
             },
@@ -131,7 +131,7 @@ const theme = createTheme({
             },
             '&:disabled': {
               backgroundColor: '#C2CFE0',
-              color: '#FFF'
+              color: '#FFFFFF'
             }
           }
         },
@@ -139,7 +139,7 @@ const theme = createTheme({
           props: { variant: 'outlined', color: 'secondary' },
           style: {
             backgroundColor: '#FF6934',
-            color: '#FFF',
+            color: '#FFFFFF',
             '&:hover': {
               backgroundColor: '#FF6F00',
             },
@@ -148,7 +148,7 @@ const theme = createTheme({
             },
             '&:disabled': {
               backgroundColor: '#C2CFE0',
-              color: '#FFF'
+              color: '#FFFFFF'
             }
           }
         },
@@ -291,7 +291,7 @@ const theme = createTheme({
       ],
       styleOverrides: {
         root: {
-          backgroundColor: '#FFF',
+          backgroundColor: '#FFFFFF',
         }
       }
     },
@@ -339,6 +339,105 @@ const theme = createTheme({
         },
       ],
     },
+    MuiMonthPicker: {
+      styleOverrides: {
+        root: {
+          '& .PrivatePickersMonth-root': {
+            padding: 0,
+            borderRadius: '7px',
+            fontSize: '16px',
+            border: 'none !important',
+            '&.Mui-selected': {
+              backgroundColor: '#FF6F00 !important',
+              color: '#FFFFFF',
+            },
+            '&:hover': {
+              backgroundColor: '#FF8A65',
+              boxShadow: '1px 3px 17px -2px rgba(255,105,52,0.4)',
+              color: '#FFFFFF !important'
+            }
+          }
+        }
+      }
+    },
+    MuiYearPicker: {
+      styleOverrides: {
+        root: {
+          '.PrivatePickersYear-root': {
+            '& .PrivatePickersYear-yearButton': {
+              padding: 0,
+              borderRadius: '7px',
+              fontSize: '16px',
+              border: 'none !important',
+              '&.Mui-selected': {
+                backgroundColor: '#FF6F00 !important',
+                color: '#FFFFFF',
+              },
+              '&:hover': {
+                backgroundColor: '#FF8A65',
+                boxShadow: '1px 3px 17px -2px rgba(255,105,52,0.4)',
+                color: '#FFFFFF !important'
+              }
+            }
+          }
+        }
+      }
+    },
+    MuiPickersToolbar: {
+      styleOverrides: {
+        root: {
+          '& .MuiIconButton-root.MuiPickersToolbar-penIconButton': {
+            padding: '6px'
+          }
+        }
+      }
+    },
+    MuiPickersCalendarHeader: {
+      styleOverrides: {
+        root: {
+          maxHeight: '36px',
+          '& .MuiIconButton-root': {
+            padding: '6px'
+          },
+          '& .MuiPickersCalendarHeader-labelContainer': {
+            maxHeight: '36px'
+          },
+        }
+      }
+    },
+    MuiPickersArrowSwitcher: {
+      styleOverrides: {
+        root: {
+          '& .MuiIconButton-root': {
+            padding: '6px'
+          }
+        }
+      }
+    },
+    MuiPickersDay: {
+      styleOverrides: {
+        root: {
+          '&': {
+            padding: 0,
+            borderRadius: '7px',
+            fontSize: '16px',
+            border: 'none !important',
+            '&.Mui-selected': {
+              backgroundColor: '#FF6F00 !important',
+              color: '#FFFFFF',
+            },
+            '&:hover': {
+              backgroundColor: '#FF8A65',
+              boxShadow: '1px 3px 17px -2px rgba(255,105,52,0.4)',
+              color: '#FFFFFF !important'
+            }
+          },
+          '& span.MuiTouchRipple-root *': {
+            borderRadius: '7px',
+          },
+        }
+      }
+    },
     MuiIconButton: {
       styleOverrides: {
         root: {
@@ -350,7 +449,7 @@ const theme = createTheme({
           '&:hover': {
             backgroundColor: '#FF6F00',
             '& svg': {
-              fill: '#FFF !important'
+              fill: '#FFFFFF !important'
             }
           }
         },
@@ -360,12 +459,12 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           textTransform: 'unset',
-          backgroundColor: '#FFF',
+          backgroundColor: '#FFFFFF',
           '&:hover': {
             backgroundColor: '#FF6F00',
-            color: '#FFF',
+            color: '#FFFFFF',
             '& svg': {
-              fill: '#FFF'
+              fill: '#FFFFFF'
             }
           },
           '&:focus': {
@@ -419,6 +518,14 @@ const theme = createTheme({
         },
       },
     },
+    MuiTooltip: {
+      styleOverrides: {
+        tooltip: {
+          background: 'linear-gradient(180deg, rgba(255,68,1,0.8) 100%, rgba(255,68,1,1) 100%, rgba(255,68,1,0.15) 100%)',
+          fontSize: '14px'
+        }
+      }
+    },
     MuiTabs: {
       styleOverrides: {
         root: {
@@ -429,14 +536,6 @@ const theme = createTheme({
           '.MuiTabs-indicator': {
             backgroundColor: '#FF6934'
           }
-        }
-      }
-    },
-    MuiTooltip: {
-      styleOverrides: {
-        tooltip: {
-          background: 'linear-gradient(180deg, rgba(255,68,1,0.8) 100%, rgba(255,68,1,1) 100%, rgba(255,68,1,0.15) 100%)',
-          fontSize: '14px'
         }
       }
     },
