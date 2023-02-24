@@ -20,6 +20,7 @@ import ManageLayout from 'pages/manage'
 import { SearchIcon } from 'libs/icons'
 import Link from 'next/link'
 import EllipsisTypography from '@components/EllipsisTypography'
+import EnrollmentTimeline from './EnrollmentTimeline'
 
 const candidatesData = [
   {
@@ -124,7 +125,7 @@ const Candidates = () => {
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position="end">
-                      <IconButton sx={{ p: '6px' }}>
+                      <IconButton>
                         <SearchIcon />
                       </IconButton>
                     </InputAdornment>
@@ -203,7 +204,6 @@ const Candidates = () => {
             ))}
           </Box>
         </Stack>
-        {upLg && <Stack width="400px" maxWidth="400px"></Stack>}
       </Stack>
     </ManageLayout>
   )

@@ -911,8 +911,6 @@ const Home: NextPageWithLayout = () => {
                     {tab.liked ? (
                       <IconButton
                         sx={{
-                          p: '4px',
-                          cursor: 'pointer',
                           background: theme.palette.primary.main,
                         }}
                       >
@@ -921,8 +919,6 @@ const Home: NextPageWithLayout = () => {
                     ) : (
                       <IconButton
                         sx={{
-                          p: '4px',
-                          cursor: 'pointer',
                           background: theme.palette.primary.main,
                           '&:hover': {
                             '& svg path': {
@@ -1102,8 +1098,6 @@ const Home: NextPageWithLayout = () => {
                     {tab.liked ? (
                       <IconButton
                         sx={{
-                          p: '4px',
-                          cursor: 'pointer',
                           background: theme.palette.primary.main,
                         }}
                       >
@@ -1112,8 +1106,6 @@ const Home: NextPageWithLayout = () => {
                     ) : (
                       <IconButton
                         sx={{
-                          p: '4px',
-                          cursor: 'pointer',
                           background: theme.palette.primary.main,
                           '&:hover': {
                             '& svg path': {
@@ -1279,8 +1271,6 @@ const Home: NextPageWithLayout = () => {
                     {tab.liked ? (
                       <IconButton
                         sx={{
-                          p: '4px',
-                          cursor: 'pointer',
                           background: theme.palette.primary.main,
                         }}
                       >
@@ -1447,15 +1437,13 @@ const Home: NextPageWithLayout = () => {
                   </Stack>
                   {skill.liked ? (
                     <IconButton
-                      sx={{ p: '4px', cursor: 'pointer', background: theme.palette.primary.main }}
+                      sx={{ background: theme.palette.primary.main }}
                     >
                       <FavoriteFillIcon />
                     </IconButton>
                   ) : (
                     <IconButton
                       sx={{
-                        p: '4px',
-                        cursor: 'pointer',
                         background: theme.palette.primary.main,
                         '&:hover': {
                           '& svg path': {

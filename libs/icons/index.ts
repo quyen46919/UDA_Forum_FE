@@ -13,9 +13,8 @@ import { CalendarIcon } from './CalendarIcon'
 import { FollowingIcon } from './FollowingIcon'
 import { GroupIcon } from './GroupIcon'
 import { HomeIcon } from './HomeIcon'
-import { InterviewsIcon } from './InterviewsIcon'
 import { Logo } from './Logo'
-import { MessageIcon } from './MessageIcon'
+import { MailIcon } from './MailIcon'
 import { NewIcon } from './NewIcon'
 import { NotificationIcon } from './NotificationIcon'
 import { PodcastsIcon } from './PodcastsIcon'
@@ -35,6 +34,7 @@ import { LikeOutlineIcon } from './LikeOutlineIcon'
 import { LikeFillIcon } from './LikeFillIcon'
 import { CommentIcon } from './CommentIcon'
 import { ShareIcon } from './ShareIcon'
+import { MicIcon } from './MicIcon'
 import { FavoriteOutlineIcon } from './FavoriteOutlineIcon'
 import { FavoriteFillIcon } from './FavoriteFillIcon'
 import { CloseIcon } from './CloseIcon'
@@ -57,9 +57,9 @@ import { ExitIcon } from './ExitIcon';
 import { BlockIcon } from './BlockIcon';
 import { VerifyIcon } from './VerifyIcon';
 import { HomeRoundedIcon } from './HomeRoundedIcon';
-import {MenuIcon} from './MenuIcon'
-import {DashboardIcon} from './DashboardIcon'
-import {PeopleAltOutlineIcon} from './PeopleAltOutlineIcon'
+import { MenuIcon } from './MenuIcon'
+import { DashboardIcon } from './DashboardIcon'
+import { PeopleAltOutlineIcon } from './PeopleAltOutlineIcon'
 
 export {
   ArrowDropDownIcon,
@@ -67,9 +67,9 @@ export {
   FollowingIcon,
   GroupIcon,
   HomeIcon,
-  InterviewsIcon,
+  MicIcon,
   Logo,
-  MessageIcon,
+  MailIcon,
   NewIcon,
   NotificationIcon,
   PodcastsIcon,

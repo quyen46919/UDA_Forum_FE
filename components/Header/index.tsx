@@ -12,7 +12,7 @@ import {
 } from '@mui/material'
 import Drawer from '@mui/material/Drawer'
 import MenuItem from './Menu'
-import { ArrowBackIOSIcon, Logo, MessageIcon, NotificationIcon, SearchIcon } from 'libs/icons'
+import { ArrowBackIOSIcon, Logo, MailIcon, NotificationIcon, SearchIcon } from 'libs/icons'
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -80,7 +80,7 @@ const Header = () => {
                   }}
                   InputProps={{
                     endAdornment: (
-                      <IconButton sx={{ p: '6px' }}>
+                      <IconButton>
                         <SearchIcon />
                       </IconButton>
                     ),
@@ -138,7 +138,7 @@ const Header = () => {
                       spellCheck="false"
                       InputProps={{
                         endAdornment: (
-                          <IconButton sx={{ p: '6px' }}>
+                          <IconButton>
                             <SearchIcon />
                           </IconButton>
                         ),
@@ -156,11 +156,11 @@ const Header = () => {
               alignItems="center"
               justifyContent="end"
             >
-              <IconButton>
-                <MessageIcon color={upLg ? 'darkGrey' : 'lightGrey'} />
+              <IconButton color={upLg ? 'darkGrey' : 'lightGrey'}>
+                <MailIcon />
               </IconButton>
-              <IconButton sx={{ mr: '10px' }}>
-                <NotificationIcon color={upLg ? 'darkGrey' : 'lightGrey'} />
+              <IconButton sx={{ mr: '10px' }} color={upLg ? 'darkGrey' : 'lightGrey'}>
+                <NotificationIcon />
               </IconButton>
               <MenuItem />
             </Stack>

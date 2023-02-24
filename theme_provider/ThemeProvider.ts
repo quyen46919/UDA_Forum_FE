@@ -298,31 +298,6 @@ const theme = createTheme({
     MuiSvgIcon: {
       variants: [
         {
-          props: { color: 'lightGrey' },
-          style: {
-            width: '40px',
-            height: '40px',
-            borderRadius: '7px',
-            '&:hover': {
-              backgroundColor: '#FF6F00',
-              color: 'white',
-            },
-          },
-        },
-        {
-          props: { color: 'darkGrey' },
-          style: {
-            width: '40px',
-            height: '40px',
-            borderRadius: '7px',
-            backgroundColor: '#F4F6F8',
-            '&:hover': {
-              backgroundColor: '#FF6F00',
-              color: 'white',
-            },
-          },
-        },
-        {
           props: { fill: 'primary' },
           style: {
             fill: '#FF6F00',
@@ -340,17 +315,39 @@ const theme = createTheme({
       ],
     },
     MuiIconButton: {
+      variants: [
+        {
+          props: { color: 'lightGrey' },
+          style: {
+            '& svg path': {
+              fill: '#c5cfe5',
+              fillOpacity: 1
+            }
+          }
+        },
+        {
+          props: { color: 'darkGrey' },
+          style: {
+            backgroundColor: '#F4F6F8',
+            '& svg path': {
+              fill: '#878faf',
+              fillOpacity: 1
+            }
+          }
+        }
+      ],
       styleOverrides: {
         root: {
-          padding: 0,
+          padding: '6px',
           borderRadius: '7px',
           '& span.MuiTouchRipple-root *': {
             borderRadius: '7px',
           },
           '&:hover': {
             backgroundColor: '#FF6F00',
-            '& svg': {
-              fill: '#FFF !important'
+            '& svg, & svg path': {
+              fill: '#FFFFFF',
+              fillOpacity: 1
             }
           }
         },
@@ -523,6 +520,8 @@ declare module '@mui/material/IconButton' {
   interface IconButtonPropsColorOverrides {
     orange: true
     black: true
+    lightGrey: true
+    darkGrey: true
   }
 }
 
