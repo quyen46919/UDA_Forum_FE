@@ -1,17 +1,15 @@
 import React from 'react'
 import { useTheme, IconButton, Stack, Typography, Breadcrumbs } from '@mui/material'
-import { MenuIcon } from 'libs/icons'
+import { ArrowBackIcon, ArrowBackIOSIcon, MenuIcon } from 'libs/icons'
 import { useRouter } from 'next/router'
 import { capitalizeFirstLetter } from 'libs/utils'
 import Link from 'next/link'
-
-type handleDrawerToggle = () => void
-
-interface SideMenuProps {
-  handleDrawerToggle: handleDrawerToggle
+interface PageHeading {
+  handleDrawerToggle: () => void
+  handleSidebarToggle: () => void
 }
 
-const PageHeading = ({ handleDrawerToggle }: SideMenuProps) => {
+const PageHeading = ({ handleDrawerToggle, handleSidebarToggle }: PageHeading) => {
   const theme = useTheme()
   const { pathname } = useRouter()
   const pathnames = pathname.split('/').filter((segment) => segment !== '')
@@ -19,25 +17,27 @@ const PageHeading = ({ handleDrawerToggle }: SideMenuProps) => {
 
   return (
     <Stack mb="12px">
-      <Stack direction="row" mb="16px">
+      <Stack direction="row" mb="16px" justifyContent="space-between">
+        <Stack direction="row">
+          <IconButton
+            onClick={handleDrawerToggle}
+            sx={{
+              mr: '6px',
+              display: { sm: 'none' },
+            }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h1">{title}</Typography>
+        </Stack>
         <IconButton
-          onClick={handleDrawerToggle}
+          onClick={handleSidebarToggle}
           sx={{
-            p: '6px',
-            mb: '12px',
-            mr: '6px',
-            display: { sm: 'none' },
-            width: 'fit-content',
-            backgroundColor: theme.palette.primary.main,
-            '&:hover': {
-              backgroundColor: '#FF6F00',
-              color: 'white',
-            },
+            display: { lg: 'none' },
           }}
         >
-          <MenuIcon />
+          <ArrowBackIOSIcon />
         </IconButton>
-        <Typography variant="h1">{title}</Typography>
       </Stack>
       <Stack>
         <Breadcrumbs>

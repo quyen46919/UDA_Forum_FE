@@ -289,14 +289,14 @@ const CreatePostPage: NextPageWithLayout = () => {
                               e.stopPropagation()
                               setGithubLink('')
                             }}
-                            sx={{ padding: '8px', '& svg': { width: '20px', height: '20px' } }}
+                            sx={{ '& svg': { width: '20px', height: '20px' } }}
                           >
                             <DeleteIcon />
                           </IconButton>
                         ) : (
                           <IconButton
                             onClick={handlePaste}
-                            sx={{ padding: '8px', '& svg': { width: '20px', height: '20px' } }}
+                            sx={{ '& svg': { width: '20px', height: '20px' } }}
                           >
                             <FileCopyIcon />
                           </IconButton>
