@@ -1,3 +1,11 @@
+import { MobileFriendlyIcon } from './MobileFriendlyIcon';
+import { CloudDownloadIcon } from './CloudDownloadIcon';
+import { ThumbDownOutlineIcon } from './ThumbDownOutlineIcon';
+import { CardGiftIcon } from './CardGiftIcon';
+import { StarIcon } from './StarIcon';
+import { PlayArrowIcon } from './PlayArrowIcon';
+import { InsertDriveIcon } from './InsertDriveIcon';
+import { SubtitlesIcon } from './SubtitlesIcon';
 import { MailOutlineIcon } from './MailOutlineIcon';
 import { FiberManualRecordIcon } from './FiberManualRecordIcon';
 import { ExpandLessIcon } from './ExpandLessIcon';
@@ -123,5 +131,13 @@ export {
   ExpandMoreIcon,
   ExpandLessIcon,
   FiberManualRecordIcon,
-  MailOutlineIcon
+  MailOutlineIcon,
+  SubtitlesIcon,
+  InsertDriveIcon,
+  PlayArrowIcon,
+  StarIcon,
+  CardGiftIcon,
+  ThumbDownOutlineIcon,
+  CloudDownloadIcon,
+  MobileFriendlyIcon
 }

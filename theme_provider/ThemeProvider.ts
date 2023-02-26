@@ -119,6 +119,23 @@ const theme = createTheme({
           }
         },
         {
+          props: { variant: 'text' },
+          style: {
+            color: '#FF6934',
+            fontWeight: 600,
+            '&:hover': {
+              color: '#FF8A65',
+            },
+            '&:focus': {
+              color: '#E65100'
+            },
+            '&:disabled': {
+              color: '#FF6934',
+              opacity: .6
+            }
+          }
+        },
+        {
           props: { variant: 'outlined', color: 'primary' },
           style: {
             backgroundColor: '#90A0B7',

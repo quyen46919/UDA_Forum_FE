@@ -1,7 +1,7 @@
 import React from 'react'
 import { SvgIcon, SvgIconProps } from '@mui/material'
 
-export const FiberManualRecordIcon = (props: SvgIconProps) => {
+export const PlayArrowIcon = (props: SvgIconProps) => {
   return (
     <SvgIcon
       {...props}
@@ -11,7 +11,7 @@ export const FiberManualRecordIcon = (props: SvgIconProps) => {
       }}
       viewBox="0 0 24 24"
     >
-      <path d="M12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20Z" />
+      <path d="M8 6.81999V17.18C8 17.97 8.87 18.45 9.54 18.02L17.68 12.84C18.3 12.45 18.3 11.55 17.68 11.15L9.54 5.97999C8.87 5.54999 8 6.02999 8 6.81999Z" />
     </SvgIcon>
   )
 }

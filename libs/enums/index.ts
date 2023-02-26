@@ -9,3 +9,10 @@ export enum TAGS {
   BESTSELLER = 1,
   SPECIAL_OFFER = 2,
 }
+
+export enum COURSE_CONTENT_ROW {
+  VIDEO = 'video',
+  DOCUMENT = 'doc',
+  ASSIGNMENT = 'assign',
+  FILE = 'file',
+}

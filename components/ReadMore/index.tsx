@@ -1,5 +1,5 @@
 import EllipsisTypography from '@components/EllipsisTypography'
-import { Stack } from '@mui/material'
+import { Stack, TypographyProps } from '@mui/material'
 import React, { useState } from 'react'
 
 interface ReadMoreProps {
@@ -25,9 +25,9 @@ const ReadMore = (props: ReadMoreProps) => {
   return (
     <>
       <EllipsisTypography
+        {...others}
         fontFamily={`Corbel, "Tahoma Regular", "Tahoma Bold", sans-serif`}
         variant="body1"
-        {...others}
         lineNumber={isReadMore ? 2 : 0}
       >
         {children}
