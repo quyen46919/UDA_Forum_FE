@@ -1,8 +1,7 @@
 import React from 'react'
-import { SvgIcon, SvgIconProps, useTheme } from '@mui/material'
+import { SvgIcon, SvgIconProps } from '@mui/material'
 
 export const LikeOutlineIcon = (props: SvgIconProps) => {
-  const theme = useTheme()
   return (
     <SvgIcon
       {...props}
@@ -10,12 +9,10 @@ export const LikeOutlineIcon = (props: SvgIconProps) => {
         width: '24px',
         height: '24px',
       }}
-      fill="black"
       viewBox="0 0 24 24"
     >
       <path
-        d="M8 20L17 20C17.83 20 18.54 19.5 18.84 18.78L21.86 11.73C21.95 11.5 22 11.26 22 11L22 9C22 7.9 21.1 7 20 7L13.69 7L14.64 2.43L14.67 2.11C14.67 1.7 14.5 1.32 14.23 1.05L13.17 -7.71943e-07L6.58 6.59C6.22 6.95 6 7.45 6 8L6 18C6 19.1 6.9 20 8 20ZM8 8L12.34 3.66L11 9L20 9L20 11L17 18L8 18L8 8ZM4 20L0 20L1.04907e-06 8L4 8L4 20Z"
-        fill={theme.palette.orange.main}
+        d="M9 21H18C18.83 21 19.54 20.5 19.84 19.78L22.86 12.73C22.95 12.5 23 12.26 23 12V10C23 8.9 22.1 8 21 8H14.69L15.64 3.43L15.67 3.11C15.67 2.7 15.5 2.32 15.23 2.05L14.17 1L7.58 7.59C7.22 7.95 7 8.45 7 9V19C7 20.1 7.9 21 9 21ZM9 9L13.34 4.66L12 10H21V12L18 19H9V9ZM1 9H5V21H1V9Z"
       />
     </SvgIcon>
   )

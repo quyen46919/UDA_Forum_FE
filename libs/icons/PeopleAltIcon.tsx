@@ -13,7 +13,7 @@ export const PeopleAltIcon = (props: SvgIconProps) => {
       fill="none"
     >
       <path
-        fill-rule="evenodd"
+        fillRule="evenodd"
         clipRule="evenodd"
         d="M16.67 13.1299C18.04 14.0599 19 15.3199 19 16.9999V19.9999H22C22.55 19.9999 23 19.5499 23 18.9999V16.9999C23 14.8199 19.43 13.5299 16.67 13.1299Z"
         fill="black"
@@ -25,14 +25,14 @@ export const PeopleAltIcon = (props: SvgIconProps) => {
         fillOpacity="0.54"
       />
       <path
-        fill-rule="evenodd"
+        fillRule="evenodd"
         clipRule="evenodd"
         d="M15 12C17.21 12 19 10.21 19 8C19 5.79 17.21 4 15 4C14.53 4 14.09 4.1 13.67 4.24C14.5 5.27 15 6.58 15 8C15 9.42 14.5 10.73 13.67 11.76C14.09 11.9 14.53 12 15 12Z"
         fill="black"
         fillOpacity="0.54"
       />
       <path
-        fill-rule="evenodd"
+        fillRule="evenodd"
         clipRule="evenodd"
         d="M9 13C6.33 13 1 14.34 1 17V19C1 19.55 1.45 20 2 20H16C16.55 20 17 19.55 17 19V17C17 14.34 11.67 13 9 13Z"
         fill="black"
