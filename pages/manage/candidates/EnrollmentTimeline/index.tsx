@@ -1,17 +1,14 @@
+import React from 'react'
 import DateSelector from '@components/DateSelector'
-import EllipsisTypography from '@components/EllipsisTypography'
 import {
-  Avatar,
-  Card,
-  CardContent,
   IconButton,
   Stack,
   Typography,
   useMediaQuery,
-  useTheme,
+  useTheme
 } from '@mui/material'
 import { CloseIcon } from 'libs/icons'
-import React from 'react'
+import ActivityHistory from '../ActivityHistory'
 
 type HandleSidebarToggleProps = {
   handleSidebarToggle?: () => void
@@ -89,50 +86,16 @@ const EnrollmentTimeline = ({ handleSidebarToggle }: HandleSidebarToggleProps) =
         )}
       </Stack>
       <DateSelector />
-      <Stack mt="20px" gap="20px">
-        {memberList.map((member) => (
-          <Card
-            key={member.id}
-            sx={{
-              '&': {
-                boxShadow: '1px 10px 29px -22px rgba(255,105,52,0.4)',
-                '& .MuiButtonBase-root': { height: '100%' },
-              },
-            }}
-          >
-            <CardContent
-              sx={{
-                '&.MuiCardContent-root': {
-                  display: 'flex',
-                  flexDirection: { xs: 'column', sm: 'row' },
-                  gap: '6px',
-                  '&:last-child': {
-                    p: '16px',
-                  },
-                },
-              }}
-            >
-              <Stack direction="row" alignItems="center" justifyContent="center">
-                <Avatar
-                  alt="User Avatar"
-                  src="https://via.placeholder.com/60"
-                  style={{ width: '60px', height: '60px', objectFit: 'cover' }}
-                />
-              </Stack>
-              <Stack alignItems="flex-start">
-                <EllipsisTypography variant="body1" fontSize="14px" lineNumber={1}>
-                  Họ tên: {member.name}
-                </EllipsisTypography>
-                <Typography variant="body1" fontSize="14px" textAlign="center">
-                  Ngày tham gia: {member.joinDate}
-                </Typography>
-                <Typography variant="body1" fontSize="14px" textAlign="center">
-                  Ngày kết thúc: {member.exitDate ? member.exitDate : 'Chưa có'}
-                </Typography>
-              </Stack>
-            </CardContent>
-          </Card>
-        ))}
+      <Stack>
+        <Stack mt="20px" direction="row" alignItems="center" justifyContent="space-between">
+          <Typography component="span" fontSize="22px" fontWeight={700}>
+            Juny 15 - 2022
+          </Typography>
+          <Typography component="span" color={theme.palette.textGrey.main} fontSize="16px">
+            15 candidates
+          </Typography>
+        </Stack>
+        <ActivityHistory />
       </Stack>
     </Stack>
   )

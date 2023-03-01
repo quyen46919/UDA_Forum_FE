@@ -9,8 +9,8 @@ import {
   Typography,
   useMediaQuery,
   ListItemButton,
+  Tooltip,
 } from '@mui/material'
-import OverflowTooltip from '@components/Tooltip'
 
 declare type ItemProps = {
   icon: JSX.Element
@@ -136,7 +136,7 @@ const Tags = ({ items }: TagsProps) => {
                         }
                         secondary={
                           !downSm && (
-                            <OverflowTooltip title={item.secondary}>
+                            <Tooltip title={item.secondary}>
                               <Stack
                                 fontWeight={400}
                                 color={theme.palette.textLightGrey.main}
@@ -146,7 +146,7 @@ const Tags = ({ items }: TagsProps) => {
                               >
                                 {item.secondary}
                               </Stack>
-                            </OverflowTooltip>
+                            </Tooltip>
                           )
                         }
                       />

@@ -10,6 +10,7 @@ import SlideHome5 from './slide-home5.jpg'
 import SlideHome6 from './slide-home6.jpg'
 import SlideHome7 from './slide-home7.jpg'
 import Writing from './writing.jpg'
+import BreakTime from './break-time.png'
 
 export {
     Communication,
@@ -24,4 +25,5 @@ export {
     SlideHome6,
     SlideHome7,
     Writing,
+    BreakTime
 }
