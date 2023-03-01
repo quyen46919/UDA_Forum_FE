@@ -1052,7 +1052,7 @@ const Home: NextPageWithLayout = () => {
                       lineHeight="1.2"
                       height="40px"
                     >
-                      {tab.title}
+                      {tab.title} Lorem
                     </EllipsisTypography>
                   </Tooltip>
                   <Stack direction="row" justifyContent="space-between" alignItems="center">
