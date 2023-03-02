@@ -1,42 +1,6 @@
-import React, { useState } from 'react'
+import EllipsisTypography from '@components/EllipsisTypography'
+import Footer from '@components/Footer'
 import { TAGS } from '@enums/index'
-import { NextPageWithLayout } from '@layout/layout'
-import { MainLayout } from '@layout/main'
-import { Masonry } from '@mui/lab'
-import {
-  Button,
-  Chip,
-  Divider,
-  IconButton,
-  List,
-  ListItem,
-  ListSubheader,
-  Rating,
-  Stack,
-  SxProps,
-  Tab,
-  Tabs,
-  Tooltip,
-  Typography,
-  useMediaQuery,
-  useTheme,
-} from '@mui/material'
-import {
-  AccessTimeOutlineIcon,
-  ArrowBackIOSIcon,
-  ArrowForwardIOSIcon,
-  ArrowRightIcon,
-  CopyrightIcon,
-  FavoriteFillIcon,
-  FavoriteOutlineIcon,
-  LanguageIcon,
-  VideoCamOutlineIcon,
-} from 'libs/icons'
-import Image from 'next/image'
-import Link from 'next/link'
-import Slider from 'react-slick'
-import 'slick-carousel/slick/slick-theme.css'
-import 'slick-carousel/slick/slick.css'
 import {
   Communication,
   Grammar,
@@ -49,11 +13,41 @@ import {
   SlideHome5,
   SlideHome6,
   SlideHome7,
-  Writing,
+  Writing
 } from '@images/index'
+import { NextPageWithLayout } from '@layout/layout'
+import { MainLayout } from '@layout/main'
+import { Masonry } from '@mui/lab'
+import {
+  Button,
+  Chip,
+  Divider,
+  IconButton,
+  List,
+  ListItem, 
+  Rating,
+  Stack,
+  SxProps,
+  Tab,
+  Tabs,
+  Tooltip,
+  Typography,
+  useMediaQuery,
+  useTheme
+} from '@mui/material'
+import {
+  AccessTimeOutlineIcon,
+  ArrowBackIOSIcon,
+  ArrowForwardIOSIcon,
+  ArrowRightIcon, FavoriteFillIcon,
+  FavoriteOutlineIcon, VideoCamOutlineIcon
+} from 'libs/icons'
 import { formatPriceToVND } from 'libs/utils'
-import EllipsisTypography from '@components/EllipsisTypography'
-import Footer from '@components/Footer'
+import Image from 'next/image'
+import React, { useState } from 'react'
+import Slider from 'react-slick'
+import 'slick-carousel/slick/slick-theme.css'
+import 'slick-carousel/slick/slick.css'
 interface ArrowProps {
   type: string
   'data-role'?: string

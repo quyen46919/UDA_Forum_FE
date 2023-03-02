@@ -9,10 +9,11 @@ import {
   Typography,
   ListItemButton,
   Chip,
+  Tooltip,
 } from '@mui/material'
 import { ArrowRightIcon } from 'libs/icons'
 import Link from 'next/link'
-import OverflowTooltip from '@components/Tooltip'
+import EllipsisTypography from '@components/EllipsisTypography'
 
 interface ChipData {
   label: string
@@ -27,7 +28,7 @@ interface ItemProps {
 }
 
 interface TagsProps {
-  items: { title?: string, href: string } & { data: ItemProps[] }
+  items: { title?: string; href: string } & { data: ItemProps[] }
 }
 
 const SchedulingTags = ({ items }: TagsProps) => {
@@ -103,13 +104,7 @@ const SchedulingTags = ({ items }: TagsProps) => {
                         7
                       </Typography>
                     </Stack>
-                    <Stack
-                      minHeight="68px"
-                      gap="10px"
-                      textOverflow="ellipsis"
-                      overflow="hidden"
-                      whiteSpace="nowrap"
-                    >
+                    <Stack minHeight="68px" gap="10px">
                       <ListItemText
                         sx={{
                           '&': {
@@ -133,11 +128,11 @@ const SchedulingTags = ({ items }: TagsProps) => {
                         }}
                         disableTypography
                         primary={
-                          <OverflowTooltip title={item.primary}>
-                            <Typography maxWidth="200px" variant="body1">
+                          <Tooltip title={item.primary}>
+                            <EllipsisTypography variant="body1" lineNumber={1}>
                               {item.primary}
-                            </Typography>
-                          </OverflowTooltip>
+                            </EllipsisTypography>
+                          </Tooltip>
                         }
                         secondary={
                           <Stack direction="row" alignItems="center" gap="6px">
@@ -146,11 +141,11 @@ const SchedulingTags = ({ items }: TagsProps) => {
                               alt="Avatar"
                               src={item?.avatar}
                             />
-                            <OverflowTooltip title={item.secondary}>
-                              <Typography variant="body2" maxWidth="200px">
+                            <Tooltip title={item.secondary}>
+                              <EllipsisTypography variant="body2" lineNumber={1}>
                                 {item.secondary}
-                              </Typography>
-                            </OverflowTooltip>
+                              </EllipsisTypography>
+                            </Tooltip>
                           </Stack>
                         }
                       />
