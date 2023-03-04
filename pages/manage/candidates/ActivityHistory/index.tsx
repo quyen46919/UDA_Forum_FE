@@ -136,7 +136,11 @@ const ActivityHistory = () => {
           <Stack direction="row" height="70px">
             <Divider
               orientation="vertical"
-              sx={{ borderRightWidth: '5px', borderColor: theme.palette.orange.main, mr: '10px' }}
+              sx={{
+                borderRightWidth: '5px',
+                borderColor: theme.palette.orange.main,
+                mr: '10px',
+              }}
             />
             {data.users !== null ? (
               <Stack alignItems="flex-start" gap="5px">

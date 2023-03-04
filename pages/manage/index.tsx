@@ -55,6 +55,7 @@ const ManageLayout = (props: StackProps & DefaultProps) => {
       <Stack
         component="main"
         sx={{
+          backgroundColor: theme.palette.primary.main,
           p: '20px 24px',
           width: {
             xs: '100%',
@@ -68,6 +69,7 @@ const ManageLayout = (props: StackProps & DefaultProps) => {
         <PageHeading
           handleDrawerToggle={handleDrawerToggle}
           handleSidebarToggle={handleToggle}
+          drawerOpen={drawerOpen}
         />
         {children}
       </Stack>

@@ -1,15 +1,16 @@
 import React from 'react'
 import { useTheme, IconButton, Stack, Typography, Breadcrumbs } from '@mui/material'
-import { ArrowBackIcon, ArrowBackIOSIcon, MenuIcon } from 'libs/icons'
+import { ArrowBackIcon, ArrowBackIOSIcon, ArrowForwardIOSIcon, MenuIcon } from 'libs/icons'
 import { useRouter } from 'next/router'
 import { capitalizeFirstLetter } from 'libs/utils'
 import Link from 'next/link'
 interface PageHeading {
   handleDrawerToggle: () => void
   handleSidebarToggle: () => void
+  drawerOpen?: boolean
 }
 
-const PageHeading = ({ handleDrawerToggle, handleSidebarToggle }: PageHeading) => {
+const PageHeading = ({ handleDrawerToggle, handleSidebarToggle, drawerOpen }: PageHeading) => {
   const theme = useTheme()
   const { pathname } = useRouter()
   const pathnames = pathname.split('/').filter((segment) => segment !== '')
@@ -17,18 +18,21 @@ const PageHeading = ({ handleDrawerToggle, handleSidebarToggle }: PageHeading) =
 
   return (
     <Stack mb="12px">
-      <Stack direction="row" mb="16px" gap="6px">
-        <IconButton
-          onClick={handleDrawerToggle}
-          sx={{
-            display: { sm: 'none' },
-          }}
-        >
-          <MenuIcon />
-        </IconButton>
-        <Typography variant="h1">{title}</Typography>
+      <Stack direction="row" mb="16px" gap="6px" justifyContent="space-between">
+        <Stack direction="row">
+          <IconButton
+            onClick={handleDrawerToggle}
+            sx={{
+              display: { sm: 'none' },
+              mr: '6px'
+            }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h1">{title}</Typography>
+        </Stack>
         <IconButton onClick={handleSidebarToggle}>
-          <ArrowBackIOSIcon />
+          {drawerOpen ? <ArrowForwardIOSIcon /> : <ArrowBackIOSIcon />}
         </IconButton>
       </Stack>
       <Stack>

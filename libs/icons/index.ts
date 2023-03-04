@@ -1,3 +1,7 @@
+import { MoreVertIcon } from './MoreVertIcon';
+import { VideoCamIcon } from './VideoCamIcon';
+import { MessageIcon } from './MessageIcon';
+import { PhoneIcon } from './PhoneIcon';
 import { MobileFriendlyIcon } from './MobileFriendlyIcon';
 import { CloudDownloadIcon } from './CloudDownloadIcon';
 import { ThumbDownOutlineIcon } from './ThumbDownOutlineIcon';
@@ -139,5 +143,9 @@ export {
   CardGiftIcon,
   ThumbDownOutlineIcon,
   CloudDownloadIcon,
-  MobileFriendlyIcon
+  MobileFriendlyIcon,
+  PhoneIcon,
+  MessageIcon,
+  VideoCamIcon,
+  MoreVertIcon
 }
