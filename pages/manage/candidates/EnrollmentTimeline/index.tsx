@@ -1,12 +1,6 @@
 import React from 'react'
 import DateSelector from '@components/DateSelector'
-import {
-  IconButton,
-  Stack,
-  Typography,
-  useMediaQuery,
-  useTheme
-} from '@mui/material'
+import { IconButton, Stack, Typography, useTheme } from '@mui/material'
 import { CloseIcon } from 'libs/icons'
 import ActivityHistory from '../ActivityHistory'
 
@@ -14,54 +8,8 @@ type HandleSidebarToggleProps = {
   handleSidebarToggle?: () => void
 }
 
-const memberList = [
-  {
-    id: 0,
-    name: 'Phùng Trương Đình Quân Phùng Trương Đình Quân',
-    job: 'Quân đẹp trai vô địch khắp vũ trụ Quân đẹp trai vô địch khắp vũ trụ',
-    joinDate: 'hôm qua',
-    exitDate: null,
-  },
-  {
-    id: 1,
-    name: 'Jason Ruly 1',
-    job: 'UI/UX Designer',
-    joinDate: '2 hôm qua',
-    exitDate: 'hôm qua',
-  },
-  {
-    id: 2,
-    name: 'Jason Ruly 2',
-    job: 'UI/UX Designer',
-    joinDate: 'hôm qua',
-    exitDate: 'tuần trước',
-  },
-  {
-    id: 3,
-    name: 'Jason Ruly 2',
-    job: 'UI/UX Designer',
-    joinDate: 'hôm qua',
-    exitDate: 'tuần trước',
-  },
-  {
-    id: 4,
-    name: 'Jason Ruly 2',
-    job: 'UI/UX Designer',
-    joinDate: 'hôm qua',
-    exitDate: 'tuần trước',
-  },
-  {
-    id: 5,
-    name: 'Jason Ruly 2',
-    job: 'UI/UX Designer',
-    joinDate: 'hôm qua',
-    exitDate: 'tuần trước',
-  },
-]
-
 const EnrollmentTimeline = ({ handleSidebarToggle }: HandleSidebarToggleProps) => {
   const theme = useTheme()
-  const downLg = useMediaQuery(theme.breakpoints.down('lg'))
 
   return (
     <Stack
@@ -79,11 +27,9 @@ const EnrollmentTimeline = ({ handleSidebarToggle }: HandleSidebarToggleProps) =
         <Typography variant="h2" fontSize="26px" lineHeight="38px">
           Tra cứu lịch sử khoá học
         </Typography>
-        {downLg && (
-          <IconButton onClick={handleSidebarToggle}>
-            <CloseIcon />
-          </IconButton>
-        )}
+        <IconButton onClick={handleSidebarToggle}>
+          <CloseIcon />
+        </IconButton>
       </Stack>
       <DateSelector />
       <Stack>

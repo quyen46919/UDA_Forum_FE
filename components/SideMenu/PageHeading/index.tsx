@@ -17,25 +17,17 @@ const PageHeading = ({ handleDrawerToggle, handleSidebarToggle }: PageHeading) =
 
   return (
     <Stack mb="12px">
-      <Stack direction="row" mb="16px" justifyContent="space-between">
-        <Stack direction="row">
-          <IconButton
-            onClick={handleDrawerToggle}
-            sx={{
-              mr: '6px',
-              display: { sm: 'none' },
-            }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h1">{title}</Typography>
-        </Stack>
+      <Stack direction="row" mb="16px" gap="6px">
         <IconButton
-          onClick={handleSidebarToggle}
+          onClick={handleDrawerToggle}
           sx={{
-            display: { lg: 'none' },
+            display: { sm: 'none' },
           }}
         >
+          <MenuIcon />
+        </IconButton>
+        <Typography variant="h1">{title}</Typography>
+        <IconButton onClick={handleSidebarToggle}>
           <ArrowBackIOSIcon />
         </IconButton>
       </Stack>

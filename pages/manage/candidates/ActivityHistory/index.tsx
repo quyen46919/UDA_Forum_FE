@@ -78,6 +78,31 @@ const timelineData = [
       },
     ],
   },
+  {
+    id: 4,
+    time: '10:00',
+    users: null,
+  },
+  {
+    id: 5,
+    time: '10:00',
+    users: null,
+  },
+  {
+    id: 6,
+    time: '10:00',
+    users: null,
+  },
+  {
+    id: 7,
+    time: '10:00',
+    users: null,
+  },
+  {
+    id: 8,
+    time: '10:00',
+    users: null,
+  },
 ]
 
 const ActivityHistory = () => {

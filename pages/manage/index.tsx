@@ -16,6 +16,7 @@ interface DefaultProps {
 const ManageLayout = (props: StackProps & DefaultProps) => {
   const { children } = props
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [drawerOpen, seDrawerOpen] = useState(false)
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false)
   const theme = useTheme()
   const downSm = useMediaQuery(theme.breakpoints.down('sm'))
@@ -29,13 +30,17 @@ const ManageLayout = (props: StackProps & DefaultProps) => {
     setMobileSidebarOpen(!mobileSidebarOpen)
   }
 
+  const handleToggle = () => {
+    seDrawerOpen(!drawerOpen)
+  }
+
   const drawer = <SideMenu handleDrawerToggle={handleDrawerToggle} />
   let sidebarChildren
   const { pathname } = useRouter()
 
   switch (pathname) {
     case '/manage/candidates':
-      sidebarChildren = <EnrollmentTimeline handleSidebarToggle={handleSidebarToggle} />
+      sidebarChildren = <EnrollmentTimeline handleSidebarToggle={handleToggle} />
       break
     default:
       break
@@ -48,18 +53,21 @@ const ManageLayout = (props: StackProps & DefaultProps) => {
         <TabletLaptopDrawer drawer={drawer} drawerWidth={drawerWidth} />
       </Stack>
       <Stack
+        component="main"
         sx={{
           p: '20px 24px',
           width: {
             xs: '100%',
             sm: `calc(100% - ${drawerWidth}px)`,
-            lg: `calc(100% - ${drawerWidth + sidebarWidth}px)`,
+            lg: drawerOpen
+              ? `calc(100% - ${drawerWidth + sidebarWidth}px)`
+              : `calc(100% - ${drawerWidth}px)`,
           },
         }}
       >
         <PageHeading
           handleDrawerToggle={handleDrawerToggle}
-          handleSidebarToggle={handleSidebarToggle}
+          handleSidebarToggle={handleToggle}
         />
         {children}
       </Stack>
@@ -73,8 +81,9 @@ const ManageLayout = (props: StackProps & DefaultProps) => {
         <TabletLaptopDrawer
           drawer={sidebarChildren}
           anchor="right"
-          variant={downLg ? 'temporary' : 'permanent'}
+          variant="persistent"
           drawerWidth={sidebarWidth}
+          open={drawerOpen}
           sx={{
             display: { xs: 'block', sm: 'block' },
             '& .MuiDrawer-paper': {
@@ -84,10 +93,6 @@ const ManageLayout = (props: StackProps & DefaultProps) => {
               width: downLg ? '100%' : sidebarWidth,
             },
           }}
-          ModalProps={{
-            keepMounted: downLg ? true : false, // Better open performance on mobile.
-          }}
-          mobileOpen={mobileSidebarOpen}
         />
       </Stack>
     </Stack>
