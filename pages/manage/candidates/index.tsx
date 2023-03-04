@@ -1,13 +1,8 @@
 import React from 'react'
-import EllipsisTypography from '@components/EllipsisTypography'
+import { Card } from '@components/Card'
 import { MainLayout } from '@layout/main'
 import {
-  Avatar,
   Box,
-  Button,
-  Card,
-  CardActions,
-  CardContent,
   IconButton,
   InputAdornment,
   Stack,
@@ -17,7 +12,6 @@ import {
   useTheme,
 } from '@mui/material'
 import { SearchIcon } from 'libs/icons'
-import Link from 'next/link'
 import ManageLayout from 'pages/manage'
 
 const candidatesData = [
@@ -25,122 +19,144 @@ const candidatesData = [
     id: 0,
     name: 'Phùng Trương Đình Quân Phùng Trương Đình Quân',
     job: 'Quân đẹp trai vô địch khắp vũ trụ Quân đẹp trai vô địch khắp vũ trụ',
+    status: 0,
   },
   {
     id: 1,
     name: 'Jason Ruly 1',
     job: 'UI/UX Designer',
+    status: 2,
   },
   {
     id: 2,
     name: 'Jason Ruly 2',
     job: 'UI/UX Designer',
+    status: 1,
   },
   {
     id: 3,
     name: 'Jason Ruly 3',
     job: 'UI/UX Designer',
+    status: 3,
   },
   {
     id: 4,
     name: 'Jason Ruly 4',
     job: 'UI/UX ASDAD',
+    status: 0,
   },
   {
     id: 5,
     name: 'Jason Ruly 5',
     job: 'UI/UX Designer',
+    status: 1,
   },
   {
     id: 6,
     name: 'Jason Ruly 3',
     job: 'UI/UX Designer',
+    status: 0,
   },
   {
     id: 7,
     name: 'Phùng Trương Đình Quân Phùng Trương Đình Quân',
     job: 'Quân đẹp trai vô địch khắp vũ trụ Quân đẹp trai vô địch khắp vũ trụ',
+    status: 2,
   },
   {
     id: 8,
     name: 'Jason Ruly 1',
     job: 'UI/UX Designer',
+    status: 3,
   },
   {
     id: 9,
     name: 'Jason Ruly 2',
     job: 'UI/UX Designer',
+    status: 2,
   },
   {
     id: 10,
     name: 'Jason Ruly 3',
     job: 'UI/UX Designer',
+    status: 3,
   },
   {
     id: 11,
     name: 'Jason Ruly 4',
     job: 'UI/UX ASDAD',
+    status: 0,
   },
   {
     id: 12,
     name: 'Jason Ruly 5',
     job: 'UI/UX Designer',
+    status: 0,
   },
   {
     id: 13,
     name: 'Jason Ruly 3',
     job: 'UI/UX Designer',
+    status: 2,
   },
   {
     id: 14,
     name: 'Jason Ruly 5',
     job: 'UI/UX Designer',
+    status: 1,
   },
   {
     id: 15,
     name: 'Jason Ruly 3',
     job: 'UI/UX Designer',
+    status: 0,
   },
   {
     id: 16,
     name: 'Phùng Trương Đình Quân Phùng Trương Đình Quân',
     job: 'Quân đẹp trai vô địch khắp vũ trụ Quân đẹp trai vô địch khắp vũ trụ',
+    status: 0,
   },
   {
     id: 17,
     name: 'Jason Ruly 1',
     job: 'UI/UX Designer',
+    status: 3,
   },
   {
     id: 18,
     name: 'Jason Ruly 2',
     job: 'UI/UX Designer',
+    status: 0,
   },
   {
     id: 19,
     name: 'Jason Ruly 3',
     job: 'UI/UX Designer',
+    status: 1,
   },
   {
     id: 20,
     name: 'Jason Ruly 4',
     job: 'UI/UX ASDAD',
+    status: 0,
   },
   {
     id: 21,
     name: 'Jason Ruly 5',
     job: 'UI/UX Designer',
+    status: 0,
   },
   {
     id: 22,
     name: 'Jason Ruly 3',
     job: 'UI/UX Designer',
+    status: 1,
   },
 ]
 
 const Candidates = () => {
   const theme = useTheme()
-  const upLg = useMediaQuery(theme.breakpoints.up('lg'))
   const upSm = useMediaQuery(theme.breakpoints.up('sm'))
   return (
     <ManageLayout>
@@ -180,69 +196,19 @@ const Candidates = () => {
           <Box
             display="grid"
             gap="20px"
-            gridTemplateColumns="repeat(auto-fill, minmax(160px, 1fr))"
+            gridTemplateColumns="repeat(auto-fill, minmax(220px, 1fr))"
           >
             {candidatesData.map((candidate) => (
-              <Link href="/manage/candidates" key={candidate.id}>
-                <a>
-                  <Card
-                    sx={{
-                      '&': {
-                        boxShadow: '1px 10px 29px -22px rgba(255,105,52,0.4)',
-                        '& .MuiButtonBase-root': { height: '100%' },
-                        '&:hover': {
-                          backgroundColor: 'rgba(255, 105, 51, 0.2)',
-                          cursor: 'pointer',
-                          transition: '.2s',
-                        },
-                      },
-                    }}
-                  >
-                    <CardContent sx={{ '.MuiCardContent-root': { p: '20px' } }}>
-                      <Stack
-                        alignItems="center"
-                        mb="20px"
-                        sx={{
-                          '& .MuiAvatar-root img': {
-                            borderRadius: '50%',
-                            background: theme.palette.orange.main,
-                            padding: '10px',
-                          },
-                        }}
-                      >
-                        <Avatar
-                          alt="User Avatar"
-                          src="https://via.placeholder.com/100"
-                          style={{ width: '100px', height: '100px', objectFit: 'cover' }}
-                        />
-                      </Stack>
-                      <Stack alignItems="center" height="110px" maxHeight="110px">
-                        <EllipsisTypography
-                          variant="body2"
-                          fontSize="20px"
-                          fontWeight={600}
-                          textAlign="center"
-                        >
-                          {candidate.name}
-                        </EllipsisTypography>
-                        <EllipsisTypography
-                          variant="body2"
-                          color="#707683"
-                          fontWeight={400}
-                          textAlign="center"
-                        >
-                          {candidate.job}
-                        </EllipsisTypography>
-                      </Stack>
-                    </CardContent>
-                    <CardActions sx={{ justifyContent: 'center', p: '20px', pt: 0 }}>
-                      <Button variant="contained" sx={{ width: '200px' }}>
-                        Nhắn tin
-                      </Button>
-                    </CardActions>
-                  </Card>
-                </a>
-              </Link>
+              <Card
+                key={candidate.id}
+                options={{
+                  href: '#',
+                  alt: 'avatar',
+                  title: candidate.name,
+                  desc: candidate.job,
+                  status: candidate.status,
+                }}
+              />
             ))}
           </Box>
         </Stack>
