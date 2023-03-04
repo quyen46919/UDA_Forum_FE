@@ -22,7 +22,7 @@ const BaseDrawer = (props: DefaultProps) => {
 export const MobileDrawer = (props: CustomDrawerProps) => {
   const { window, onDrawerToggle, mobileOpen, ...others } = props
   const container = window !== undefined ? () => window().document.body : undefined
-
+  
   return (
     <BaseDrawer
       {...others}
@@ -45,12 +45,12 @@ export const MobileDrawer = (props: CustomDrawerProps) => {
 }
 
 export const TabletLaptopDrawer = (props: CustomDrawerProps) => {
-  const { drawerWidth, sx, mobileOpen, variant, ...others } = props
+  const { drawerWidth, sx, open, variant, ...others } = props
 
   return (
     <BaseDrawer
       {...others}
-      open={mobileOpen}
+      open={open}
       variant={variant ?? 'permanent'}
       sx={{
         display: { xs: 'none', sm: 'block' },

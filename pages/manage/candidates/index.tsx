@@ -1,10 +1,11 @@
 import React from 'react'
+import EllipsisTypography from '@components/EllipsisTypography'
 import { MainLayout } from '@layout/main'
 import {
   Avatar,
+  Box,
   Button,
   Card,
-  CardActionArea,
   CardActions,
   CardContent,
   IconButton,
@@ -12,15 +13,12 @@ import {
   Stack,
   TextField,
   Typography,
-  useTheme,
-  Box,
   useMediaQuery,
+  useTheme,
 } from '@mui/material'
-import ManageLayout from 'pages/manage'
 import { SearchIcon } from 'libs/icons'
 import Link from 'next/link'
-import EllipsisTypography from '@components/EllipsisTypography'
-import EnrollmentTimeline from './EnrollmentTimeline'
+import ManageLayout from 'pages/manage'
 
 const candidatesData = [
   {
@@ -93,6 +91,51 @@ const candidatesData = [
     name: 'Jason Ruly 3',
     job: 'UI/UX Designer',
   },
+  {
+    id: 14,
+    name: 'Jason Ruly 5',
+    job: 'UI/UX Designer',
+  },
+  {
+    id: 15,
+    name: 'Jason Ruly 3',
+    job: 'UI/UX Designer',
+  },
+  {
+    id: 16,
+    name: 'Phùng Trương Đình Quân Phùng Trương Đình Quân',
+    job: 'Quân đẹp trai vô địch khắp vũ trụ Quân đẹp trai vô địch khắp vũ trụ',
+  },
+  {
+    id: 17,
+    name: 'Jason Ruly 1',
+    job: 'UI/UX Designer',
+  },
+  {
+    id: 18,
+    name: 'Jason Ruly 2',
+    job: 'UI/UX Designer',
+  },
+  {
+    id: 19,
+    name: 'Jason Ruly 3',
+    job: 'UI/UX Designer',
+  },
+  {
+    id: 20,
+    name: 'Jason Ruly 4',
+    job: 'UI/UX ASDAD',
+  },
+  {
+    id: 21,
+    name: 'Jason Ruly 5',
+    job: 'UI/UX Designer',
+  },
+  {
+    id: 22,
+    name: 'Jason Ruly 3',
+    job: 'UI/UX Designer',
+  },
 ]
 
 const Candidates = () => {
@@ -147,7 +190,6 @@ const Candidates = () => {
                       '&': {
                         boxShadow: '1px 10px 29px -22px rgba(255,105,52,0.4)',
                         '& .MuiButtonBase-root': { height: '100%' },
-
                         '&:hover': {
                           backgroundColor: 'rgba(255, 105, 51, 0.2)',
                           cursor: 'pointer',
