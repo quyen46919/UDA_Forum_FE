@@ -13,6 +13,7 @@ import {
 } from '@mui/material'
 import { SearchIcon } from 'libs/icons'
 import ManageLayout from 'pages/manage'
+import Pagination from '@components/Pagination'
 
 const candidatesData = [
   {
@@ -105,59 +106,13 @@ const candidatesData = [
     job: 'UI/UX Designer',
     status: 1,
   },
-  {
-    id: 15,
-    name: 'Jason Ruly 3',
-    job: 'UI/UX Designer',
-    status: 0,
-  },
-  {
-    id: 16,
-    name: 'Phùng Trương Đình Quân Phùng Trương Đình Quân',
-    job: 'Quân đẹp trai vô địch khắp vũ trụ Quân đẹp trai vô địch khắp vũ trụ',
-    status: 0,
-  },
-  {
-    id: 17,
-    name: 'Jason Ruly 1',
-    job: 'UI/UX Designer',
-    status: 3,
-  },
-  {
-    id: 18,
-    name: 'Jason Ruly 2',
-    job: 'UI/UX Designer',
-    status: 0,
-  },
-  {
-    id: 19,
-    name: 'Jason Ruly 3',
-    job: 'UI/UX Designer',
-    status: 1,
-  },
-  {
-    id: 20,
-    name: 'Jason Ruly 4',
-    job: 'UI/UX ASDAD',
-    status: 0,
-  },
-  {
-    id: 21,
-    name: 'Jason Ruly 5',
-    job: 'UI/UX Designer',
-    status: 0,
-  },
-  {
-    id: 22,
-    name: 'Jason Ruly 3',
-    job: 'UI/UX Designer',
-    status: 1,
-  },
 ]
 
 const Candidates = () => {
   const theme = useTheme()
   const upSm = useMediaQuery(theme.breakpoints.up('sm'))
+  const downLg = useMediaQuery(theme.breakpoints.down('lg'))
+
   return (
     <ManageLayout>
       <Stack direction="row" width="100%" gap="20px">
@@ -211,6 +166,9 @@ const Candidates = () => {
               />
             ))}
           </Box>
+          <Stack mt="25px">
+            <Pagination count={downLg ? 100 : 10} />
+          </Stack>
         </Stack>
       </Stack>
     </ManageLayout>
