@@ -114,7 +114,7 @@ const Candidates = () => {
   const downLg = useMediaQuery(theme.breakpoints.down('lg'))
 
   return (
-    <ManageLayout>
+    <ManageLayout enableSidebar={true}>
       <Stack direction="row" width="100%" gap="20px">
         <Stack flex="1">
           <Stack

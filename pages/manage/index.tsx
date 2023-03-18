@@ -11,10 +11,11 @@ const drawerWidth = 240
 const sidebarWidth = 400
 interface DefaultProps {
   sidebarChildren?: React.ReactNode
+  enableSidebar?: boolean
 }
 
 const ManageLayout = (props: StackProps & DefaultProps) => {
-  const { children } = props
+  const { children, enableSidebar } = props
   const [mobileOpen, setMobileOpen] = useState(false)
   const [drawerOpen, seDrawerOpen] = useState(false)
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false)
@@ -57,6 +58,7 @@ const ManageLayout = (props: StackProps & DefaultProps) => {
         sx={{
           backgroundColor: theme.palette.primary.main,
           p: '20px 24px',
+          minHeight: 'calc(100vh - 70px)',
           width: {
             xs: '100%',
             sm: `calc(100% - ${drawerWidth}px)`,
@@ -70,6 +72,7 @@ const ManageLayout = (props: StackProps & DefaultProps) => {
           handleDrawerToggle={handleDrawerToggle}
           handleSidebarToggle={handleToggle}
           drawerOpen={drawerOpen}
+          enableSidebar={enableSidebar}
         />
         {children}
       </Stack>
