@@ -1,0 +1,58 @@
+# https://docs.gitlab.com/12.10/ee/api/jobs.html
+image: node:16.10.0
+
+before_script:
+  - node -v
+
+stages:
+  - test
+  - build
+  - deploy
+
+test:
+  stage: test
+  before_script:
+    - export PATH=$PATH:/root/.nvm/versions/node/v16.10.0/bin
+    - echo "PATH='${PATH}'"
+    - yarn
+  script:
+    - yarn install && yarn lint
+
+build:
+  stage: build
+  before_script:
+    - export PATH=$PATH:/root/.nvm/versions/node/v16.10.0/bin
+    - echo "PATH='${PATH}'"
+    # - rm -rf node_modules
+    - yarn
+  script:
+    - yarn install
+    - yarn build
+    - rm -rf output
+    - mkdir output
+    - mkdir output/uda_forum_fe
+    - cp -r /build/ output/uda_forum_fe
+  artifacts:
+    paths:
+      - output/**/*
+    expire_in: 2h
+
+deploy_preview:
+  stage: deploy
+  except:
+    - master
+  script:
+    - npm install --global vercel
+    - vercel pull --yes --environment=preview --token=$VERCEL_TOKEN
+    - vercel build --token=$VERCEL_TOKEN
+    - vercel deploy --prebuilt  --token=$VERCEL_TOKEN
+
+deploy_production:
+  stage: deploy
+  only:
+    - master
+  script:
+    - npm install --global vercel
+    - vercel pull --yes --environment=production --token=$VERCEL_TOKEN
+    - vercel build --prod --token=$VERCEL_TOKEN
+    - vercel deploy --prebuilt --prod --token=$VERCEL_TOKEN
