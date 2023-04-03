@@ -1,3 +1,4 @@
+import { AddIcon } from './AddIcon';
 import { MoreVertIcon } from './MoreVertIcon';
 import { VideoCamIcon } from './VideoCamIcon';
 import { MessageIcon } from './MessageIcon';
@@ -147,5 +148,6 @@ export {
   PhoneIcon,
   MessageIcon,
   VideoCamIcon,
-  MoreVertIcon
+  MoreVertIcon,
+  AddIcon
 }

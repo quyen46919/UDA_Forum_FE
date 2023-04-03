@@ -8,9 +8,10 @@ interface PageHeading {
   handleDrawerToggle: () => void
   handleSidebarToggle: () => void
   drawerOpen?: boolean
+  enableSidebar?: boolean
 }
 
-const PageHeading = ({ handleDrawerToggle, handleSidebarToggle, drawerOpen }: PageHeading) => {
+const PageHeading = ({ handleDrawerToggle, handleSidebarToggle, drawerOpen, enableSidebar }: PageHeading) => {
   const theme = useTheme()
   const { pathname } = useRouter()
   const pathnames = pathname.split('/').filter((segment) => segment !== '')
@@ -24,16 +25,18 @@ const PageHeading = ({ handleDrawerToggle, handleSidebarToggle, drawerOpen }: Pa
             onClick={handleDrawerToggle}
             sx={{
               display: { sm: 'none' },
-              mr: '6px'
+              mr: '6px',
             }}
           >
             <MenuIcon />
           </IconButton>
           <Typography variant="h1">{title}</Typography>
         </Stack>
-        <IconButton onClick={handleSidebarToggle}>
-          {drawerOpen ? <ArrowForwardIOSIcon /> : <ArrowBackIOSIcon />}
-        </IconButton>
+        {enableSidebar && (
+          <IconButton onClick={handleSidebarToggle}>
+            {drawerOpen ? <ArrowForwardIOSIcon /> : <ArrowBackIOSIcon />}
+          </IconButton>
+        )}
       </Stack>
       <Stack>
         <Breadcrumbs>
